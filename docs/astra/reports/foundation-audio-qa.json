@@ -250,5 +250,33 @@
     "heard": "Demain, je vais étudier.",
     "match": true,
     "seconds": 2.0
+  },
+  {
+    "id": "fr-days-foundation-model",
+    "expected": "Aujourd'hui, c'est lundi.",
+    "heard": "Aujourd'hui, c'est lundi.",
+    "match": true,
+    "seconds": 1.8
+  },
+  {
+    "id": "fr-time-foundation-model",
+    "expected": "Il est trois heures et demie.",
+    "heard": "Il est trois heures et demi.",
+    "match": false,
+    "seconds": 1.975
+  },
+  {
+    "id": "fr-weather-foundation-model",
+    "expected": "Aujourd'hui, il fait froid et il y a du soleil.",
+    "heard": "Aujourd'hui, il fait froid et il y a du soleil.",
+    "match": true,
+    "seconds": 2.975
+  },
+  {
+    "id": "fr-market-foundation-model",
+    "expected": "Combien coûte un kilo de pommes ?",
+    "heard": "Combien coûte un kilo de pommes ?",
+    "match": true,
+    "seconds": 2.225
   }
 ]
