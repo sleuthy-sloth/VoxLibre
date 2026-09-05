@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import { demoProgress } from '@/features/progress/demo-progress';
+import { blankDemoProgress } from '@/features/progress/demo-progress';
 import { getProgressSnapshot } from '@/lib/progress/snapshot';
 import { verifySessionToken } from '@/lib/auth/session';
 import { sessionTokenFromCookies } from '@/lib/auth/cookies';
@@ -21,7 +21,7 @@ async function getHandler(request?: Request) {
     }
   }
 
-  return NextResponse.json(demoProgress, {
+  return NextResponse.json(blankDemoProgress, {
     headers: { 'Cache-Control': 'no-store' },
   });
 }

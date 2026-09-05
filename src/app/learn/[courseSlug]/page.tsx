@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 import { GuidedSession } from '@/components/session/GuidedSession';
 import { SendToAnki } from '@/components/anki/SendToAnki';
 import { initialCourses } from '@/features/curriculum/fixture';
-import { demoProgress } from '@/features/progress/demo-progress';
+import { blankDemoProgress } from '@/features/progress/demo-progress';
 import { composeLessonSession } from '@/features/session/lesson-path';
 import { getProgressSnapshot } from '@/lib/progress/snapshot';
 import { sessionTokenFromCookies } from '@/lib/auth/cookies';
@@ -20,7 +20,7 @@ export default async function LearnPage({ params, searchParams }: {
   const course = initialCourses.find(course => course.slug === courseSlug);
   const token = sessionTokenFromCookies((await cookies()).toString());
   const session = token ? await verifySessionToken(token) : null;
-  const progress = session ? await getProgressSnapshot(session.userId) : demoProgress;
+  const progress = session ? await getProgressSnapshot(session.userId) : blankDemoProgress;
   const nextConcept = progress.session.find(step => step.courseSlug === courseSlug && step.kind === 'NEW_PATTERN')?.contentId;
   const conceptId = requestedConcept ?? nextConcept ?? course?.concepts[0]?.id ?? '';
   const steps = session && !requestedConcept ? progress.session.filter(step => step.courseSlug === courseSlug) : course ? composeLessonSession(course, conceptId, requestedDrill) : [];

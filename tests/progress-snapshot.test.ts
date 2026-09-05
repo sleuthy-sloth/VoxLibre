@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
 import { getProgressSnapshot } from '../src/lib/progress/snapshot';
-import { demoProgress } from '../src/features/progress/demo-progress';
+import { blankDemoProgress, demoProgress } from '../src/features/progress/demo-progress';
 import { initialCourses } from '../src/features/curriculum/fixture';
 import { generatePlan } from '../src/features/study-plan/generate';
 
@@ -31,23 +31,23 @@ describe('progress snapshot', () => {
     vi.clearAllMocks();
   });
 
-  it('returns demoProgress for signed-out (null user)', async () => {
+  it('returns a blank slate (never fiction) for signed-out (null user)', async () => {
     const snapshot = await getProgressSnapshot(null);
-    // demoProgress is byte-identical for everyone except contentVersion + snapshotAt which are dynamic
+    // blankDemoProgress: zero reviews, zero XP, no streak, empty session.
     const { snapshotAt, contentVersion, ...rest } = snapshot as unknown as Record<string, unknown>;
-    const { snapshotAt: _a, contentVersion: _b, ...demoRest } = demoProgress as unknown as Record<string, unknown>;
-    expect(rest).toEqual(demoRest);
+    const { snapshotAt: _a, contentVersion: _b, ...blankRest } = blankDemoProgress as unknown as Record<string, unknown>;
+    expect(rest).toEqual(blankRest);
   });
 
-  it('returns demoProgress for undefined user', async () => {
+  it('returns a blank slate for undefined user', async () => {
     const snapshot = await getProgressSnapshot(null);
-    // Should be byte-identical to demoProgress for preview (except dynamic fields)
-    expect(snapshot.selectedCourseSlug).toBe(demoProgress.selectedCourseSlug);
-    expect(snapshot.courses).toEqual(demoProgress.courses);
-    expect(snapshot.session).toEqual(demoProgress.session);
+    // Guests must never inherit fiction progress (demo streaks/XP/completions).
+    expect(snapshot.selectedCourseSlug).toBe(blankDemoProgress.selectedCourseSlug);
+    expect(snapshot.courses).toEqual(blankDemoProgress.courses);
+    expect(snapshot.session).toEqual(blankDemoProgress.session);
   });
 
-  it('has same structure as demoProgress', async () => {
+  it('has same structure as blankDemoProgress', async () => {
     const snapshot = await getProgressSnapshot(null);
     expect(snapshot.courses).toBeDefined();
     expect(snapshot.session).toBeDefined();

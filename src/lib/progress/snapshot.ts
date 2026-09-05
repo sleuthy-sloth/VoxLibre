@@ -1,7 +1,7 @@
 import 'server-only';
 
 import { initialCourses } from '@/features/curriculum/fixture';
-import { demoProgress } from '@/features/progress/demo-progress';
+import { blankDemoProgress, demoProgress } from '@/features/progress/demo-progress';
 import type { DemoProgressSnapshot } from '@/features/progress/types';
 import { composeLessonSession } from '@/features/session/lesson-path';
 import { composeDailySession } from '@/features/session/compose-session';
@@ -32,9 +32,10 @@ export async function getProgressSnapshot(userId: string | null): Promise<DemoPr
   const now = new Date(snapshotAt);
 
   if (!userId) {
-    // Signed-out preview: demoProgress is byte-identical for everyone,
-    // but we expose contentVersion and snapshotAt for debug badge (?debug=1).
-    return { ...demoProgress, contentVersion, snapshotAt };
+    // Signed-out preview: blank slate, never fiction. Guests see zeros and
+    // an onboarding entry point; no placeholder streaks, XP, or completions.
+    // demoProgress remains the structural base for signed-in derivations below.
+    return { ...blankDemoProgress, contentVersion, snapshotAt };
   }
 
   // For signed-in users, compose from UserProgress rows

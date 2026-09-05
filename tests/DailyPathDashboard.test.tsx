@@ -97,11 +97,26 @@ describe('DailyPathDashboard', () => {
     expect(screen.getByText(/4-day practice flow/i)).toBeInTheDocument();
     expect(screen.getByText(/28 reviews waiting/i)).toBeInTheDocument();
     expect(screen.getByText(/preview progress/i)).toBeInTheDocument();
-    expect(screen.getByRole('option', { name: 'Italian: A1 patterns' })).toBeInTheDocument();
+    expect(screen.getByRole('option', { name: '🇮🇹 Italian · A1' })).toBeInTheDocument();
     expect(screen.getByRole('progressbar', { name: /daily goal/i })).toHaveAttribute(
       'aria-valuetext',
       '5 of 5 daily steps',
     );
+  });
+
+  it('shows an honest blank slate to guests with no placeholder streaks or XP', () => {
+    // Break caught: signed-out visitors saw fiction progress (streaks, XP,
+    // completions) they never earned.
+    render(<DailyPathDashboard progress={blankDemoProgress} />);
+
+    expect(screen.getByTestId('first-run-onboarding')).toBeInTheDocument();
+    expect(screen.getByText(/preview progress/i)).toBeInTheDocument();
+    expect(screen.getByText(/0-day practice flow/i)).toBeInTheDocument();
+    expect(screen.queryByText(/reviews waiting/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/daily steps/i)).not.toBeInTheDocument();
+    expect(screen.getByText(/0 XP/i)).toBeInTheDocument();
+    expect(screen.getByText(/no streak yet/i)).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /continue 8-minute session/i })).not.toBeInTheDocument();
   });
 
   it('switches the displayed course using only preview data', async () => {
@@ -139,7 +154,7 @@ describe('DailyPathDashboard', () => {
       />,
     );
 
-    expect(screen.getByRole('option', { name: 'German: A1 patterns' })).toBeInTheDocument();
+    expect(screen.getByRole('option', { name: '🌐 German · A1' })).toBeInTheDocument();
     expect(screen.getByRole('combobox', { name: 'Learning language' })).toHaveValue('english-to-german');
   });
 
