@@ -48,7 +48,7 @@ export async function readChallenge(request: Request, purpose: 'register' | 'log
 
 export async function consumeChallengeById(id: string, purpose: 'register' | 'login', expiresAt: Date) {
   const consumed = await prisma.authChallenge.deleteMany({
-    where: { id, purpose, expiresAt: { gt: new Date(expiresAt) } },
+    where: { id, purpose, expiresAt: { equals: expiresAt, gt: new Date() } },
   });
   return consumed.count === 1;
 }
