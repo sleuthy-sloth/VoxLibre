@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it, beforeEach } from 'vitest';
+import { describe, expect, it, afterEach, beforeEach, vi } from 'vitest';
 import { PlacementQuiz } from '@/components/placement/PlacementQuiz';
 import { frenchPlacementItems } from '@/features/placement/items';
 import { nextAdaptivePlacementItem } from '@/features/placement/adaptive';
@@ -82,5 +82,53 @@ describe('PlacementQuiz', () => {
     render(<PlacementQuiz courseSlug="english-to-french" />);
     expect(await screen.findByText(/starting at the beginning/i)).toBeInTheDocument();
     expect(screen.queryByText(/placement · question 1/i)).not.toBeInTheDocument();
+  });
+});
+
+describe('PlacementQuiz account sync', () => {
+  const stored = { score: 12, total: 15, band: 'B1', startCefr: 'B1', startConceptId: 'fr-greet-politely', stretchUnlocked: false, aboveContent: false };
+
+  afterEach(() => { vi.unstubAllGlobals(); });
+
+  it('loads the account result instead of the browser copy', async () => {
+    localStorage.setItem('verbalibera_placement:english-to-french', JSON.stringify({ score: 0, total: 3, band: 'A1', startCefr: 'A1', startConceptId: 'fr-greet-politely', stretchUnlocked: false, aboveContent: false }));
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(JSON.stringify({ userId: 'user-a', result: stored }))));
+    render(<PlacementQuiz courseSlug="english-to-french" userId="user-a" />);
+    expect(await screen.findByText(/independent learner/i)).toBeInTheDocument();
+    expect(screen.getByText(/saved to your account/i)).toBeInTheDocument();
+    expect(screen.queryByText(/placement · question 1/i)).not.toBeInTheDocument();
+  });
+
+  it('saves the finished result to the account', async () => {
+    const posted: { url: string; init?: RequestInit }[] = [];
+    vi.stubGlobal('fetch', vi.fn().mockImplementation((url: string, init?: RequestInit) => {
+      if (init?.method === 'POST') posted.push({ url, init });
+      return Promise.resolve(new Response(JSON.stringify(init?.method === 'POST' ? { saved: true } : { userId: 'user-a', result: null })));
+    }));
+    const user = userEvent.setup();
+    render(<PlacementQuiz courseSlug="english-to-french" userId="user-a" />);
+    await screen.findByText(/placement · question 1/i);
+    await user.click(screen.getAllByRole('radio').at(-1)!);
+    await user.click(screen.getByRole('button', { name: 'Continue' }));
+    await user.click(screen.getAllByRole('radio').at(-1)!);
+    await user.click(screen.getByRole('button', { name: 'Continue' }));
+    await user.type(screen.getByLabelText(/your answer/i), 'wrong answer');
+    await user.click(screen.getByRole('button', { name: 'See my result' }));
+    expect(await screen.findByText(/starting at the beginning/i)).toBeInTheDocument();
+    await waitFor(() => expect(posted).toHaveLength(1));
+    const body = JSON.parse(posted[0]!.init!.body as string);
+    expect(body.result).toMatchObject({ band: 'A1', startConceptId: expect.any(String) });
+    expect(posted[0]!.url).toContain('/api/placement?courseSlug=english-to-french&userId=user-a');
+  });
+
+  it('explains an account load failure and retries on request', async () => {
+    const fetchMock = vi.fn().mockRejectedValueOnce(new Error('Network down')).mockResolvedValue(new Response(JSON.stringify({ userId: 'user-a', result: null })));
+    vi.stubGlobal('fetch', fetchMock);
+    const user = userEvent.setup();
+    render(<PlacementQuiz courseSlug="english-to-french" userId="user-a" />);
+    expect(await screen.findByRole('alert')).toHaveTextContent('Network down');
+    await user.click(screen.getByRole('button', { name: /retry loading result/i }));
+    expect(await screen.findByText(/placement · question 1/i)).toBeInTheDocument();
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 });
