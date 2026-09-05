@@ -16,9 +16,9 @@ The screenshots show the live app running locally with the Quiet Ink interface �
 
 ## Structured foundation courses
 
-This checkout adds `/courses/italian` and `/courses/french`: 32 original A1 foundation lessons, 224 exercises, 128 vocabulary/expression records, 32 short readings and four scripted conversations. Each lesson teaches a pattern before asking you to use it. Grammar references and vocabulary views are linked to practice evidence. These are partial A1 courses, not full CEFR programs or certifications; native-speaker editorial review remains open.
+This checkout adds `/courses/italian` and `/courses/french`: 40 original A1 foundation lessons, 280 exercises, 160 vocabulary/expression records, 40 short readings and four scripted conversations. Each lesson teaches a pattern before asking you to use it. Grammar references and vocabulary views are linked to practice evidence. These are partial A1 courses, not full CEFR programs or certifications; native-speaker editorial review remains open.
 
-Open **New: structured A1 foundations with offline study** from the Italian/French lesson index. Use **Download for offline study**, then open/bookmark the provided offline-study link. The shared offline workspace supports teaching, local grading, downloaded audio and durable device practice without a connection. Every foundation lesson now has a prerecorded model and optional dictation with slow replay. The 32 new local Kokoro recordings passed waveform checks and transcription pre-screening; native-speaker prosody review remains open. Listening practice does not reset completed text lessons.
+Open **New: structured A1 foundations with offline study** from the Italian/French lesson index. Use **Download for offline study**, then open/bookmark the provided offline-study link. The shared offline workspace supports teaching, local grading, downloaded audio and durable device practice without a connection. Every foundation lesson now has a prerecorded model and optional dictation with slow replay. The 40 new local Kokoro recordings passed waveform checks and transcription pre-screening; native-speaker prosody review remains open. Listening practice does not reset completed text lessons.
 
 Foundation practice starts in a **device-local guest store**. Select **Use signed-in account** to use a separate account store that synchronizes reviews, derived lesson completion and concept evidence across devices. Offline work uploads automatically after reconnection; sync errors leave local practice intact. Guest history is never uploaded automatically: export/import provides an explicit transfer path. Foundation and travel-course projections remain separate. The old travel courses, passkeys, Anki export, prerecorded audio and optional voice tools remain available.
 
@@ -39,7 +39,7 @@ Every lesson now includes an authored explanation, translated sentence parts, an
 
 The dashboard and lesson pages share a Learning language dropdown. Changing it takes you directly to the same learning surface in French, Italian, Spanish, or Portuguese while keeping the current course choice visible in the URL.
 
-Optional placement recommends a specific available starting lesson. French has 15 questions spanning beginner and intermediate material; Italian, Spanish, and Portuguese each have eight checks of the available A1 travel patterns. These are rough starting recommendations, not validated CEFR certifications. Results and study-plan checklists stay in the current browser.
+Optional placement recommends a specific available starting lesson. French and Italian each have 15 questions spanning beginner and intermediate material; Spanish and Portuguese each have eight checks of the available A1 travel patterns. These are rough starting recommendations, not validated CEFR certifications. Guest results and checklists stay in the current browser; signed-in learners get placement results and study plans saved to their account (`GET/POST/DELETE /api/placement`, `/api/study-plan`) so they follow across devices.
 
 The guided session is built around deliberate retrieval. A learner can reveal the model answer, self-check, and continue with keyboard- and touch-friendly controls. Nothing saved in preview mode represents mastery or proficiency.
 
@@ -58,14 +58,16 @@ Working:
 - Prisma/PostgreSQL schema for users, courses, concepts, drills, progress, audio segments, and expiring single-use passkey challenges.
 - SM-2 sentence-construction scheduler (quality mapping keeps answer reveal from counting as mastery).
 - Exact-concept access policy: a passed assessment unlocks the related drills.
+- Study plans that drive the daily session: the builder writes a week-by-week checklist, `composeDailySession` derives steps from it, the dashboard shows week position and today's items, and signed-in plans persist via `/api/study-plan` with progress derived from saved retrieval.
+- Placement results that follow the account: `GET/POST/DELETE /api/placement` with zod validation against course concepts, wired into the quiz with account-change detection and a guest-local fallback.
 - Safe PWA shell with original generated assets and a static-only service worker. Personalized HTML and API responses are never cached; offline navigation shows a reconnect page.
 - Optional local FastAPI voice sidecar using Kokoro for TTS and faster-whisper for STT.
 - One-way Anki export: each lesson page has a "Take these lessons to Anki" section (56 cards per course — dialogues, recall, listening, vocab with audio and images) via AnkiConnect. Needs Anki desktop open with the AnkiConnect add-on (code 2055492159). Reviews stay in Anki; nothing syncs back.
 
 Not working yet:
 
-- Full audio coverage review. All 64 clips pass the faster-whisper STT pre-screen; human listening checklists (`docs/audio-quality-checklist-*.md`) are still open.
-- Cross-device study-plan and placement sync. Offline review queuing is limited to the current signed-in session; queued work is never replayed into another session.
+- Full audio coverage review. All clips pass the faster-whisper STT pre-screen; human listening checklists (`docs/audio-quality-checklist-*.md`) are still open.
+- Offline review queuing is limited to the current signed-in session; queued work is never replayed into another session.
 - Hosted voice service. The sidecar is local-only.
 
 Privacy-wise, no learner audio is persisted by default. The voice route returns only a transcript and status; it does not store recordings or transcripts. Typed drill answers are checked locally too: they travel only to the optional local sidecar and are never stored — and when the sidecar is off, checking degrades to exact-match comparison against the authored variants.
