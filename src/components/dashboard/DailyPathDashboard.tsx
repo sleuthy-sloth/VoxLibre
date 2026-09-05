@@ -2,11 +2,13 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { initialCourses } from '@/features/curriculum/fixture';
 import type { DemoProgressSnapshot } from '@/features/progress/types';
+import { planPosition, todayPlanItems } from '@/features/study-plan/today';
+import type { StudyPlan } from '@/features/study-plan/types';
 import { csrfHeaders } from '@/lib/auth/cookies';
-import { dashboardBadgeCopy } from '@/lib/progress/copy';
+import { dashboardBadgeCopy, planStatusCopy, planTodayCopy } from '@/lib/progress/copy';
 import { FirstRunOnboarding } from './FirstRunOnboarding';
 import { LanguageSwitcher } from '@/components/nav/LanguageSwitcher';
 import styles from './dashboard.module.css';
@@ -31,6 +33,25 @@ const practiceSteps = [
   { label: 'Remember', detail: 'Recall it and plan your next review', tone: 'review' },
 ] as const;
 
+type GuestPlanStatus = Readonly<{ plan: StudyPlan; done: Record<string, boolean> }>;
+
+// Slice 3: the browser-local plan mirror (written by the plan builder) is
+// the dashboard's plan source for guests. Signed-in plans surface through
+// the progress snapshot session instead. Corrupt storage means no plan,
+// never a broken dashboard.
+function readGuestPlan(courseSlug: string): GuestPlanStatus | null {
+  try {
+    const saved = JSON.parse(localStorage.getItem(`verbalibera_plan:${courseSlug}`) ?? 'null') as StudyPlan | null;
+    if (!saved || !Array.isArray(saved.weeks)) return null;
+    const flags = JSON.parse(
+      localStorage.getItem(`verbalibera_plan_done:${courseSlug}`) ?? 'null',
+    ) as Record<string, boolean> | null;
+    return { plan: saved, done: flags ?? {} };
+  } catch {
+    return null;
+  }
+}
+
 export function DailyPathDashboard({ progress, requestedCourseSlug }: DailyPathDashboardProps) {
   const isPreview = progress.isPreview !== false;
   const isDebug = useDebugFlag();
@@ -46,6 +67,17 @@ export function DailyPathDashboard({ progress, requestedCourseSlug }: DailyPathD
     : Math.max(0, snapshotCourseIndex);
   const [selectedCourseIndex, setSelectedCourseIndex] = useState(initialCourseIndex);
   const selectedCourse = progress.courses[selectedCourseIndex] ?? progress.courses[0];
+  const [guestPlan, setGuestPlan] = useState<GuestPlanStatus | null>(null);
+  useEffect(() => {
+    if (typeof window === 'undefined' || !selectedCourse) return;
+    // Deferred like the plan builder: read storage after paint so the effect
+    // never sets state synchronously (cascading-render lint).
+    const slug = selectedCourse.slug;
+    const timer = setTimeout(() => {
+      setGuestPlan(readGuestPlan(slug));
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [selectedCourse]);
   const isBlank = progress.dueReviewCount === 0 && progress.dailyGoal.completed === 0;
 
   if (!selectedCourse) {
@@ -69,6 +101,20 @@ export function DailyPathDashboard({ progress, requestedCourseSlug }: DailyPathD
   const nextScenario = nextConcept?.scenario;
 
   const goalLabel = `${progress.dailyGoal.completed} of ${progress.dailyGoal.target} daily steps`;
+  // The stored plan belongs to its own course — never show a previous
+  // selection's status while the fresh read is still deferred.
+  const planSummary =
+    guestPlan && guestPlan.plan.courseSlug === selectedCourse.slug
+      ? {
+        status: planStatusCopy({
+          week: planPosition(guestPlan.plan, guestPlan.done).currentWeek,
+          weekCount: planPosition(guestPlan.plan, guestPlan.done).weekCount,
+          targetLevel: guestPlan.plan.targetLevel,
+        }),
+        today: planTodayCopy({ count: todayPlanItems(guestPlan.plan, guestPlan.done).length }),
+        frontierNote: guestPlan.plan.frontier?.note ?? null,
+      }
+    : null;
   const hasSelectedSession =
     initialCourses.some((course) => course.slug === selectedCourse.slug) &&
     progress.session.some((step) => step.courseSlug === selectedCourse.slug);
@@ -133,6 +179,19 @@ export function DailyPathDashboard({ progress, requestedCourseSlug }: DailyPathD
             </div>
             <p className={styles.pathTime}>About 8 min</p>
           </div>
+
+          {planSummary ? (
+            <div>
+              <p className={styles.kicker}>{planSummary.status}</p>
+              <p className={styles.scenario}>{planSummary.today}</p>
+              {planSummary.frontierNote ? (
+                <p className={styles.scenario}>{planSummary.frontierNote}</p>
+              ) : null}
+              <p className={styles.courseMeta}>
+                <Link href={`/learn/${selectedCourse.slug}/plan`}>Review your study plan</Link>
+              </p>
+            </div>
+          ) : null}
 
           {isBlank ? (
             <FirstRunOnboarding courseSlug={selectedCourse.slug} />

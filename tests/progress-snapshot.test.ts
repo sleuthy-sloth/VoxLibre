@@ -2,6 +2,8 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
 import { getProgressSnapshot } from '../src/lib/progress/snapshot';
 import { demoProgress } from '../src/features/progress/demo-progress';
+import { initialCourses } from '../src/features/curriculum/fixture';
+import { generatePlan } from '../src/features/study-plan/generate';
 
 // Mock prisma for contentVersion fallback (no DB) and due counts
 vi.mock('@/lib/prisma', () => ({
@@ -18,6 +20,7 @@ vi.mock('@/lib/prisma', () => ({
       count: vi.fn().mockResolvedValue(0),
     },
     conceptMastery: { findMany: vi.fn().mockResolvedValue([]) },
+    studyPlan: { findMany: vi.fn().mockResolvedValue([]) },
   },
 }));
 
@@ -161,6 +164,7 @@ describe('account metrics never borrow preview activity', () => {
     vi.mocked(prisma.reviewLog.findMany).mockResolvedValue([]);
     vi.mocked(prisma.reviewLog.count).mockResolvedValue(0);
     vi.mocked(prisma.conceptMastery.findMany).mockResolvedValue([]);
+    vi.mocked(prisma.studyPlan.findMany).mockResolvedValue([]);
   });
   it('starts an account at zero even with reviews waiting', async () => {
     const snapshot = await getProgressSnapshot('new-user');
@@ -176,5 +180,61 @@ describe('account metrics never borrow preview activity', () => {
     expect(snapshot.xp).toBe(90);
     expect(snapshot.dailyGoal.completed).toBe(2);
     expect(snapshot.dueReviewCount).toBe(7);
+  });
+});
+
+describe('study-plan driven signed-in session', () => {
+  const concepts = initialCourses.find((course) => course.slug === 'english-to-french')!.concepts;
+  const plan = generatePlan(
+    {
+      courseSlug: 'english-to-french',
+      startCefr: 'A1',
+      startConceptId: concepts[0]!.id,
+      targetLevel: 'B1',
+      daysPerWeek: 5,
+      minutesPerDay: 8,
+      startDate: '2026-09-07',
+    },
+    concepts,
+  );
+
+  beforeEach(() => {
+    (prisma.userProgress.findMany as unknown as ReturnType<typeof vi.fn>).mockResolvedValue([]);
+    (prisma.studyPlan.findMany as unknown as ReturnType<typeof vi.fn>).mockResolvedValue([]);
+  });
+
+  it('composes the session from the stored plan instead of the next lesson', async () => {
+    (prisma.studyPlan.findMany as unknown as ReturnType<typeof vi.fn>).mockResolvedValue([
+      { courseSlug: 'english-to-french', planJson: plan },
+    ]);
+    const snapshot = await getProgressSnapshot('planner');
+    const french = snapshot.session.filter((step) => step.courseSlug === 'english-to-french');
+    expect(french.length).toBeGreaterThan(0);
+    expect(french.every((step) => step.id.startsWith('plan-'))).toBe(true);
+    expect(french[0]).toMatchObject({ kind: 'NEW_PATTERN', contentId: concepts[0]!.id });
+  });
+
+  it('advances the plan position past completed plan drills', async () => {
+    const firstDrill = plan.weeks.flatMap((week) => week.items).find((item) => item.mode === 'drill')!;
+    (prisma.userProgress.findMany as unknown as ReturnType<typeof vi.fn>).mockResolvedValue([
+      { drillItemId: firstDrill.drillId!, lastQuality: 4, dueAt: new Date('2026-09-08T00:00:00Z') },
+    ]);
+    (prisma.studyPlan.findMany as unknown as ReturnType<typeof vi.fn>).mockResolvedValue([
+      { courseSlug: 'english-to-french', planJson: plan },
+    ]);
+    const snapshot = await getProgressSnapshot('planner-advancing');
+    const french = snapshot.session.filter((step) => step.courseSlug === 'english-to-french');
+    expect(french.length).toBeGreaterThan(0);
+    expect(french.some((step) => step.contentId === firstDrill.conceptId)).toBe(false);
+  });
+
+  it('falls back to the next lesson when the stored plan is corrupt', async () => {
+    (prisma.studyPlan.findMany as unknown as ReturnType<typeof vi.fn>).mockResolvedValue([
+      { courseSlug: 'english-to-french', planJson: { nonsense: true } },
+    ]);
+    const snapshot = await getProgressSnapshot('planner-corrupt');
+    const french = snapshot.session.filter((step) => step.courseSlug === 'english-to-french');
+    expect(french[0]).toMatchObject({ kind: 'NEW_PATTERN' });
+    expect(french.some((step) => step.id.startsWith('plan-'))).toBe(false);
   });
 });

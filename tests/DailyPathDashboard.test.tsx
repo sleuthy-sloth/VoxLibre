@@ -10,7 +10,10 @@ import {
 } from '@/components/dashboard/DailyPathDashboard';
 import { DashboardDataBoundary } from '@/components/dashboard/DashboardDataBoundary';
 import styles from '@/components/dashboard/dashboard.module.css';
+import { initialCourses } from '@/features/curriculum/fixture';
 import { blankDemoProgress, demoProgress } from '@/features/progress/demo-progress';
+import { generatePlan } from '@/features/study-plan/generate';
+import { planItemKey } from '@/features/study-plan/today';
 
 function createQueryClient() {
   return new QueryClient({ defaultOptions: { queries: { retry: false } } });
@@ -338,5 +341,119 @@ describe('DashboardDataBoundary', () => {
     resolveRetry?.(new Response(JSON.stringify(demoProgress)));
     expect(await screen.findByRole('link', { name: /continue 8-minute session/i })).toBeInTheDocument();
     expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+});
+
+describe('DailyPathDashboard study-plan status', () => {
+  const FRENCH_SLUG = 'english-to-french';
+
+  function ensureMockLocalStorage() {
+    const createMock = () => {
+      const store = new Map<string, string>();
+      return {
+        getItem: (k: string) => (store.has(k) ? store.get(k)! : null),
+        setItem: (k: string, v: string) => {
+          store.set(k, String(v));
+        },
+        removeItem: (k: string) => {
+          store.delete(k);
+        },
+        clear: () => {
+          store.clear();
+        },
+        get length() {
+          return store.size;
+        },
+        key: (index: number) => Array.from(store.keys())[index] ?? null,
+      } as unknown as Storage;
+    };
+    let needsMock = true;
+    try {
+      const ls = (window as unknown as { localStorage?: Storage }).localStorage;
+      needsMock = !ls || typeof ls.clear !== 'function';
+    } catch {
+      needsMock = true;
+    }
+    if (needsMock) {
+      const mock = createMock();
+      try {
+        Object.defineProperty(window, 'localStorage', { value: mock, configurable: true, writable: true });
+      } catch {}
+      try {
+        Object.defineProperty(globalThis, 'localStorage', { value: mock, configurable: true, writable: true });
+      } catch {}
+    }
+  }
+
+  ensureMockLocalStorage();
+
+  function seedPlan(doneAll = false) {
+    const concepts = initialCourses.find((course) => course.slug === FRENCH_SLUG)!.concepts;
+    const plan = generatePlan(
+      {
+        courseSlug: FRENCH_SLUG,
+        startCefr: 'A1',
+        startConceptId: concepts[0]!.id,
+        targetLevel: 'B1',
+        daysPerWeek: 5,
+        minutesPerDay: 8,
+        startDate: '2026-09-07',
+      },
+      concepts,
+    );
+    localStorage.setItem(`verbalibera_plan:${FRENCH_SLUG}`, JSON.stringify(plan));
+    if (doneAll) {
+      const done: Record<string, boolean> = {};
+      plan.weeks.forEach((week, weekIndex) => {
+        week.items.forEach((item, itemIndex) => {
+          done[planItemKey(weekIndex, itemIndex, item.conceptId, item.mode, item.drillId)] = true;
+        });
+      });
+      localStorage.setItem(`verbalibera_plan_done:${FRENCH_SLUG}`, JSON.stringify(done));
+    }
+    return plan;
+  }
+
+  it('shows week position and today’s items when a browser-local plan exists', async () => {
+    localStorage.clear();
+    const plan = seedPlan();
+
+    render(<DailyPathDashboard progress={demoProgress} />);
+
+    expect(await screen.findByText(`Week 1 of ${plan.weeks.length} · B1 track`)).toBeInTheDocument();
+    expect(screen.getByText('8 plan items today')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /review your study plan/i })).toHaveAttribute(
+      'href',
+      `/learn/${FRENCH_SLUG}/plan`,
+    );
+  });
+
+  it('stays on demo content when no plan is stored', () => {
+    localStorage.clear();
+
+    render(<DailyPathDashboard progress={demoProgress} />);
+
+    expect(screen.queryByText(/· \w+ track/)).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /review your study plan/i })).not.toBeInTheDocument();
+    expect(screen.getByText(/keep your useful phrases moving/i)).toBeInTheDocument();
+  });
+
+  it('announces completion when every plan item is checked off', async () => {
+    localStorage.clear();
+    seedPlan(true);
+
+    render(<DailyPathDashboard progress={demoProgress} />);
+
+    expect(await screen.findByText(/plan complete — every item is checked off/i)).toBeInTheDocument();
+  });
+
+  it('ignores corrupt stored plans instead of breaking the dashboard', () => {
+    localStorage.clear();
+    localStorage.setItem(`verbalibera_plan:${FRENCH_SLUG}`, 'not-json{{{');
+
+    render(<DailyPathDashboard progress={demoProgress} />);
+
+    expect(screen.queryByRole('link', { name: /review your study plan/i })).not.toBeInTheDocument();
+    expect(screen.getByText(/keep your useful phrases moving/i)).toBeInTheDocument();
   });
 });

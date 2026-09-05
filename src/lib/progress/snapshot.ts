@@ -4,7 +4,10 @@ import { initialCourses } from '@/features/curriculum/fixture';
 import { demoProgress } from '@/features/progress/demo-progress';
 import type { DemoProgressSnapshot } from '@/features/progress/types';
 import { composeLessonSession } from '@/features/session/lesson-path';
+import { composeDailySession } from '@/features/session/compose-session';
 import type { SessionStep } from '@/features/session/compose-session';
+import { planDoneKeys, todayPlanItems } from '@/features/study-plan/today';
+import type { StudyPlan } from '@/features/study-plan/types';
 import { computeStreak } from '@/features/srs/streaks';
 import { prisma } from '@/lib/prisma';
 
@@ -100,7 +103,24 @@ async function buildSignedInSession(
 ): Promise<readonly SessionStep[]> {
   const practiced = await prisma.userProgress.findMany({ where: { userId } });
   const completed = new Set(practiced.filter(row => (row.lastQuality ?? 0) >= 3).map(row => row.drillItemId));
+  // A missing studyPlan table (older DB) or query failure means no plan,
+  // never a broken snapshot — the next-lesson fallback below applies.
+  let storedPlans: readonly { courseSlug: string; planJson: unknown }[] = [];
+  try {
+    storedPlans = await prisma.studyPlan.findMany({
+      where: { userId },
+      orderBy: { createdAt: 'desc' },
+    });
+  } catch {
+    storedPlans = [];
+  }
   return initialCourses.flatMap(course => {
+    // Slice 3: a stored study plan drives the session — today's remaining
+    // plan items compose the steps, so completing plan drills advances the
+    // plan position automatically. No plan (or a fully-checked plan) keeps
+    // the previous next-lesson behavior.
+    const planSteps = sessionFromStoredPlan(course.slug, storedPlans, completed);
+    if (planSteps) return planSteps;
     const next = course.concepts.find(concept => !completed.has(`${concept.id}-drill`));
     const steps = next ? [...composeLessonSession(course, next.id)] : [];
     const due = practiced.filter(row => row.dueAt <= now && course.concepts.some(concept => concept.drills.some(drill => drill.id === row.drillItemId)))
@@ -113,6 +133,35 @@ async function buildSignedInSession(
     // A new lesson teaches first; reviews already encountered by this learner follow.
     return [...steps, ...reviews];
   });
+}
+
+function parseStoredPlan(raw: unknown): StudyPlan | null {
+  if (!raw || typeof raw !== 'object') return null;
+  const candidate = raw as Record<string, unknown>;
+  if (typeof candidate['courseSlug'] !== 'string' || !Array.isArray(candidate['weeks'])) return null;
+  if (typeof candidate['minutesPerDay'] !== 'number' || typeof candidate['targetLevel'] !== 'string') return null;
+  return {
+    courseSlug: candidate['courseSlug'] as string,
+    targetLevel: candidate['targetLevel'] as StudyPlan['targetLevel'],
+    daysPerWeek: typeof candidate['daysPerWeek'] === 'number' ? (candidate['daysPerWeek'] as number) : 1,
+    minutesPerDay: candidate['minutesPerDay'] as number,
+    startDate: typeof candidate['startDate'] === 'string' ? (candidate['startDate'] as string) : '',
+    weeks: candidate['weeks'] as StudyPlan['weeks'],
+    frontier: (candidate['frontier'] as StudyPlan['frontier']) ?? null,
+  };
+}
+
+function sessionFromStoredPlan(
+  courseSlug: string,
+  storedPlans: readonly { courseSlug: string; planJson: unknown }[],
+  completed: ReadonlySet<string>,
+): readonly SessionStep[] | null {
+  const stored = storedPlans.find(plan => plan.courseSlug === courseSlug);
+  const plan = stored ? parseStoredPlan(stored.planJson) : null;
+  if (!plan) return null;
+  const items = todayPlanItems(plan, planDoneKeys(plan, completed));
+  if (items.length === 0) return null;
+  return composeDailySession({ courseSlug, planItems: items, maxSteps: 14 });
 }
 
 export async function getContentVersion(): Promise<string | null> {

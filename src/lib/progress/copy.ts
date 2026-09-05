@@ -50,6 +50,15 @@ export function reviewQueueCopy(
   return count === 0 ? "You're caught up — one pattern tomorrow keeps the flow." : `${count} reviews waiting`;
 }
 
+export function planStatusCopy(args: { week: number; weekCount: number; targetLevel: string }): string {
+  return `Week ${args.week} of ${args.weekCount} · ${args.targetLevel} track`;
+}
+
+export function planTodayCopy(args: { count: number }): string {
+  if (args.count === 0) return 'Plan complete — every item is checked off.';
+  return args.count === 1 ? '1 plan item today' : `${args.count} plan items today`;
+}
+
 export function dailyGoalCopy(isPreview: boolean, completed: number, target: number): string;
 export function dailyGoalCopy(args: { isPreview: boolean; completed: number; target: number }): string;
 export function dailyGoalCopy(

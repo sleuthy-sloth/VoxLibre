@@ -3,21 +3,10 @@
 import Link from 'next/link';
 import { initialCourses } from '@/features/curriculum/fixture';
 import sessionStyles from '@/components/session/session.module.css';
+import { currentWeekIndex, planItemKey } from '@/features/study-plan/today';
 import type { StudyPlan } from '@/features/study-plan/types';
 
-export function planItemKey(weekIndex: number, itemIndex: number, conceptId: string, mode: string, drillId?: string) {
-  return `${weekIndex}:${itemIndex}:${mode}:${conceptId}:${drillId ?? ''}`;
-}
-
-function isWeekComplete(plan: StudyPlan, weekIndex: number, done: Record<string, boolean>): boolean {
-  const week = plan.weeks[weekIndex];
-  return Boolean(week?.items.length && week.items.every((item, itemIndex) => done[planItemKey(weekIndex, itemIndex, item.conceptId, item.mode, item.drillId)]));
-}
-
-export function currentWeekIndex(plan: StudyPlan, done: Record<string, boolean>): number {
-  const firstIncomplete = plan.weeks.findIndex((_, weekIndex) => !isWeekComplete(plan, weekIndex, done));
-  return firstIncomplete === -1 ? Math.max(0, plan.weeks.length - 1) : firstIncomplete;
-}
+export { currentWeekIndex, planItemKey };
 
 const MODE_LABEL: Record<string, string> = { teach: 'Learn', drill: 'Drill', review: 'Review' };
 
