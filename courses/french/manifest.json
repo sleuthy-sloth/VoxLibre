@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "id": "fr-foundations",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "language": "fr",
   "sourceLanguage": "en",
   "title": "French foundations",
-  "description": "Sixteen original A1 foundation lessons. A growing course, not a complete A1 certification syllabus.",
+  "description": "Twenty original A1 foundation lessons. A growing course, not a complete A1 certification syllabus.",
   "attribution": "Original VerbaLibera authoring, 2026. MIT. Machine-authored and consistency-checked; native-speaker editorial review remains open.",
   "units": [
     {
@@ -27,6 +27,11 @@
       "id": "fr-unit-4",
       "title": "Going further",
       "objective": "Discuss destinations, past actions and plans."
+    },
+    {
+      "id": "fr-unit-5",
+      "title": "Time and the world around you",
+      "objective": "Handle days, time, weather and market prices."
     }
   ],
   "concepts": [
@@ -285,6 +290,70 @@
         }
       ],
       "commonError": "After vais for a plan, keep the infinitive étudier."
+    },
+    {
+      "id": "fr-days-concept",
+      "title": "Days and dates",
+      "explanation": "French days and months are masculine and written lowercase: lundi, mai. Give the date with le, the number and the month: le trois mai. Aujourd’hui, demain and hier frame any plan.",
+      "examples": [
+        {
+          "target": "Aujourd’hui, c’est lundi.",
+          "meaning": "Today is Monday."
+        },
+        {
+          "target": "L’anniversaire est le trois mai.",
+          "meaning": "The birthday is May third."
+        }
+      ],
+      "commonError": "Days of the week are lowercase in French: lundi."
+    },
+    {
+      "id": "fr-time-concept",
+      "title": "Telling the time",
+      "explanation": "Ask the time with Quelle heure est-il ? Answer Il est une heure for one o’clock and Il est plus the number plus heures otherwise: Il est trois heures. Add et demie for half past, et quart for quarter past and moins le quart for quarter to.",
+      "examples": [
+        {
+          "target": "Il est trois heures et demie.",
+          "meaning": "It is half past three."
+        },
+        {
+          "target": "Il est une heure.",
+          "meaning": "It is one o’clock."
+        }
+      ],
+      "commonError": "The clock always takes il est, singular or plural: Il est trois heures."
+    },
+    {
+      "id": "fr-weather-concept",
+      "title": "Weather and seasons",
+      "explanation": "Describe the weather with il fait plus an adjective: il fait chaud for hot, il fait froid for cold. Say il y a du soleil for sunny and il pleut for it rains. Two seasons to know now are l’été (summer, masculine) and l’hiver (winter, masculine).",
+      "examples": [
+        {
+          "target": "Aujourd’hui, il fait froid.",
+          "meaning": "Today it is cold."
+        },
+        {
+          "target": "Il y a du soleil.",
+          "meaning": "It is sunny."
+        }
+      ],
+      "commonError": "Weather uses faire, not être: Aujourd’hui, il fait froid."
+    },
+    {
+      "id": "fr-market-concept",
+      "title": "Market prices",
+      "explanation": "Ask the price with Combien coûte ? for one thing and Combien coûtent ? for several: Combien coûte un kilo de pommes ? Answer with the price: Ça fait trois euros. Un kilo is one kilo and le marché is the market.",
+      "examples": [
+        {
+          "target": "Combien coûte un kilo de pommes ?",
+          "meaning": "How much is a kilo of apples?"
+        },
+        {
+          "target": "Ça fait trois euros.",
+          "meaning": "That is three euros."
+        }
+      ],
+      "commonError": "Un kilo is singular, so the question is singular: Combien coûte un kilo de pommes ?"
     }
   ],
   "vocabulary": [
@@ -735,6 +804,118 @@
       "meaning": "this evening",
       "partOfSpeech": "word or expression",
       "example": "Demain, je vais étudier."
+    },
+    {
+      "id": "fr-days-foundation-word-1",
+      "word": "lundi",
+      "meaning": "Monday",
+      "partOfSpeech": "word or expression",
+      "example": "C’est lundi."
+    },
+    {
+      "id": "fr-days-foundation-word-2",
+      "word": "vendredi",
+      "meaning": "Friday",
+      "partOfSpeech": "word or expression",
+      "example": "Demain, c’est vendredi."
+    },
+    {
+      "id": "fr-days-foundation-word-3",
+      "word": "aujourd’hui",
+      "meaning": "today",
+      "partOfSpeech": "word or expression",
+      "example": "Aujourd’hui, c’est mardi."
+    },
+    {
+      "id": "fr-days-foundation-word-4",
+      "word": "demain",
+      "meaning": "tomorrow",
+      "partOfSpeech": "word or expression",
+      "example": "Demain, c’est dimanche."
+    },
+    {
+      "id": "fr-time-foundation-word-1",
+      "word": "heure",
+      "meaning": "hour",
+      "partOfSpeech": "word or expression",
+      "example": "Quelle heure est-il ?"
+    },
+    {
+      "id": "fr-time-foundation-word-2",
+      "word": "midi",
+      "meaning": "midday",
+      "partOfSpeech": "word or expression",
+      "example": "À midi, je mange."
+    },
+    {
+      "id": "fr-time-foundation-word-3",
+      "word": "et demie",
+      "meaning": "half past",
+      "partOfSpeech": "word or expression",
+      "example": "Il est deux heures et demie."
+    },
+    {
+      "id": "fr-time-foundation-word-4",
+      "word": "moins le quart",
+      "meaning": "quarter to",
+      "partOfSpeech": "word or expression",
+      "example": "Il est trois heures moins le quart."
+    },
+    {
+      "id": "fr-weather-foundation-word-1",
+      "word": "soleil",
+      "meaning": "sun",
+      "partOfSpeech": "word or expression",
+      "example": "Il y a du soleil."
+    },
+    {
+      "id": "fr-weather-foundation-word-2",
+      "word": "pluie",
+      "meaning": "rain",
+      "partOfSpeech": "word or expression",
+      "example": "Il y a beaucoup de pluie."
+    },
+    {
+      "id": "fr-weather-foundation-word-3",
+      "word": "chaud",
+      "meaning": "hot",
+      "partOfSpeech": "word or expression",
+      "example": "Aujourd’hui, il fait chaud."
+    },
+    {
+      "id": "fr-weather-foundation-word-4",
+      "word": "froid",
+      "meaning": "cold",
+      "partOfSpeech": "word or expression",
+      "example": "Aujourd’hui, il fait froid."
+    },
+    {
+      "id": "fr-market-foundation-word-1",
+      "word": "marché",
+      "meaning": "market",
+      "partOfSpeech": "word or expression",
+      "example": "Le marché est ouvert."
+    },
+    {
+      "id": "fr-market-foundation-word-2",
+      "word": "euro",
+      "meaning": "euro",
+      "partOfSpeech": "word or expression",
+      "example": "Ça coûte deux euros."
+    },
+    {
+      "id": "fr-market-foundation-word-3",
+      "word": "kilo",
+      "meaning": "kilo",
+      "partOfSpeech": "word or expression",
+      "example": "Un kilo de pommes."
+    },
+    {
+      "id": "fr-market-foundation-word-4",
+      "word": "prix",
+      "meaning": "price",
+      "partOfSpeech": "word or expression",
+      "example": "Le prix est élevé."
     }
   ],
   "media": [
@@ -855,6 +1036,34 @@
       "url": "/audio/french-foundations/fr-plans-foundation-model.wav",
       "sha256": "9162c7519074c0c4bddcecb9a6fbf7c2bc2077bf1682c4024a572b9ba7bf97da",
       "transcript": "Demain, je vais étudier.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-days-foundation-model",
+      "url": "/audio/french-foundations/fr-days-foundation-model.wav",
+      "sha256": "07827c31ccf8e34d12912e3138f0299307355af7315352dd2242115af54e6a7a",
+      "transcript": "Aujourd'hui, c'est lundi.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-time-foundation-model",
+      "url": "/audio/french-foundations/fr-time-foundation-model.wav",
+      "sha256": "0d1a5b872f84d9ade271caf9e84faaf45f875dceba4ec8b822cd607736272d08",
+      "transcript": "Il est trois heures et demie.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-weather-foundation-model",
+      "url": "/audio/french-foundations/fr-weather-foundation-model.wav",
+      "sha256": "d8d69d9c0a1de1b0a1ca00986f498266b27f1d2629def0c21a445dfbd07e2cd2",
+      "transcript": "Aujourd'hui, il fait froid et il y a du soleil.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-market-foundation-model",
+      "url": "/audio/french-foundations/fr-market-foundation-model.wav",
+      "sha256": "e1fbdbc95accc72d5c9abd4f79885517309684234cfdafaab8d8fe881eb2566d",
+      "transcript": "Combien coûte un kilo de pommes ?",
       "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
     }
   ],
@@ -3747,6 +3956,756 @@
       ],
       "optionalExerciseIds": [
         "fr-plans-foundation-listen-model"
+      ]
+    },
+    {
+      "id": "fr-days-foundation",
+      "unitId": "fr-unit-5",
+      "title": "Days, months and dates",
+      "objective": "Say the weekday and the date in a short exchange.",
+      "cefr": "A1",
+      "prerequisites": [
+        "fr-numbers-foundation"
+      ],
+      "conceptIds": [
+        "fr-days-concept"
+      ],
+      "vocabulary": [
+        "fr-days-foundation-word-1",
+        "fr-days-foundation-word-2",
+        "fr-days-foundation-word-3",
+        "fr-days-foundation-word-4"
+      ],
+      "explanation": "French days and months are masculine and written lowercase: lundi, mai. Give the date with le, the number and the month: le trois mai. Aujourd’hui, demain and hier frame any plan.",
+      "examples": [
+        {
+          "target": "Aujourd’hui, c’est lundi.",
+          "meaning": "Today is Monday."
+        },
+        {
+          "target": "L’anniversaire est le trois mai.",
+          "meaning": "The birthday is May third."
+        }
+      ],
+      "exercises": [
+        {
+          "conceptId": "fr-days-concept",
+          "explanation": "French days and months are masculine and written lowercase: lundi, mai. Give the date with le, the number and the month: le trois mai. Aujourd’hui, demain and hier frame any plan.",
+          "vocabulary": [
+            "fr-days-foundation-word-1",
+            "fr-days-foundation-word-2",
+            "fr-days-foundation-word-3",
+            "fr-days-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-days-foundation-produce",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Write in French: Today is Monday.",
+          "answers": [
+            "Aujourd’hui, c’est lundi."
+          ],
+          "errors": [
+            {
+              "answer": "Aujourd’hui, il est lundi.",
+              "category": "incorrect answer",
+              "explanation": "Days use c’est: Aujourd’hui, c’est lundi."
+            }
+          ]
+        },
+        {
+          "conceptId": "fr-days-concept",
+          "explanation": "French days and months are masculine and written lowercase: lundi, mai. Give the date with le, the number and the month: le trois mai. Aujourd’hui, demain and hier frame any plan.",
+          "vocabulary": [
+            "fr-days-foundation-word-1",
+            "fr-days-foundation-word-2",
+            "fr-days-foundation-word-3",
+            "fr-days-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-days-foundation-meaning",
+          "kind": "translate",
+          "mode": "recognition",
+          "prompt": "Give the English meaning: Demain, c’est vendredi.",
+          "answers": [
+            "Tomorrow is Friday."
+          ]
+        },
+        {
+          "conceptId": "fr-days-concept",
+          "explanation": "French days and months are masculine and written lowercase: lundi, mai. Give the date with le, the number and the month: le trois mai. Aujourd’hui, demain and hier frame any plan.",
+          "vocabulary": [
+            "fr-days-foundation-word-1",
+            "fr-days-foundation-word-2",
+            "fr-days-foundation-word-3",
+            "fr-days-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-days-foundation-order",
+          "kind": "order",
+          "mode": "production",
+          "prompt": "Arrange the words to say: Today is Monday.",
+          "answers": [
+            "Aujourd’hui, c’est lundi."
+          ],
+          "tokens": [
+            "lundi.",
+            "c’est",
+            "Aujourd’hui,"
+          ]
+        },
+        {
+          "conceptId": "fr-days-concept",
+          "explanation": "French days and months are masculine and written lowercase: lundi, mai. Give the date with le, the number and the month: le trois mai. Aujourd’hui, demain and hier frame any plan.",
+          "vocabulary": [
+            "fr-days-foundation-word-1",
+            "fr-days-foundation-word-2",
+            "fr-days-foundation-word-3",
+            "fr-days-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-days-foundation-cloze",
+          "kind": "cloze",
+          "mode": "production",
+          "prompt": "Complete the date: L’anniversaire est le ___ mai.",
+          "answers": [
+            "trois"
+          ]
+        },
+        {
+          "conceptId": "fr-days-concept",
+          "explanation": "French days and months are masculine and written lowercase: lundi, mai. Give the date with le, the number and the month: le trois mai. Aujourd’hui, demain and hier frame any plan.",
+          "vocabulary": [
+            "fr-days-foundation-word-1",
+            "fr-days-foundation-word-2",
+            "fr-days-foundation-word-3",
+            "fr-days-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-days-foundation-read",
+          "kind": "reading",
+          "mode": "recognition",
+          "prompt": "When is Anna’s birthday? Answer with the French date. (Reading 17)",
+          "answers": [
+            "le trois mai"
+          ],
+          "passage": "Aujourd’hui, c’est lundi. Demain, c’est mardi. L’anniversaire d’Anna est le trois mai.",
+          "translation": "Today is Monday. Tomorrow is Tuesday. Anna’s birthday is May third."
+        },
+        {
+          "conceptId": "fr-plans-concept",
+          "explanation": "French often expresses a plan with aller + infinitive: je vais étudier means I am going to study. Keep vais conjugated, and leave étudier in the infinitive. Demain means tomorrow. This differs from je vais à Paris, which names a destination.",
+          "vocabulary": [
+            "fr-plans-word-1",
+            "fr-plans-word-2",
+            "fr-plans-word-3",
+            "fr-plans-word-4"
+          ],
+          "reviewOf": [
+            "fr-plans-foundation"
+          ],
+          "id": "fr-days-foundation-review",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Recall from Near-future plans: Tomorrow I am going to study.",
+          "answers": [
+            "Demain, je vais étudier."
+          ],
+          "errors": [
+            {
+              "answer": "Demain, je vais étudie.",
+              "category": "incorrect answer",
+              "explanation": "After vais for a plan, keep the infinitive étudier."
+            }
+          ]
+        },
+        {
+          "conceptId": "fr-days-concept",
+          "explanation": "French days and months are masculine and written lowercase: lundi, mai. Give the date with le, the number and the month: le trois mai. Aujourd’hui, demain and hier frame any plan.",
+          "vocabulary": [
+            "fr-days-foundation-word-1",
+            "fr-days-foundation-word-2",
+            "fr-days-foundation-word-3",
+            "fr-days-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-days-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "prompt": "Listen and write the model: days and dates.",
+          "answers": [
+            "Aujourd’hui, c’est lundi."
+          ],
+          "audioId": "fr-days-foundation-model"
+        }
+      ],
+      "optionalExerciseIds": [
+        "fr-days-foundation-listen-model"
+      ]
+    },
+    {
+      "id": "fr-time-foundation",
+      "unitId": "fr-unit-5",
+      "title": "Telling the time",
+      "objective": "Ask and say the time, including half hours and quarters.",
+      "cefr": "A1",
+      "prerequisites": [
+        "fr-days-foundation"
+      ],
+      "conceptIds": [
+        "fr-time-concept"
+      ],
+      "vocabulary": [
+        "fr-time-foundation-word-1",
+        "fr-time-foundation-word-2",
+        "fr-time-foundation-word-3",
+        "fr-time-foundation-word-4"
+      ],
+      "explanation": "Ask the time with Quelle heure est-il ? Answer Il est une heure for one o’clock and Il est plus the number plus heures otherwise: Il est trois heures. Add et demie for half past, et quart for quarter past and moins le quart for quarter to.",
+      "examples": [
+        {
+          "target": "Il est trois heures et demie.",
+          "meaning": "It is half past three."
+        },
+        {
+          "target": "Il est une heure.",
+          "meaning": "It is one o’clock."
+        }
+      ],
+      "exercises": [
+        {
+          "conceptId": "fr-time-concept",
+          "explanation": "Ask the time with Quelle heure est-il ? Answer Il est une heure for one o’clock and Il est plus the number plus heures otherwise: Il est trois heures. Add et demie for half past, et quart for quarter past and moins le quart for quarter to.",
+          "vocabulary": [
+            "fr-time-foundation-word-1",
+            "fr-time-foundation-word-2",
+            "fr-time-foundation-word-3",
+            "fr-time-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-time-foundation-produce",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Write in French: It is half past three.",
+          "answers": [
+            "Il est trois heures et demie."
+          ],
+          "errors": [
+            {
+              "answer": "Ils sont trois heures et demie.",
+              "category": "incorrect answer",
+              "explanation": "The clock takes il est: Il est trois heures et demie."
+            }
+          ]
+        },
+        {
+          "conceptId": "fr-time-concept",
+          "explanation": "Ask the time with Quelle heure est-il ? Answer Il est une heure for one o’clock and Il est plus the number plus heures otherwise: Il est trois heures. Add et demie for half past, et quart for quarter past and moins le quart for quarter to.",
+          "vocabulary": [
+            "fr-time-foundation-word-1",
+            "fr-time-foundation-word-2",
+            "fr-time-foundation-word-3",
+            "fr-time-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-time-foundation-meaning",
+          "kind": "translate",
+          "mode": "recognition",
+          "prompt": "Give the English meaning: Il est une heure.",
+          "answers": [
+            "It is one o’clock."
+          ]
+        },
+        {
+          "conceptId": "fr-time-concept",
+          "explanation": "Ask the time with Quelle heure est-il ? Answer Il est une heure for one o’clock and Il est plus the number plus heures otherwise: Il est trois heures. Add et demie for half past, et quart for quarter past and moins le quart for quarter to.",
+          "vocabulary": [
+            "fr-time-foundation-word-1",
+            "fr-time-foundation-word-2",
+            "fr-time-foundation-word-3",
+            "fr-time-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-time-foundation-order",
+          "kind": "order",
+          "mode": "production",
+          "prompt": "Arrange the words to say: It is half past three.",
+          "answers": [
+            "Il est trois heures et demie."
+          ],
+          "tokens": [
+            "demie.",
+            "heures",
+            "et",
+            "trois",
+            "est",
+            "Il"
+          ]
+        },
+        {
+          "conceptId": "fr-time-concept",
+          "explanation": "Ask the time with Quelle heure est-il ? Answer Il est une heure for one o’clock and Il est plus the number plus heures otherwise: Il est trois heures. Add et demie for half past, et quart for quarter past and moins le quart for quarter to.",
+          "vocabulary": [
+            "fr-time-foundation-word-1",
+            "fr-time-foundation-word-2",
+            "fr-time-foundation-word-3",
+            "fr-time-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-time-foundation-cloze",
+          "kind": "cloze",
+          "mode": "production",
+          "prompt": "Complete the time: ___ est une heure.",
+          "answers": [
+            "Il"
+          ]
+        },
+        {
+          "conceptId": "fr-time-concept",
+          "explanation": "Ask the time with Quelle heure est-il ? Answer Il est une heure for one o’clock and Il est plus the number plus heures otherwise: Il est trois heures. Add et demie for half past, et quart for quarter past and moins le quart for quarter to.",
+          "vocabulary": [
+            "fr-time-foundation-word-1",
+            "fr-time-foundation-word-2",
+            "fr-time-foundation-word-3",
+            "fr-time-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-time-foundation-read",
+          "kind": "reading",
+          "mode": "recognition",
+          "prompt": "When does the train leave? Answer in French. (Reading 18)",
+          "answers": [
+            "à huit heures et demie"
+          ],
+          "passage": "Le train part à huit heures et demie. Il arrive à midi.",
+          "translation": "The train leaves at half past eight. It arrives at midday."
+        },
+        {
+          "conceptId": "fr-days-concept",
+          "explanation": "French days and months are masculine and written lowercase: lundi, mai. Give the date with le, the number and the month: le trois mai. Aujourd’hui, demain and hier frame any plan.",
+          "vocabulary": [
+            "fr-days-foundation-word-1",
+            "fr-days-foundation-word-2",
+            "fr-days-foundation-word-3",
+            "fr-days-foundation-word-4"
+          ],
+          "reviewOf": [
+            "fr-days-foundation"
+          ],
+          "id": "fr-time-foundation-review",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Recall from Days, months and dates: Today is Monday.",
+          "answers": [
+            "Aujourd’hui, c’est lundi."
+          ],
+          "errors": [
+            {
+              "answer": "Aujourd’hui, il est lundi.",
+              "category": "incorrect answer",
+              "explanation": "Days use c’est: Aujourd’hui, c’est lundi."
+            }
+          ]
+        },
+        {
+          "conceptId": "fr-time-concept",
+          "explanation": "Ask the time with Quelle heure est-il ? Answer Il est une heure for one o’clock and Il est plus the number plus heures otherwise: Il est trois heures. Add et demie for half past, et quart for quarter past and moins le quart for quarter to.",
+          "vocabulary": [
+            "fr-time-foundation-word-1",
+            "fr-time-foundation-word-2",
+            "fr-time-foundation-word-3",
+            "fr-time-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-time-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "prompt": "Listen and write the model: telling the time.",
+          "answers": [
+            "Il est trois heures et demie."
+          ],
+          "audioId": "fr-time-foundation-model"
+        }
+      ],
+      "optionalExerciseIds": [
+        "fr-time-foundation-listen-model"
+      ]
+    },
+    {
+      "id": "fr-weather-foundation",
+      "unitId": "fr-unit-5",
+      "title": "Weather and seasons",
+      "objective": "Describe today’s weather and name two seasons.",
+      "cefr": "A1",
+      "prerequisites": [
+        "fr-time-foundation"
+      ],
+      "conceptIds": [
+        "fr-weather-concept"
+      ],
+      "vocabulary": [
+        "fr-weather-foundation-word-1",
+        "fr-weather-foundation-word-2",
+        "fr-weather-foundation-word-3",
+        "fr-weather-foundation-word-4"
+      ],
+      "explanation": "Describe the weather with il fait plus an adjective: il fait chaud for hot, il fait froid for cold. Say il y a du soleil for sunny and il pleut for it rains. Two seasons to know now are l’été (summer, masculine) and l’hiver (winter, masculine).",
+      "examples": [
+        {
+          "target": "Aujourd’hui, il fait froid.",
+          "meaning": "Today it is cold."
+        },
+        {
+          "target": "Il y a du soleil.",
+          "meaning": "It is sunny."
+        }
+      ],
+      "exercises": [
+        {
+          "conceptId": "fr-weather-concept",
+          "explanation": "Describe the weather with il fait plus an adjective: il fait chaud for hot, il fait froid for cold. Say il y a du soleil for sunny and il pleut for it rains. Two seasons to know now are l’été (summer, masculine) and l’hiver (winter, masculine).",
+          "vocabulary": [
+            "fr-weather-foundation-word-1",
+            "fr-weather-foundation-word-2",
+            "fr-weather-foundation-word-3",
+            "fr-weather-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-weather-foundation-produce",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Write in French: It is cold today.",
+          "answers": [
+            "Aujourd’hui, il fait froid.",
+            "Il fait froid aujourd’hui."
+          ],
+          "errors": [
+            {
+              "answer": "Aujourd’hui, il est froid.",
+              "category": "incorrect answer",
+              "explanation": "Weather uses faire: Aujourd’hui, il fait froid."
+            }
+          ]
+        },
+        {
+          "conceptId": "fr-weather-concept",
+          "explanation": "Describe the weather with il fait plus an adjective: il fait chaud for hot, il fait froid for cold. Say il y a du soleil for sunny and il pleut for it rains. Two seasons to know now are l’été (summer, masculine) and l’hiver (winter, masculine).",
+          "vocabulary": [
+            "fr-weather-foundation-word-1",
+            "fr-weather-foundation-word-2",
+            "fr-weather-foundation-word-3",
+            "fr-weather-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-weather-foundation-meaning",
+          "kind": "translate",
+          "mode": "recognition",
+          "prompt": "Give the English meaning: Il y a du soleil.",
+          "answers": [
+            "It is sunny."
+          ]
+        },
+        {
+          "conceptId": "fr-weather-concept",
+          "explanation": "Describe the weather with il fait plus an adjective: il fait chaud for hot, il fait froid for cold. Say il y a du soleil for sunny and il pleut for it rains. Two seasons to know now are l’été (summer, masculine) and l’hiver (winter, masculine).",
+          "vocabulary": [
+            "fr-weather-foundation-word-1",
+            "fr-weather-foundation-word-2",
+            "fr-weather-foundation-word-3",
+            "fr-weather-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-weather-foundation-order",
+          "kind": "order",
+          "mode": "production",
+          "prompt": "Arrange the words to say: It is cold today.",
+          "answers": [
+            "Aujourd’hui, il fait froid."
+          ],
+          "tokens": [
+            "froid.",
+            "fait",
+            "il",
+            "Aujourd’hui,"
+          ]
+        },
+        {
+          "conceptId": "fr-weather-concept",
+          "explanation": "Describe the weather with il fait plus an adjective: il fait chaud for hot, il fait froid for cold. Say il y a du soleil for sunny and il pleut for it rains. Two seasons to know now are l’été (summer, masculine) and l’hiver (winter, masculine).",
+          "vocabulary": [
+            "fr-weather-foundation-word-1",
+            "fr-weather-foundation-word-2",
+            "fr-weather-foundation-word-3",
+            "fr-weather-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-weather-foundation-cloze",
+          "kind": "cloze",
+          "mode": "production",
+          "prompt": "Complete the forecast: Demain, il ___ chaud.",
+          "answers": [
+            "fait"
+          ]
+        },
+        {
+          "conceptId": "fr-weather-concept",
+          "explanation": "Describe the weather with il fait plus an adjective: il fait chaud for hot, il fait froid for cold. Say il y a du soleil for sunny and il pleut for it rains. Two seasons to know now are l’été (summer, masculine) and l’hiver (winter, masculine).",
+          "vocabulary": [
+            "fr-weather-foundation-word-1",
+            "fr-weather-foundation-word-2",
+            "fr-weather-foundation-word-3",
+            "fr-weather-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-weather-foundation-read",
+          "kind": "reading",
+          "mode": "recognition",
+          "prompt": "What falls tomorrow? Answer with the French verb. (Reading 19)",
+          "answers": [
+            "pleut"
+          ],
+          "passage": "Aujourd’hui, il y a du soleil et il fait chaud. Demain, il pleut et il fait froid.",
+          "translation": "Today it is sunny and hot. Tomorrow it rains and it is cold."
+        },
+        {
+          "conceptId": "fr-time-concept",
+          "explanation": "Ask the time with Quelle heure est-il ? Answer Il est une heure for one o’clock and Il est plus the number plus heures otherwise: Il est trois heures. Add et demie for half past, et quart for quarter past and moins le quart for quarter to.",
+          "vocabulary": [
+            "fr-time-foundation-word-1",
+            "fr-time-foundation-word-2",
+            "fr-time-foundation-word-3",
+            "fr-time-foundation-word-4"
+          ],
+          "reviewOf": [
+            "fr-time-foundation"
+          ],
+          "id": "fr-weather-foundation-review",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Recall from Telling the time: It is half past three.",
+          "answers": [
+            "Il est trois heures et demie."
+          ],
+          "errors": [
+            {
+              "answer": "Ils sont trois heures et demie.",
+              "category": "incorrect answer",
+              "explanation": "The clock takes il est: Il est trois heures et demie."
+            }
+          ]
+        },
+        {
+          "conceptId": "fr-weather-concept",
+          "explanation": "Describe the weather with il fait plus an adjective: il fait chaud for hot, il fait froid for cold. Say il y a du soleil for sunny and il pleut for it rains. Two seasons to know now are l’été (summer, masculine) and l’hiver (winter, masculine).",
+          "vocabulary": [
+            "fr-weather-foundation-word-1",
+            "fr-weather-foundation-word-2",
+            "fr-weather-foundation-word-3",
+            "fr-weather-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-weather-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "prompt": "Listen and write the model: weather and seasons.",
+          "answers": [
+            "Aujourd’hui, il fait froid et il y a du soleil."
+          ],
+          "audioId": "fr-weather-foundation-model"
+        }
+      ],
+      "optionalExerciseIds": [
+        "fr-weather-foundation-listen-model"
+      ]
+    },
+    {
+      "id": "fr-market-foundation",
+      "unitId": "fr-unit-5",
+      "title": "At the market: prices",
+      "objective": "Ask prices and understand a market price list.",
+      "cefr": "A1",
+      "prerequisites": [
+        "fr-weather-foundation"
+      ],
+      "conceptIds": [
+        "fr-market-concept"
+      ],
+      "vocabulary": [
+        "fr-market-foundation-word-1",
+        "fr-market-foundation-word-2",
+        "fr-market-foundation-word-3",
+        "fr-market-foundation-word-4"
+      ],
+      "explanation": "Ask the price with Combien coûte ? for one thing and Combien coûtent ? for several: Combien coûte un kilo de pommes ? Answer with the price: Ça fait trois euros. Un kilo is one kilo and le marché is the market.",
+      "examples": [
+        {
+          "target": "Combien coûte un kilo de pommes ?",
+          "meaning": "How much is a kilo of apples?"
+        },
+        {
+          "target": "Ça fait trois euros.",
+          "meaning": "That is three euros."
+        }
+      ],
+      "exercises": [
+        {
+          "conceptId": "fr-market-concept",
+          "explanation": "Ask the price with Combien coûte ? for one thing and Combien coûtent ? for several: Combien coûte un kilo de pommes ? Answer with the price: Ça fait trois euros. Un kilo is one kilo and le marché is the market.",
+          "vocabulary": [
+            "fr-market-foundation-word-1",
+            "fr-market-foundation-word-2",
+            "fr-market-foundation-word-3",
+            "fr-market-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-market-foundation-produce",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Write in French: How much is a kilo of apples?",
+          "answers": [
+            "Combien coûte un kilo de pommes ?"
+          ],
+          "errors": [
+            {
+              "answer": "Combien coûtent un kilo de pommes ?",
+              "category": "incorrect answer",
+              "explanation": "Un kilo is singular: Combien coûte un kilo de pommes ?"
+            }
+          ]
+        },
+        {
+          "conceptId": "fr-market-concept",
+          "explanation": "Ask the price with Combien coûte ? for one thing and Combien coûtent ? for several: Combien coûte un kilo de pommes ? Answer with the price: Ça fait trois euros. Un kilo is one kilo and le marché is the market.",
+          "vocabulary": [
+            "fr-market-foundation-word-1",
+            "fr-market-foundation-word-2",
+            "fr-market-foundation-word-3",
+            "fr-market-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-market-foundation-meaning",
+          "kind": "translate",
+          "mode": "recognition",
+          "prompt": "Give the English meaning: Ça fait trois euros.",
+          "answers": [
+            "That is three euros."
+          ]
+        },
+        {
+          "conceptId": "fr-market-concept",
+          "explanation": "Ask the price with Combien coûte ? for one thing and Combien coûtent ? for several: Combien coûte un kilo de pommes ? Answer with the price: Ça fait trois euros. Un kilo is one kilo and le marché is the market.",
+          "vocabulary": [
+            "fr-market-foundation-word-1",
+            "fr-market-foundation-word-2",
+            "fr-market-foundation-word-3",
+            "fr-market-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-market-foundation-order",
+          "kind": "order",
+          "mode": "production",
+          "prompt": "Arrange the words to say: How much is a kilo of apples?",
+          "answers": [
+            "Combien coûte un kilo de pommes ?"
+          ],
+          "tokens": [
+            "?",
+            "pommes",
+            "de",
+            "kilo",
+            "un",
+            "coûte",
+            "Combien"
+          ]
+        },
+        {
+          "conceptId": "fr-market-concept",
+          "explanation": "Ask the price with Combien coûte ? for one thing and Combien coûtent ? for several: Combien coûte un kilo de pommes ? Answer with the price: Ça fait trois euros. Un kilo is one kilo and le marché is the market.",
+          "vocabulary": [
+            "fr-market-foundation-word-1",
+            "fr-market-foundation-word-2",
+            "fr-market-foundation-word-3",
+            "fr-market-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-market-foundation-cloze",
+          "kind": "cloze",
+          "mode": "production",
+          "prompt": "Complete the price: Ça ___ trois euros.",
+          "answers": [
+            "fait"
+          ]
+        },
+        {
+          "conceptId": "fr-market-concept",
+          "explanation": "Ask the price with Combien coûte ? for one thing and Combien coûtent ? for several: Combien coûte un kilo de pommes ? Answer with the price: Ça fait trois euros. Un kilo is one kilo and le marché is the market.",
+          "vocabulary": [
+            "fr-market-foundation-word-1",
+            "fr-market-foundation-word-2",
+            "fr-market-foundation-word-3",
+            "fr-market-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-market-foundation-read",
+          "kind": "reading",
+          "mode": "recognition",
+          "prompt": "How much is the bread? Answer with the French price. (Reading 20)",
+          "answers": [
+            "un euro"
+          ],
+          "passage": "Pommes : deux euros le kilo. Pain : un euro.",
+          "translation": "Apples: two euros per kilo. Bread: one euro."
+        },
+        {
+          "conceptId": "fr-weather-concept",
+          "explanation": "Describe the weather with il fait plus an adjective: il fait chaud for hot, il fait froid for cold. Say il y a du soleil for sunny and il pleut for it rains. Two seasons to know now are l’été (summer, masculine) and l’hiver (winter, masculine).",
+          "vocabulary": [
+            "fr-weather-foundation-word-1",
+            "fr-weather-foundation-word-2",
+            "fr-weather-foundation-word-3",
+            "fr-weather-foundation-word-4"
+          ],
+          "reviewOf": [
+            "fr-weather-foundation"
+          ],
+          "id": "fr-market-foundation-review",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Recall from Weather and seasons: It is cold today.",
+          "answers": [
+            "Aujourd’hui, il fait froid.",
+            "Il fait froid aujourd’hui."
+          ],
+          "errors": [
+            {
+              "answer": "Aujourd’hui, il est froid.",
+              "category": "incorrect answer",
+              "explanation": "Weather uses faire: Aujourd’hui, il fait froid."
+            }
+          ]
+        },
+        {
+          "conceptId": "fr-market-concept",
+          "explanation": "Ask the price with Combien coûte ? for one thing and Combien coûtent ? for several: Combien coûte un kilo de pommes ? Answer with the price: Ça fait trois euros. Un kilo is one kilo and le marché is the market.",
+          "vocabulary": [
+            "fr-market-foundation-word-1",
+            "fr-market-foundation-word-2",
+            "fr-market-foundation-word-3",
+            "fr-market-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "fr-market-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "prompt": "Listen and write the model: market prices.",
+          "answers": [
+            "Combien coûte un kilo de pommes ?"
+          ],
+          "audioId": "fr-market-foundation-model"
+        }
+      ],
+      "optionalExerciseIds": [
+        "fr-market-foundation-listen-model"
       ]
     }
   ],

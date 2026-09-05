@@ -111,6 +111,34 @@
       "language": "fr",
       "voice": "ff_siwis",
       "filename": "fr-plans-foundation-model.wav"
+    },
+    {
+      "filename": "fr-days-foundation-model.wav",
+      "id": "fr-days-foundation-model",
+      "language": "fr",
+      "text": "Aujourd'hui, c'est lundi.",
+      "voice": "ff_siwis"
+    },
+    {
+      "filename": "fr-time-foundation-model.wav",
+      "id": "fr-time-foundation-model",
+      "language": "fr",
+      "text": "Il est trois heures et demie.",
+      "voice": "ff_siwis"
+    },
+    {
+      "filename": "fr-weather-foundation-model.wav",
+      "id": "fr-weather-foundation-model",
+      "language": "fr",
+      "text": "Aujourd'hui, il fait froid et il y a du soleil.",
+      "voice": "ff_siwis"
+    },
+    {
+      "filename": "fr-market-foundation-model.wav",
+      "id": "fr-market-foundation-model",
+      "language": "fr",
+      "text": "Combien coûte un kilo de pommes ?",
+      "voice": "ff_siwis"
     }
   ]
 }
