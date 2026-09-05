@@ -117,8 +117,112 @@ export const frenchPlacementItems: readonly PlacementItem[] = [
 ];
 
 
+// Italian placement set: 15 fixed items, 5 per band, mirroring the French
+// template. Every item is auto-checkable (choice key or normalized
+// production match) so placement never needs a tutor or an LLM judge.
+// A1 items map onto the travel-course foundations in score.ts.
+export const italianPlacementItems: readonly PlacementItem[] = [
+  // A1 — formulaic travel survival
+  {
+    id: 'it-place-1', band: 'A1', kind: 'CHOICE',
+    prompt: 'Greet a shopkeeper politely.',
+    choices: ['Buongiorno, vorrei un tavolo, per favore.', 'Dov’è la stazione?', 'Aiuto!'],
+    answerKey: 'Buongiorno, vorrei un tavolo, per favore.',
+    acceptedResponses: [],
+  },
+  {
+    id: 'it-place-2', band: 'A1', kind: 'CHOICE',
+    prompt: 'Order a coffee politely.',
+    choices: ['Vorrei un caffè, per favore.', 'Vorrei pagare con la carta.', 'Buonasera, arrivederci.'],
+    answerKey: 'Vorrei un caffè, per favore.',
+    acceptedResponses: [],
+  },
+  {
+    id: 'it-place-3', band: 'A1', kind: 'PRODUCTION',
+    prompt: 'Ask where the station is. Type your answer.',
+    acceptedResponses: ['Dov’è la stazione?'],
+  },
+  {
+    id: 'it-place-4', band: 'A1', kind: 'CHOICE',
+    prompt: 'Ask for the bill politely.',
+    choices: ['Il conto, per favore.', 'Il treno è cancellato.', 'Non capisco.'],
+    answerKey: 'Il conto, per favore.',
+    acceptedResponses: [],
+  },
+  {
+    id: 'it-place-5', band: 'A1', kind: 'CHOICE',
+    prompt: 'Ask someone politely if they can help you.',
+    choices: ['Può aiutarmi?', 'Chiuda la porta.', 'Quanto costa?'],
+    answerKey: 'Può aiutarmi?',
+    acceptedResponses: [],
+  },
+  // A2 — routine past, near future, pronouns, connectors
+  {
+    id: 'it-place-6', band: 'A2', kind: 'CLOZE',
+    prompt: 'Complete with the passato prossimo: Ieri, noi ____ al mercato.',
+    acceptedResponses: ['Ieri, noi siamo andati al mercato.'],
+  },
+  {
+    id: 'it-place-7', band: 'A2', kind: 'CHOICE',
+    prompt: 'Say you are going to visit the museum tomorrow (near future).',
+    choices: ['Domani visito il museo.', 'Domani visitavo il museo.', 'Domani visiterò il museo.'],
+    answerKey: 'Domani visito il museo.',
+    acceptedResponses: [],
+  },
+  {
+    id: 'it-place-8', band: 'A2', kind: 'CLOZE',
+    prompt: 'Complete with “to them”: ____ ho parlato ieri.',
+    acceptedResponses: ['Gli ho parlato ieri.'],
+  },
+  {
+    id: 'it-place-9', band: 'A2', kind: 'CHOICE',
+    prompt: 'Complete the sentence: Piove, ____ resto a casa.',
+    choices: ['quindi', 'perché', 'per'],
+    answerKey: 'quindi',
+    acceptedResponses: [],
+  },
+  {
+    id: 'it-place-10', band: 'A2', kind: 'PRODUCTION',
+    prompt: 'Say you ate at a restaurant yesterday. Type your answer.',
+    acceptedResponses: ['Ieri ho mangiato al ristorante.', 'Ho mangiato al ristorante ieri.'],
+  },
+  // B1 — conditional politeness, aspect choice, pronoun placement, opinion, repair
+  {
+    id: 'it-place-11', band: 'B1', kind: 'CHOICE',
+    prompt: 'Which request is the most polite?',
+    choices: ['Vorrei un caffè, per favore.', 'Voglio un caffè.', 'Dammi un caffè.'],
+    answerKey: 'Vorrei un caffè, per favore.',
+    acceptedResponses: [],
+  },
+  {
+    id: 'it-place-12', band: 'B1', kind: 'CLOZE',
+    prompt: 'Complete with the habitual past: Quando ero piccolo, ____ ogni estate.',
+    acceptedResponses: ['Quando ero piccolo, partivamo ogni estate.'],
+  },
+  {
+    id: 'it-place-13', band: 'B1', kind: 'CLOZE',
+    prompt: 'Complete the reply: — Vai in panetteria? — Sì, ____ vado.',
+    acceptedResponses: ['— Vai in panetteria? — Sì, ci vado.'],
+  },
+  {
+    id: 'it-place-14', band: 'B1', kind: 'CHOICE',
+    prompt: 'Give an opinion with a reason.',
+    choices: ['Secondo me, è troppo caro perché è piccolo.', 'Non lo so.', 'Sì, grazie.'],
+    answerKey: 'Secondo me, è troppo caro perché è piccolo.',
+    acceptedResponses: [],
+  },
+  {
+    id: 'it-place-15', band: 'B1', kind: 'CHOICE',
+    prompt: 'Reply naturally: — Il treno è cancellato. — ____',
+    choices: ['Accidenti! Come torno a casa?', 'Buongiorno!', 'Il conto, per favore.'],
+    answerKey: 'Accidenti! Come torno a casa?',
+    acceptedResponses: [],
+  },
+];
+
 export function placementItemsFor(courseSlug: string): readonly PlacementItem[] {
   if (courseSlug === 'english-to-french') return frenchPlacementItems;
+  if (courseSlug === 'english-to-italian') return italianPlacementItems;
   const course = initialCourses.find(course => course.slug === courseSlug);
   if (!course) return [];
   return course.concepts.map((concept, index) => {

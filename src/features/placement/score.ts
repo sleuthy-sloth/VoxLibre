@@ -49,14 +49,21 @@ export function scorePlacement(
 ): PlacementResult {
   const score = items.filter((item) => isPlacementCorrect(item, answers[item.id] ?? '')).length;
   const course = initialCourses.find(course => course.slug === courseSlug);
-  const frenchFoundations: Record<string, string> = {
-    'fr-place-1': 'fr-greet-politely', 'fr-place-2': 'fr-ordering-politely',
-    'fr-place-3': 'fr-find-place', 'fr-place-4': 'fr-pay-politely', 'fr-place-5': 'fr-ask-help',
+  const foundationsByCourse: Record<string, Record<string, string>> = {
+    'english-to-french': {
+      'fr-place-1': 'fr-greet-politely', 'fr-place-2': 'fr-ordering-politely',
+      'fr-place-3': 'fr-find-place', 'fr-place-4': 'fr-pay-politely', 'fr-place-5': 'fr-ask-help',
+    },
+    'english-to-italian': {
+      'it-place-1': 'it-greet-politely', 'it-place-2': 'it-ordering-politely',
+      'it-place-3': 'it-find-place', 'it-place-4': 'it-pay-politely', 'it-place-5': 'it-ask-help',
+    },
   };
+  const foundations = foundationsByCourse[courseSlug] ?? {};
   const firstGap = items.find(item => item.band === 'A1' && !isPlacementCorrect(item, answers[item.id] ?? ''));
-  const startConceptId = (firstGap ? firstGap.conceptId ?? frenchFoundations[firstGap.id] : course?.concepts[5]?.id) ?? startConceptIdFor(courseSlug);
+  const startConceptId = (firstGap ? firstGap.conceptId ?? foundations[firstGap.id] : course?.concepts[5]?.id) ?? startConceptIdFor(courseSlug);
   const base = { score, total: items.length, startConceptId, stretchUnlocked: false, aboveContent: false } as const;
-  if (courseSlug !== 'english-to-french') return { ...base, band: 'A1', startCefr: 'A1' };
+  if (!(courseSlug in foundationsByCourse)) return { ...base, band: 'A1', startCefr: 'A1' };
   if (score <= 5) return { ...base, band: 'A1', startCefr: 'A1' };
   if (score <= 10) return { ...base, band: 'A2', startCefr: 'A2', stretchUnlocked: false };
   if (score <= 13) return { ...base, band: 'B1', startCefr: 'B1', stretchUnlocked: false };
