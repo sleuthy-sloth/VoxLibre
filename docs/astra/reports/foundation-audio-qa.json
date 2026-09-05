@@ -112,6 +112,34 @@
     "seconds": 2.025
   },
   {
+    "id": "it-days-foundation-model",
+    "expected": "Oggi è lunedì.",
+    "heard": "oggi è lunedì",
+    "match": true,
+    "seconds": 1.8
+  },
+  {
+    "id": "it-time-foundation-model",
+    "expected": "Sono le tre e mezza.",
+    "heard": "Sono le tre e mezza.",
+    "match": true,
+    "seconds": 2.05
+  },
+  {
+    "id": "it-weather-foundation-model",
+    "expected": "Oggi fa freddo e c'è il sole.",
+    "heard": "Oggi fa freddo e c'è il sole.",
+    "match": true,
+    "seconds": 2.3
+  },
+  {
+    "id": "it-market-foundation-model",
+    "expected": "Quanto costa un chilo di mele?",
+    "heard": "Quanto costa un chilo di mele?",
+    "match": true,
+    "seconds": 2.45
+  },
+  {
     "id": "fr-identity-foundation-model",
     "expected": "Je suis Anna.",
     "heard": "Je suis Anna.",

@@ -111,6 +111,34 @@
       "language": "it",
       "voice": "if_sara",
       "filename": "it-plans-foundation-model.wav"
+    },
+    {
+      "filename": "it-days-foundation-model.wav",
+      "id": "it-days-foundation-model",
+      "language": "it",
+      "text": "Oggi è lunedì.",
+      "voice": "if_sara"
+    },
+    {
+      "filename": "it-time-foundation-model.wav",
+      "id": "it-time-foundation-model",
+      "language": "it",
+      "text": "Sono le tre e mezza.",
+      "voice": "if_sara"
+    },
+    {
+      "filename": "it-weather-foundation-model.wav",
+      "id": "it-weather-foundation-model",
+      "language": "it",
+      "text": "Oggi fa freddo e c'è il sole.",
+      "voice": "if_sara"
+    },
+    {
+      "filename": "it-market-foundation-model.wav",
+      "id": "it-market-foundation-model",
+      "language": "it",
+      "text": "Quanto costa un chilo di mele?",
+      "voice": "if_sara"
     }
   ]
 }

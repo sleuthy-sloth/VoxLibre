@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "id": "it-foundations",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "language": "it",
   "sourceLanguage": "en",
   "title": "Italian foundations",
-  "description": "Sixteen original A1 foundation lessons. A growing course, not a complete A1 certification syllabus.",
+  "description": "Twenty original A1 foundation lessons. A growing course, not a complete A1 certification syllabus.",
   "attribution": "Original VerbaLibera authoring, 2026. MIT. Machine-authored and consistency-checked; native-speaker editorial review remains open.",
   "units": [
     {
@@ -27,6 +27,11 @@
       "id": "it-unit-4",
       "title": "Going further",
       "objective": "Discuss destinations, past actions and plans."
+    },
+    {
+      "id": "it-unit-5",
+      "title": "Time and the world around you",
+      "objective": "Handle days, time, weather and market prices."
     }
   ],
   "concepts": [
@@ -285,6 +290,70 @@
         }
       ],
       "commonError": "Io uses vado, even when the plan is for tomorrow."
+    },
+    {
+      "id": "it-days-concept",
+      "title": "Days and dates",
+      "explanation": "Italian days and months are masculine and written lowercase: lunedì, maggio. Give the date with the number, di and the month: il tre maggio. Oggi, domani and ieri frame any plan.",
+      "examples": [
+        {
+          "target": "Oggi è lunedì.",
+          "meaning": "Today is Monday."
+        },
+        {
+          "target": "Il compleanno è il tre maggio.",
+          "meaning": "The birthday is May third."
+        }
+      ],
+      "commonError": "Days of the week are lowercase in Italian: lunedì."
+    },
+    {
+      "id": "it-time-concept",
+      "title": "Telling the time",
+      "explanation": "Ask the time with Che ore sono? Answer È l’una for one o’clock and Sono le plus the number otherwise: Sono le tre. Add e mezza for half past, e un quarto for quarter past and meno un quarto for quarter to.",
+      "examples": [
+        {
+          "target": "Sono le tre e mezza.",
+          "meaning": "It is half past three."
+        },
+        {
+          "target": "È l’una.",
+          "meaning": "It is one o’clock."
+        }
+      ],
+      "commonError": "Hours take sono; only one o’clock takes è: Sono le tre."
+    },
+    {
+      "id": "it-weather-concept",
+      "title": "Weather and seasons",
+      "explanation": "Describe the weather with fa plus an adjective: fa caldo for hot, fa freddo for cold. Say c’è il sole for sunny and piove for it rains. Two seasons to know now are l’estate (summer) and l’inverno (winter).",
+      "examples": [
+        {
+          "target": "Oggi fa freddo.",
+          "meaning": "Today it is cold."
+        },
+        {
+          "target": "C’è il sole.",
+          "meaning": "It is sunny."
+        }
+      ],
+      "commonError": "Weather uses fare, not essere: Oggi fa freddo."
+    },
+    {
+      "id": "it-market-concept",
+      "title": "Market prices",
+      "explanation": "Ask the price with Quanto costa? for one thing and Quanto costano? for several: Quanto costa un chilo di mele? Answer with the price: Tre euro. Un chilo is one kilo and il mercato is the market.",
+      "examples": [
+        {
+          "target": "Quanto costa un chilo di mele?",
+          "meaning": "How much is a kilo of apples?"
+        },
+        {
+          "target": "Costano tre euro.",
+          "meaning": "They cost three euros."
+        }
+      ],
+      "commonError": "Un chilo is singular, so the question is singular: Quanto costa un chilo di mele?"
     }
   ],
   "vocabulary": [
@@ -735,6 +804,118 @@
       "meaning": "home / to home",
       "partOfSpeech": "word or expression",
       "example": "Domani vado a Roma."
+    },
+    {
+      "id": "it-days-foundation-word-1",
+      "word": "lunedì",
+      "meaning": "Monday",
+      "partOfSpeech": "word or expression",
+      "example": "Oggi è lunedì."
+    },
+    {
+      "id": "it-days-foundation-word-2",
+      "word": "venerdì",
+      "meaning": "Friday",
+      "partOfSpeech": "word or expression",
+      "example": "Domani è venerdì."
+    },
+    {
+      "id": "it-days-foundation-word-3",
+      "word": "oggi",
+      "meaning": "today",
+      "partOfSpeech": "word or expression",
+      "example": "Oggi è martedì."
+    },
+    {
+      "id": "it-days-foundation-word-4",
+      "word": "domani",
+      "meaning": "tomorrow",
+      "partOfSpeech": "word or expression",
+      "example": "Domani è domenica."
+    },
+    {
+      "id": "it-time-foundation-word-1",
+      "word": "ora",
+      "meaning": "hour",
+      "partOfSpeech": "word or expression",
+      "example": "Sono le tre."
+    },
+    {
+      "id": "it-time-foundation-word-2",
+      "word": "mezzogiorno",
+      "meaning": "midday",
+      "partOfSpeech": "word or expression",
+      "example": "A mezzogiorno mangio."
+    },
+    {
+      "id": "it-time-foundation-word-3",
+      "word": "e mezza",
+      "meaning": "half past",
+      "partOfSpeech": "word or expression",
+      "example": "Sono le due e mezza."
+    },
+    {
+      "id": "it-time-foundation-word-4",
+      "word": "meno un quarto",
+      "meaning": "quarter to",
+      "partOfSpeech": "word or expression",
+      "example": "Sono le tre meno un quarto."
+    },
+    {
+      "id": "it-weather-foundation-word-1",
+      "word": "sole",
+      "meaning": "sun",
+      "partOfSpeech": "word or expression",
+      "example": "C’è il sole."
+    },
+    {
+      "id": "it-weather-foundation-word-2",
+      "word": "pioggia",
+      "meaning": "rain",
+      "partOfSpeech": "word or expression",
+      "example": "C’è molta pioggia."
+    },
+    {
+      "id": "it-weather-foundation-word-3",
+      "word": "caldo",
+      "meaning": "hot",
+      "partOfSpeech": "word or expression",
+      "example": "Oggi fa caldo."
+    },
+    {
+      "id": "it-weather-foundation-word-4",
+      "word": "freddo",
+      "meaning": "cold",
+      "partOfSpeech": "word or expression",
+      "example": "Oggi fa freddo."
+    },
+    {
+      "id": "it-market-foundation-word-1",
+      "word": "mercato",
+      "meaning": "market",
+      "partOfSpeech": "word or expression",
+      "example": "Il mercato è aperto."
+    },
+    {
+      "id": "it-market-foundation-word-2",
+      "word": "euro",
+      "meaning": "euro",
+      "partOfSpeech": "word or expression",
+      "example": "Costa due euro."
+    },
+    {
+      "id": "it-market-foundation-word-3",
+      "word": "chilo",
+      "meaning": "kilo",
+      "partOfSpeech": "word or expression",
+      "example": "Un chilo di mele."
+    },
+    {
+      "id": "it-market-foundation-word-4",
+      "word": "prezzo",
+      "meaning": "price",
+      "partOfSpeech": "word or expression",
+      "example": "Il prezzo è alto."
     }
   ],
   "media": [
@@ -855,6 +1036,34 @@
       "url": "/audio/italian-foundations/it-plans-foundation-model.wav",
       "sha256": "50e94de649c05f6dba3566c08f0d07b32b66b818f6fedfbf80e242d0718f71f4",
       "transcript": "Domani vado a Roma.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-days-foundation-model",
+      "url": "/audio/italian-foundations/it-days-foundation-model.wav",
+      "sha256": "1f06ea9ac25236aec3fa199fd807eba70cc025a17bd89fde878f4a7074c03f04",
+      "transcript": "Oggi è lunedì.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-time-foundation-model",
+      "url": "/audio/italian-foundations/it-time-foundation-model.wav",
+      "sha256": "5ff4c147e297f3515b1a0c80465b3cffce3b58e5e1a2bcdb6ca73ceaeee11525",
+      "transcript": "Sono le tre e mezza.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-weather-foundation-model",
+      "url": "/audio/italian-foundations/it-weather-foundation-model.wav",
+      "sha256": "73eeb690d55789c9256c830c5f91a8a4de25760ce5848401fd5681a6f1eea673",
+      "transcript": "Oggi fa freddo e c'è il sole.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-market-foundation-model",
+      "url": "/audio/italian-foundations/it-market-foundation-model.wav",
+      "sha256": "3a8f56bdb72b43cb103c1c640778e61ba67905e369c9822bddcb195631db2849",
+      "transcript": "Quanto costa un chilo di mele?",
       "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
     }
   ],
@@ -3736,6 +3945,756 @@
       ],
       "optionalExerciseIds": [
         "it-plans-foundation-listen-model"
+      ]
+    },
+    {
+      "id": "it-days-foundation",
+      "unitId": "it-unit-5",
+      "title": "Days, months and dates",
+      "objective": "Say the weekday and the date in a short exchange.",
+      "cefr": "A1",
+      "prerequisites": [
+        "it-numbers-foundation"
+      ],
+      "conceptIds": [
+        "it-days-concept"
+      ],
+      "vocabulary": [
+        "it-days-foundation-word-1",
+        "it-days-foundation-word-2",
+        "it-days-foundation-word-3",
+        "it-days-foundation-word-4"
+      ],
+      "explanation": "Italian days and months are masculine and written lowercase: lunedì, maggio. Give the date with the number, di and the month: il tre maggio. Oggi, domani and ieri frame any plan.",
+      "examples": [
+        {
+          "target": "Oggi è lunedì.",
+          "meaning": "Today is Monday."
+        },
+        {
+          "target": "Il compleanno è il tre maggio.",
+          "meaning": "The birthday is May third."
+        }
+      ],
+      "exercises": [
+        {
+          "conceptId": "it-days-concept",
+          "explanation": "Italian days and months are masculine and written lowercase: lunedì, maggio. Give the date with the number, di and the month: il tre maggio. Oggi, domani and ieri frame any plan.",
+          "vocabulary": [
+            "it-days-foundation-word-1",
+            "it-days-foundation-word-2",
+            "it-days-foundation-word-3",
+            "it-days-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-days-foundation-produce",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Write in Italian: Today is Monday.",
+          "answers": [
+            "Oggi è lunedì."
+          ],
+          "errors": [
+            {
+              "answer": "Oggi ha lunedì.",
+              "category": "incorrect answer",
+              "explanation": "Use essere for the day: Oggi è lunedì."
+            }
+          ]
+        },
+        {
+          "conceptId": "it-days-concept",
+          "explanation": "Italian days and months are masculine and written lowercase: lunedì, maggio. Give the date with the number, di and the month: il tre maggio. Oggi, domani and ieri frame any plan.",
+          "vocabulary": [
+            "it-days-foundation-word-1",
+            "it-days-foundation-word-2",
+            "it-days-foundation-word-3",
+            "it-days-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-days-foundation-meaning",
+          "kind": "translate",
+          "mode": "recognition",
+          "prompt": "Give the English meaning: Domani è venerdì.",
+          "answers": [
+            "Tomorrow is Friday."
+          ]
+        },
+        {
+          "conceptId": "it-days-concept",
+          "explanation": "Italian days and months are masculine and written lowercase: lunedì, maggio. Give the date with the number, di and the month: il tre maggio. Oggi, domani and ieri frame any plan.",
+          "vocabulary": [
+            "it-days-foundation-word-1",
+            "it-days-foundation-word-2",
+            "it-days-foundation-word-3",
+            "it-days-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-days-foundation-order",
+          "kind": "order",
+          "mode": "production",
+          "prompt": "Arrange the words to say: Today is Monday.",
+          "answers": [
+            "Oggi è lunedì."
+          ],
+          "tokens": [
+            "lunedì.",
+            "Oggi",
+            "è"
+          ]
+        },
+        {
+          "conceptId": "it-days-concept",
+          "explanation": "Italian days and months are masculine and written lowercase: lunedì, maggio. Give the date with the number, di and the month: il tre maggio. Oggi, domani and ieri frame any plan.",
+          "vocabulary": [
+            "it-days-foundation-word-1",
+            "it-days-foundation-word-2",
+            "it-days-foundation-word-3",
+            "it-days-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-days-foundation-cloze",
+          "kind": "cloze",
+          "mode": "production",
+          "prompt": "Complete the date: Il compleanno è il ___ maggio.",
+          "answers": [
+            "tre"
+          ]
+        },
+        {
+          "conceptId": "it-days-concept",
+          "explanation": "Italian days and months are masculine and written lowercase: lunedì, maggio. Give the date with the number, di and the month: il tre maggio. Oggi, domani and ieri frame any plan.",
+          "vocabulary": [
+            "it-days-foundation-word-1",
+            "it-days-foundation-word-2",
+            "it-days-foundation-word-3",
+            "it-days-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-days-foundation-read",
+          "kind": "reading",
+          "mode": "recognition",
+          "prompt": "When is Anna’s birthday? Answer with the Italian date. (Reading 17)",
+          "answers": [
+            "il tre maggio"
+          ],
+          "passage": "Oggi è lunedì. Domani è martedì. Il compleanno di Anna è il tre maggio.",
+          "translation": "Today is Monday. Tomorrow is Tuesday. Anna’s birthday is May third."
+        },
+        {
+          "conceptId": "it-plans-concept",
+          "explanation": "Italian often uses the present with a future time expression: domani vado a Roma. Domani makes the time clear. This is a first way to express plans before learning the future tense. Keep the irregular forms vado and vai.",
+          "vocabulary": [
+            "it-plans-word-1",
+            "it-plans-word-2",
+            "it-plans-word-3",
+            "it-plans-word-4"
+          ],
+          "reviewOf": [
+            "it-plans-foundation"
+          ],
+          "id": "it-days-foundation-review",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Recall from Tomorrow and future plans: Tomorrow I am going to Rome.",
+          "answers": [
+            "Domani vado a Roma."
+          ],
+          "errors": [
+            {
+              "answer": "Domani io vai a Roma.",
+              "category": "incorrect answer",
+              "explanation": "Io uses vado, even when the plan is for tomorrow."
+            }
+          ]
+        },
+        {
+          "conceptId": "it-days-concept",
+          "explanation": "Italian days and months are masculine and written lowercase: lunedì, maggio. Give the date with the number, di and the month: il tre maggio. Oggi, domani and ieri frame any plan.",
+          "vocabulary": [
+            "it-days-foundation-word-1",
+            "it-days-foundation-word-2",
+            "it-days-foundation-word-3",
+            "it-days-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-days-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "prompt": "Listen and write the model: days and dates.",
+          "answers": [
+            "Oggi è lunedì."
+          ],
+          "audioId": "it-days-foundation-model"
+        }
+      ],
+      "optionalExerciseIds": [
+        "it-days-foundation-listen-model"
+      ]
+    },
+    {
+      "id": "it-time-foundation",
+      "unitId": "it-unit-5",
+      "title": "Telling the time",
+      "objective": "Ask and say the time, including half hours and quarters.",
+      "cefr": "A1",
+      "prerequisites": [
+        "it-days-foundation"
+      ],
+      "conceptIds": [
+        "it-time-concept"
+      ],
+      "vocabulary": [
+        "it-time-foundation-word-1",
+        "it-time-foundation-word-2",
+        "it-time-foundation-word-3",
+        "it-time-foundation-word-4"
+      ],
+      "explanation": "Ask the time with Che ore sono? Answer È l’una for one o’clock and Sono le plus the number otherwise: Sono le tre. Add e mezza for half past, e un quarto for quarter past and meno un quarto for quarter to.",
+      "examples": [
+        {
+          "target": "Sono le tre e mezza.",
+          "meaning": "It is half past three."
+        },
+        {
+          "target": "È l’una.",
+          "meaning": "It is one o’clock."
+        }
+      ],
+      "exercises": [
+        {
+          "conceptId": "it-time-concept",
+          "explanation": "Ask the time with Che ore sono? Answer È l’una for one o’clock and Sono le plus the number otherwise: Sono le tre. Add e mezza for half past, e un quarto for quarter past and meno un quarto for quarter to.",
+          "vocabulary": [
+            "it-time-foundation-word-1",
+            "it-time-foundation-word-2",
+            "it-time-foundation-word-3",
+            "it-time-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-time-foundation-produce",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Write in Italian: It is half past three.",
+          "answers": [
+            "Sono le tre e mezza.",
+            "Sono le 3 e mezza."
+          ],
+          "errors": [
+            {
+              "answer": "È le tre e mezza.",
+              "category": "incorrect answer",
+              "explanation": "Hours take sono, except one o’clock: Sono le tre e mezza."
+            }
+          ]
+        },
+        {
+          "conceptId": "it-time-concept",
+          "explanation": "Ask the time with Che ore sono? Answer È l’una for one o’clock and Sono le plus the number otherwise: Sono le tre. Add e mezza for half past, e un quarto for quarter past and meno un quarto for quarter to.",
+          "vocabulary": [
+            "it-time-foundation-word-1",
+            "it-time-foundation-word-2",
+            "it-time-foundation-word-3",
+            "it-time-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-time-foundation-meaning",
+          "kind": "translate",
+          "mode": "recognition",
+          "prompt": "Give the English meaning: È l’una.",
+          "answers": [
+            "It is one o’clock."
+          ]
+        },
+        {
+          "conceptId": "it-time-concept",
+          "explanation": "Ask the time with Che ore sono? Answer È l’una for one o’clock and Sono le plus the number otherwise: Sono le tre. Add e mezza for half past, e un quarto for quarter past and meno un quarto for quarter to.",
+          "vocabulary": [
+            "it-time-foundation-word-1",
+            "it-time-foundation-word-2",
+            "it-time-foundation-word-3",
+            "it-time-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-time-foundation-order",
+          "kind": "order",
+          "mode": "production",
+          "prompt": "Arrange the words to say: It is half past three.",
+          "answers": [
+            "Sono le tre e mezza."
+          ],
+          "tokens": [
+            "mezza.",
+            "tre",
+            "e",
+            "le",
+            "Sono"
+          ]
+        },
+        {
+          "conceptId": "it-time-concept",
+          "explanation": "Ask the time with Che ore sono? Answer È l’una for one o’clock and Sono le plus the number otherwise: Sono le tre. Add e mezza for half past, e un quarto for quarter past and meno un quarto for quarter to.",
+          "vocabulary": [
+            "it-time-foundation-word-1",
+            "it-time-foundation-word-2",
+            "it-time-foundation-word-3",
+            "it-time-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-time-foundation-cloze",
+          "kind": "cloze",
+          "mode": "production",
+          "prompt": "Complete the time: ___ l’una.",
+          "answers": [
+            "È"
+          ]
+        },
+        {
+          "conceptId": "it-time-concept",
+          "explanation": "Ask the time with Che ore sono? Answer È l’una for one o’clock and Sono le plus the number otherwise: Sono le tre. Add e mezza for half past, e un quarto for quarter past and meno un quarto for quarter to.",
+          "vocabulary": [
+            "it-time-foundation-word-1",
+            "it-time-foundation-word-2",
+            "it-time-foundation-word-3",
+            "it-time-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-time-foundation-read",
+          "kind": "reading",
+          "mode": "recognition",
+          "prompt": "When does the train leave? Answer in Italian. (Reading 18)",
+          "answers": [
+            "alle otto e mezza"
+          ],
+          "passage": "Il treno parte alle otto e mezza. Arriva a mezzogiorno.",
+          "translation": "The train leaves at half past eight. It arrives at midday."
+        },
+        {
+          "conceptId": "it-days-concept",
+          "explanation": "Italian days and months are masculine and written lowercase: lunedì, maggio. Give the date with the number, di and the month: il tre maggio. Oggi, domani and ieri frame any plan.",
+          "vocabulary": [
+            "it-days-foundation-word-1",
+            "it-days-foundation-word-2",
+            "it-days-foundation-word-3",
+            "it-days-foundation-word-4"
+          ],
+          "reviewOf": [
+            "it-days-foundation"
+          ],
+          "id": "it-time-foundation-review",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Recall from Days, months and dates: Today is Monday.",
+          "answers": [
+            "Oggi è lunedì."
+          ],
+          "errors": [
+            {
+              "answer": "Oggi ha lunedì.",
+              "category": "incorrect answer",
+              "explanation": "Use essere for the day: Oggi è lunedì."
+            }
+          ]
+        },
+        {
+          "conceptId": "it-time-concept",
+          "explanation": "Ask the time with Che ore sono? Answer È l’una for one o’clock and Sono le plus the number otherwise: Sono le tre. Add e mezza for half past, e un quarto for quarter past and meno un quarto for quarter to.",
+          "vocabulary": [
+            "it-time-foundation-word-1",
+            "it-time-foundation-word-2",
+            "it-time-foundation-word-3",
+            "it-time-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-time-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "prompt": "Listen and write the model: telling the time.",
+          "answers": [
+            "Sono le tre e mezza.",
+            "Sono le 3 e mezza."
+          ],
+          "audioId": "it-time-foundation-model"
+        }
+      ],
+      "optionalExerciseIds": [
+        "it-time-foundation-listen-model"
+      ]
+    },
+    {
+      "id": "it-weather-foundation",
+      "unitId": "it-unit-5",
+      "title": "Weather and seasons",
+      "objective": "Describe today’s weather and name two seasons.",
+      "cefr": "A1",
+      "prerequisites": [
+        "it-time-foundation"
+      ],
+      "conceptIds": [
+        "it-weather-concept"
+      ],
+      "vocabulary": [
+        "it-weather-foundation-word-1",
+        "it-weather-foundation-word-2",
+        "it-weather-foundation-word-3",
+        "it-weather-foundation-word-4"
+      ],
+      "explanation": "Describe the weather with fa plus an adjective: fa caldo for hot, fa freddo for cold. Say c’è il sole for sunny and piove for it rains. Two seasons to know now are l’estate (summer) and l’inverno (winter).",
+      "examples": [
+        {
+          "target": "Oggi fa freddo.",
+          "meaning": "Today it is cold."
+        },
+        {
+          "target": "C’è il sole.",
+          "meaning": "It is sunny."
+        }
+      ],
+      "exercises": [
+        {
+          "conceptId": "it-weather-concept",
+          "explanation": "Describe the weather with fa plus an adjective: fa caldo for hot, fa freddo for cold. Say c’è il sole for sunny and piove for it rains. Two seasons to know now are l’estate (summer) and l’inverno (winter).",
+          "vocabulary": [
+            "it-weather-foundation-word-1",
+            "it-weather-foundation-word-2",
+            "it-weather-foundation-word-3",
+            "it-weather-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-weather-foundation-produce",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Write in Italian: It is cold today.",
+          "answers": [
+            "Oggi fa freddo.",
+            "Fa freddo oggi."
+          ],
+          "errors": [
+            {
+              "answer": "Oggi è freddo.",
+              "category": "incorrect answer",
+              "explanation": "Weather uses fare: Oggi fa freddo."
+            }
+          ]
+        },
+        {
+          "conceptId": "it-weather-concept",
+          "explanation": "Describe the weather with fa plus an adjective: fa caldo for hot, fa freddo for cold. Say c’è il sole for sunny and piove for it rains. Two seasons to know now are l’estate (summer) and l’inverno (winter).",
+          "vocabulary": [
+            "it-weather-foundation-word-1",
+            "it-weather-foundation-word-2",
+            "it-weather-foundation-word-3",
+            "it-weather-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-weather-foundation-meaning",
+          "kind": "translate",
+          "mode": "recognition",
+          "prompt": "Give the English meaning: C’è il sole.",
+          "answers": [
+            "It is sunny."
+          ]
+        },
+        {
+          "conceptId": "it-weather-concept",
+          "explanation": "Describe the weather with fa plus an adjective: fa caldo for hot, fa freddo for cold. Say c’è il sole for sunny and piove for it rains. Two seasons to know now are l’estate (summer) and l’inverno (winter).",
+          "vocabulary": [
+            "it-weather-foundation-word-1",
+            "it-weather-foundation-word-2",
+            "it-weather-foundation-word-3",
+            "it-weather-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-weather-foundation-order",
+          "kind": "order",
+          "mode": "production",
+          "prompt": "Arrange the words to say: It is cold today.",
+          "answers": [
+            "Oggi fa freddo."
+          ],
+          "tokens": [
+            "freddo.",
+            "fa",
+            "Oggi"
+          ]
+        },
+        {
+          "conceptId": "it-weather-concept",
+          "explanation": "Describe the weather with fa plus an adjective: fa caldo for hot, fa freddo for cold. Say c’è il sole for sunny and piove for it rains. Two seasons to know now are l’estate (summer) and l’inverno (winter).",
+          "vocabulary": [
+            "it-weather-foundation-word-1",
+            "it-weather-foundation-word-2",
+            "it-weather-foundation-word-3",
+            "it-weather-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-weather-foundation-cloze",
+          "kind": "cloze",
+          "mode": "production",
+          "prompt": "Complete the forecast: Domani ___ caldo.",
+          "answers": [
+            "fa"
+          ]
+        },
+        {
+          "conceptId": "it-weather-concept",
+          "explanation": "Describe the weather with fa plus an adjective: fa caldo for hot, fa freddo for cold. Say c’è il sole for sunny and piove for it rains. Two seasons to know now are l’estate (summer) and l’inverno (winter).",
+          "vocabulary": [
+            "it-weather-foundation-word-1",
+            "it-weather-foundation-word-2",
+            "it-weather-foundation-word-3",
+            "it-weather-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-weather-foundation-read",
+          "kind": "reading",
+          "mode": "recognition",
+          "prompt": "What falls tomorrow? Answer with the Italian verb. (Reading 19)",
+          "answers": [
+            "piove"
+          ],
+          "passage": "Oggi c’è il sole e fa caldo. Domani piove e fa freddo.",
+          "translation": "Today it is sunny and hot. Tomorrow it rains and it is cold."
+        },
+        {
+          "conceptId": "it-time-concept",
+          "explanation": "Ask the time with Che ore sono? Answer È l’una for one o’clock and Sono le plus the number otherwise: Sono le tre. Add e mezza for half past, e un quarto for quarter past and meno un quarto for quarter to.",
+          "vocabulary": [
+            "it-time-foundation-word-1",
+            "it-time-foundation-word-2",
+            "it-time-foundation-word-3",
+            "it-time-foundation-word-4"
+          ],
+          "reviewOf": [
+            "it-time-foundation"
+          ],
+          "id": "it-weather-foundation-review",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Recall from Telling the time: It is half past three.",
+          "answers": [
+            "Sono le tre e mezza.",
+            "Sono le 3 e mezza."
+          ],
+          "errors": [
+            {
+              "answer": "È le tre e mezza.",
+              "category": "incorrect answer",
+              "explanation": "Hours take sono, except one o’clock: Sono le tre e mezza."
+            }
+          ]
+        },
+        {
+          "conceptId": "it-weather-concept",
+          "explanation": "Describe the weather with fa plus an adjective: fa caldo for hot, fa freddo for cold. Say c’è il sole for sunny and piove for it rains. Two seasons to know now are l’estate (summer) and l’inverno (winter).",
+          "vocabulary": [
+            "it-weather-foundation-word-1",
+            "it-weather-foundation-word-2",
+            "it-weather-foundation-word-3",
+            "it-weather-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-weather-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "prompt": "Listen and write the model: weather and seasons.",
+          "answers": [
+            "Oggi fa freddo e c’è il sole."
+          ],
+          "audioId": "it-weather-foundation-model"
+        }
+      ],
+      "optionalExerciseIds": [
+        "it-weather-foundation-listen-model"
+      ]
+    },
+    {
+      "id": "it-market-foundation",
+      "unitId": "it-unit-5",
+      "title": "At the market: prices",
+      "objective": "Ask prices and understand a market price list.",
+      "cefr": "A1",
+      "prerequisites": [
+        "it-weather-foundation"
+      ],
+      "conceptIds": [
+        "it-market-concept"
+      ],
+      "vocabulary": [
+        "it-market-foundation-word-1",
+        "it-market-foundation-word-2",
+        "it-market-foundation-word-3",
+        "it-market-foundation-word-4"
+      ],
+      "explanation": "Ask the price with Quanto costa? for one thing and Quanto costano? for several: Quanto costa un chilo di mele? Answer with the price: Tre euro. Un chilo is one kilo and il mercato is the market.",
+      "examples": [
+        {
+          "target": "Quanto costa un chilo di mele?",
+          "meaning": "How much is a kilo of apples?"
+        },
+        {
+          "target": "Costano tre euro.",
+          "meaning": "They cost three euros."
+        }
+      ],
+      "exercises": [
+        {
+          "conceptId": "it-market-concept",
+          "explanation": "Ask the price with Quanto costa? for one thing and Quanto costano? for several: Quanto costa un chilo di mele? Answer with the price: Tre euro. Un chilo is one kilo and il mercato is the market.",
+          "vocabulary": [
+            "it-market-foundation-word-1",
+            "it-market-foundation-word-2",
+            "it-market-foundation-word-3",
+            "it-market-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-market-foundation-produce",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Write in Italian: How much is a kilo of apples?",
+          "answers": [
+            "Quanto costa un chilo di mele?"
+          ],
+          "errors": [
+            {
+              "answer": "Quanto costano un chilo di mele?",
+              "category": "incorrect answer",
+              "explanation": "Un chilo is singular: Quanto costa un chilo di mele?"
+            }
+          ]
+        },
+        {
+          "conceptId": "it-market-concept",
+          "explanation": "Ask the price with Quanto costa? for one thing and Quanto costano? for several: Quanto costa un chilo di mele? Answer with the price: Tre euro. Un chilo is one kilo and il mercato is the market.",
+          "vocabulary": [
+            "it-market-foundation-word-1",
+            "it-market-foundation-word-2",
+            "it-market-foundation-word-3",
+            "it-market-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-market-foundation-meaning",
+          "kind": "translate",
+          "mode": "recognition",
+          "prompt": "Give the English meaning: Costano tre euro.",
+          "answers": [
+            "They cost three euros."
+          ]
+        },
+        {
+          "conceptId": "it-market-concept",
+          "explanation": "Ask the price with Quanto costa? for one thing and Quanto costano? for several: Quanto costa un chilo di mele? Answer with the price: Tre euro. Un chilo is one kilo and il mercato is the market.",
+          "vocabulary": [
+            "it-market-foundation-word-1",
+            "it-market-foundation-word-2",
+            "it-market-foundation-word-3",
+            "it-market-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-market-foundation-order",
+          "kind": "order",
+          "mode": "production",
+          "prompt": "Arrange the words to say: How much is a kilo of apples?",
+          "answers": [
+            "Quanto costa un chilo di mele?"
+          ],
+          "tokens": [
+            "mele?",
+            "di",
+            "chilo",
+            "un",
+            "costa",
+            "Quanto"
+          ]
+        },
+        {
+          "conceptId": "it-market-concept",
+          "explanation": "Ask the price with Quanto costa? for one thing and Quanto costano? for several: Quanto costa un chilo di mele? Answer with the price: Tre euro. Un chilo is one kilo and il mercato is the market.",
+          "vocabulary": [
+            "it-market-foundation-word-1",
+            "it-market-foundation-word-2",
+            "it-market-foundation-word-3",
+            "it-market-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-market-foundation-cloze",
+          "kind": "cloze",
+          "mode": "production",
+          "prompt": "Complete the price: ___ tre euro.",
+          "answers": [
+            "Costano"
+          ]
+        },
+        {
+          "conceptId": "it-market-concept",
+          "explanation": "Ask the price with Quanto costa? for one thing and Quanto costano? for several: Quanto costa un chilo di mele? Answer with the price: Tre euro. Un chilo is one kilo and il mercato is the market.",
+          "vocabulary": [
+            "it-market-foundation-word-1",
+            "it-market-foundation-word-2",
+            "it-market-foundation-word-3",
+            "it-market-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-market-foundation-read",
+          "kind": "reading",
+          "mode": "recognition",
+          "prompt": "How much is the bread? Answer with the Italian price. (Reading 20)",
+          "answers": [
+            "un euro"
+          ],
+          "passage": "Mele: due euro al chilo. Pane: un euro.",
+          "translation": "Apples: two euros per kilo. Bread: one euro."
+        },
+        {
+          "conceptId": "it-weather-concept",
+          "explanation": "Describe the weather with fa plus an adjective: fa caldo for hot, fa freddo for cold. Say c’è il sole for sunny and piove for it rains. Two seasons to know now are l’estate (summer) and l’inverno (winter).",
+          "vocabulary": [
+            "it-weather-foundation-word-1",
+            "it-weather-foundation-word-2",
+            "it-weather-foundation-word-3",
+            "it-weather-foundation-word-4"
+          ],
+          "reviewOf": [
+            "it-weather-foundation"
+          ],
+          "id": "it-market-foundation-review",
+          "kind": "translate",
+          "mode": "production",
+          "prompt": "Recall from Weather and seasons: It is cold today.",
+          "answers": [
+            "Oggi fa freddo.",
+            "Fa freddo oggi."
+          ],
+          "errors": [
+            {
+              "answer": "Oggi è freddo.",
+              "category": "incorrect answer",
+              "explanation": "Weather uses fare: Oggi fa freddo."
+            }
+          ]
+        },
+        {
+          "conceptId": "it-market-concept",
+          "explanation": "Ask the price with Quanto costa? for one thing and Quanto costano? for several: Quanto costa un chilo di mele? Answer with the price: Tre euro. Un chilo is one kilo and il mercato is the market.",
+          "vocabulary": [
+            "it-market-foundation-word-1",
+            "it-market-foundation-word-2",
+            "it-market-foundation-word-3",
+            "it-market-foundation-word-4"
+          ],
+          "reviewOf": [],
+          "id": "it-market-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "prompt": "Listen and write the model: market prices.",
+          "answers": [
+            "Quanto costa un chilo di mele?"
+          ],
+          "audioId": "it-market-foundation-model"
+        }
+      ],
+      "optionalExerciseIds": [
+        "it-market-foundation-listen-model"
       ]
     }
   ],

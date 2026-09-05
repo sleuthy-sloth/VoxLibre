@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "clips": [
+    {
+      "id": "it-days-foundation-model",
+      "filename": "it-days-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "ff51cd23a39da440ce250e3efc633af2e992b11c4c2edbbe581828139377516d",
+      "audio_sha256": "1f06ea9ac25236aec3fa199fd807eba70cc025a17bd89fde878f4a7074c03f04",
+      "content_type": "audio/wav",
+      "bytes": 86444
+    },
+    {
+      "id": "it-time-foundation-model",
+      "filename": "it-time-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "4519254c67550e6195d6a2656beb42be2e921cf4a9670066237bd226368449e5",
+      "audio_sha256": "5ff4c147e297f3515b1a0c80465b3cffce3b58e5e1a2bcdb6ca73ceaeee11525",
+      "content_type": "audio/wav",
+      "bytes": 98444
+    },
+    {
+      "id": "it-weather-foundation-model",
+      "filename": "it-weather-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "eab6ba7be781b7637638b756d8769c12cb7ab263f4bbd0f63264147c4dca5b55",
+      "audio_sha256": "73eeb690d55789c9256c830c5f91a8a4de25760ce5848401fd5681a6f1eea673",
+      "content_type": "audio/wav",
+      "bytes": 110444
+    },
+    {
+      "id": "it-market-foundation-model",
+      "filename": "it-market-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "581b899644c4373c4b8f4d554d3b8d195c3d6ee0b8e21bb7883698d00b71ed79",
+      "audio_sha256": "3a8f56bdb72b43cb103c1c640778e61ba67905e369c9822bddcb195631db2849",
+      "content_type": "audio/wav",
+      "bytes": 117644
+    }
+  ]
+}
