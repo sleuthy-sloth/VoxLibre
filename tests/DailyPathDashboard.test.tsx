@@ -1,3 +1,4 @@
+import { act } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, within } from '@testing-library/react';
 import { readFileSync } from 'node:fs';
@@ -426,6 +427,24 @@ describe('DailyPathDashboard study-plan status', () => {
       'href',
       `/learn/${FRENCH_SLUG}/plan`,
     );
+  });
+
+  it('uses account plan status instead of another browser-local plan', async () => {
+    localStorage.clear();
+    const guest = seedPlan();
+    const account = { ...guest, targetLevel: 'A2' as const };
+    render(<DailyPathDashboard progress={{ ...demoProgress, isPreview: false, session: [{ id: 'plan-teach-fr-greet-politely', kind: 'NEW_PATTERN', courseSlug: FRENCH_SLUG, contentId: 'fr-greet-politely' }, { id: 'plan-drill-fr-greet-politely-drill', kind: 'DRILL', courseSlug: FRENCH_SLUG, contentId: 'fr-greet-politely', drillId: 'fr-greet-politely-drill' }], studyPlans: { [FRENCH_SLUG]: { plan: account, done: {} } } }} />);
+    expect(await screen.findByText(/· A2 track/)).toBeInTheDocument();
+    expect(screen.queryByText(/· B1 track/)).not.toBeInTheDocument();
+    expect(screen.getByText('2 plan items today')).toBeInTheDocument();
+  });
+
+  it('does not show guest plans on an account with no saved plan', async () => {
+    localStorage.clear();
+    seedPlan();
+    render(<DailyPathDashboard progress={{ ...demoProgress, isPreview: false }} />);
+    await act(async () => { await new Promise(resolve => setTimeout(resolve, 20)); });
+    expect(screen.queryByRole('link', { name: /review your study plan/i })).not.toBeInTheDocument();
   });
 
   it('stays on demo content when no plan is stored', () => {

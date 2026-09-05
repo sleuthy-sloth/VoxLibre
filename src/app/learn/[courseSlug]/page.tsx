@@ -13,21 +13,21 @@ import { LanguageSwitcher } from '@/components/nav/LanguageSwitcher';
 
 export default async function LearnPage({ params, searchParams }: {
   params: Promise<{ courseSlug: string }>;
-  searchParams: Promise<{ concept?: string }>;
+  searchParams: Promise<{ concept?: string; drill?: string }>;
 }) {
   const { courseSlug } = await params;
-  const { concept: requestedConcept } = await searchParams;
+  const { concept: requestedConcept, drill: requestedDrill } = await searchParams;
   const course = initialCourses.find(course => course.slug === courseSlug);
   const token = sessionTokenFromCookies((await cookies()).toString());
   const session = token ? await verifySessionToken(token) : null;
   const progress = session ? await getProgressSnapshot(session.userId) : demoProgress;
   const nextConcept = progress.session.find(step => step.courseSlug === courseSlug && step.kind === 'NEW_PATTERN')?.contentId;
   const conceptId = requestedConcept ?? nextConcept ?? course?.concepts[0]?.id ?? '';
-  const steps = session && !requestedConcept ? progress.session.filter(step => step.courseSlug === courseSlug) : course ? composeLessonSession(course, conceptId) : [];
+  const steps = session && !requestedConcept ? progress.session.filter(step => step.courseSlug === courseSlug) : course ? composeLessonSession(course, conceptId, requestedDrill) : [];
 
   return <>
     <div className={styles.languageBar}><LanguageSwitcher currentCourse={courseSlug} /></div>
-    <GuidedSession key={`${courseSlug}:${conceptId}`} courseSlug={courseSlug} progress={{ ...progress, session: steps }} />
+    <GuidedSession key={`${courseSlug}:${conceptId}:${requestedDrill ?? ''}`} courseSlug={courseSlug} progress={{ ...progress, session: steps }} />
     {course ? <nav aria-label="Course lessons" className={styles.courseIndex}>
       <h2>Explore the course</h2>
       {['it','fr'].includes(course.targetLanguageCode) ? <p><Link href={`/courses/${course.targetLanguageCode === 'it' ? 'italian' : 'french'}`}>New: structured A1 foundations with offline study</Link></p> : null}

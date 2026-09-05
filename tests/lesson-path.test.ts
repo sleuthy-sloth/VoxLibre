@@ -16,3 +16,11 @@ describe('a coherent teaching-first lesson', () => {
     expect(steps.some(step => step.kind === 'DRILL' && step.drillId.endsWith('-cloze'))).toBe(false);
   });
 });
+
+it('opens an explicitly requested plan drill with its teaching, including stretch practice', () => {
+  const steps = composeLessonSession(initialCourses[0], 'fr-ordering-politely', 'fr-ordering-politely-cloze');
+  expect(steps).toHaveLength(3);
+  expect(steps[0].kind).toBe('NEW_PATTERN');
+  expect(steps[1]).toMatchObject({ kind: 'DRILL', drillId: 'fr-ordering-politely-cloze' });
+  expect(composeLessonSession(initialCourses[0], 'fr-ordering-politely', 'it-ordering-politely-cloze')).toEqual([]);
+});

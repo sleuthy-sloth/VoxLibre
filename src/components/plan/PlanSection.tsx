@@ -7,6 +7,8 @@ import { PlanBuilder } from '@/components/plan/PlanBuilder';
 import { PlanOverview } from '@/components/plan/PlanOverview';
 import { initialCourses } from '@/features/curriculum/fixture';
 import type { CEFRLevel } from '@/features/curriculum/types';
+import { parseStoredPlan } from '@/features/study-plan/parse';
+import { csrfHeaders } from '@/lib/auth/cookies';
 import type { StudyPlan } from '@/features/study-plan/types';
 
 function planKey(courseSlug: string) {
@@ -34,42 +36,66 @@ function placementStart(courseSlug: string): { startCefr: CEFRLevel; startConcep
 }
 
 
-export function PlanSection({ courseSlug }: Readonly<{ courseSlug: string }>) {
+export function PlanSection({ courseSlug, userId = null }: Readonly<{ courseSlug: string; userId?: string | null }>) {
   const [plan, setPlan] = useState<StudyPlan | null>(null);
   const [done, setDone] = useState<Record<string, boolean>>({});
   const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [reload, setReload] = useState(0);
+  const endpoint = `/api/study-plan?courseSlug=${encodeURIComponent(courseSlug)}&userId=${encodeURIComponent(userId ?? '')}`;
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    let cancelled = false;
+    const timer = setTimeout(async () => {
       try {
-        const saved = JSON.parse(localStorage.getItem(planKey(courseSlug)) ?? 'null') as StudyPlan | null;
-        if (saved && Array.isArray(saved.weeks)) setPlan(saved);
-        const flags = JSON.parse(localStorage.getItem(doneKey(courseSlug)) ?? 'null') as Record<
-          string,
-          boolean
-        > | null;
-        if (flags) setDone(flags);
-      } catch {
-        // Fresh start when storage is unavailable or corrupt.
+        if (userId) {
+          const response = await fetch(endpoint, { cache: 'no-store' });
+          const data = await response.json();
+          if (!response.ok || data.userId !== userId) throw new Error(data.error ?? 'Your account changed. Reload this page.');
+          if (cancelled) return;
+          setPlan(parseStoredPlan(data.plan, courseSlug));
+          setDone(data.done ?? {});
+        } else {
+          setPlan(parseStoredPlan(JSON.parse(localStorage.getItem(planKey(courseSlug)) ?? 'null'), courseSlug));
+          const flags = JSON.parse(localStorage.getItem(doneKey(courseSlug)) ?? '{}');
+          setDone(flags && typeof flags === 'object' ? flags : {});
+        }
+        setError(null);
+        setLoaded(true);
+      } catch (failure) {
+        if (!cancelled) {
+          setError(userId ? failure instanceof Error ? failure.message : 'Could not load your plan.' : 'Browser storage is unavailable. Your plan may not persist.');
+          setLoaded(!userId);
+        }
       }
-      setLoaded(true);
     }, 0);
-    return () => clearTimeout(timer);
-  }, [courseSlug]);
+    return () => { cancelled = true; clearTimeout(timer); };
+  }, [courseSlug, userId, endpoint, reload]);
 
-  if (!loaded) return null;
+  if (!loaded) return <main id="main-content" className={sessionStyles.session}>{error ? <><p role="alert">{error}</p><button onClick={() => setReload(value => value + 1)}>Retry loading plan</button></> : <p role="status">Loading your study plan…</p>}</main>;
 
   const course = initialCourses.find((candidate) => candidate.slug === courseSlug);
   const fallbackConcept = course?.concepts[0]?.id ?? '';
   const placed = placementStart(courseSlug);
 
-  const save = (next: StudyPlan) => {
-    setPlan(next);
+  const save = async (next: StudyPlan) => {
+    setBusy(true);
+    setError(null);
     try {
-      localStorage.setItem(planKey(courseSlug), JSON.stringify(next));
-    } catch {
-      // Plan persistence is best-effort.
-    }
+      if (userId) {
+        const response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', ...csrfHeaders() }, body: JSON.stringify({ plan: next }) });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error ?? 'Your plan was not saved.');
+        // Reload the same account's derived progress, including existing practice.
+        setLoaded(false);
+        setReload(value => value + 1);
+      } else {
+        localStorage.setItem(planKey(courseSlug), JSON.stringify(next));
+        setPlan(next);
+      }
+    } catch (failure) { setError(failure instanceof Error ? failure.message : 'Your plan was not saved.'); }
+    finally { setBusy(false); }
   };
 
   const toggle = (key: string, checked: boolean) => {
@@ -82,15 +108,29 @@ export function PlanSection({ courseSlug }: Readonly<{ courseSlug: string }>) {
     }
   };
 
-  const reset = () => {
+  const reset = async () => {
+    setBusy(true);
+    setError(null);
+    if (userId) {
+      try {
+        const response = await fetch(endpoint, { method: 'DELETE', headers: csrfHeaders() });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error ?? 'Your plan was not reset.');
+        setPlan(null);
+        setDone({});
+      } catch (failure) { setError(failure instanceof Error ? failure.message : 'Your plan was not reset.'); }
+      finally { setBusy(false); }
+      return;
+    }
     setPlan(null);
     setDone({});
     try {
       localStorage.removeItem(planKey(courseSlug));
       localStorage.removeItem(doneKey(courseSlug));
     } catch {
-      // Best-effort cleanup.
+      setError('Browser storage could not be cleared.');
     }
+    setBusy(false);
   };
 
   return (
@@ -99,8 +139,11 @@ export function PlanSection({ courseSlug }: Readonly<{ courseSlug: string }>) {
         <Link href="/">← Daily path</Link>
       </p>
       <h1>Your {course?.title ?? 'course'} study plan</h1>
+      <p>{userId ? 'Your plan is saved to your account and follows you across devices.' : 'Your plan and checklist stay in this browser.'}</p>
+      {error ? <p role="alert">{error}</p> : null}
+      <fieldset disabled={busy} style={{ border: 0, padding: 0, minWidth: 0 }}>
       {plan ? (
-        <PlanOverview plan={plan} done={done} onToggle={toggle} onReset={reset} />
+        <PlanOverview plan={plan} done={done} onToggle={toggle} onReset={reset} automatic={Boolean(userId)} />
       ) : (
         <>
           {placed ? (
@@ -120,6 +163,7 @@ export function PlanSection({ courseSlug }: Readonly<{ courseSlug: string }>) {
           />
         </>
       )}
+      </fieldset>
     </main>
   );
 }

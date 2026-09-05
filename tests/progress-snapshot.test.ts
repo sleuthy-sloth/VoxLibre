@@ -238,3 +238,29 @@ describe('study-plan driven signed-in session', () => {
     expect(french.some((step) => step.id.startsWith('plan-'))).toBe(false);
   });
 });
+
+describe('plan scheduling regressions', () => {
+  const concepts = initialCourses.find(course => course.slug === 'english-to-french')!.concepts;
+  const plan = generatePlan({ courseSlug: 'english-to-french', startCefr: 'A1', startConceptId: concepts[0].id, targetLevel: 'B1', daysPerWeek: 5, minutesPerDay: 8, startDate: '2026-09-07' }, concepts);
+  beforeEach(() => {
+    vi.mocked(prisma.userProgress.findMany).mockResolvedValue([]);
+    vi.mocked(prisma.studyPlan.findMany).mockResolvedValue([{ courseSlug: plan.courseSlug, planJson: plan }] as never);
+  });
+  it('offers a completable drill in the default daily plan budget', async () => {
+    const snapshot = await getProgressSnapshot('planner');
+    const steps = snapshot.session.filter(step => step.courseSlug === plan.courseSlug);
+    expect(steps.length).toBeLessThanOrEqual(8);
+    expect(steps[0]).toMatchObject({ kind: 'NEW_PATTERN', contentId: concepts[0].id });
+    expect(steps[1]).toMatchObject({ kind: 'DRILL', contentId: concepts[0].id });
+  });
+  it('retains overdue retrieval while following a plan', async () => {
+    vi.mocked(prisma.userProgress.findMany).mockResolvedValue([{ drillItemId: 'fr-pay-politely-drill', lastQuality: 4, dueAt: new Date('2020-01-01') }] as never);
+    const snapshot = await getProgressSnapshot('planner');
+    expect(snapshot.session).toContainEqual(expect.objectContaining({ kind: 'DRILL', drillId: 'fr-pay-politely-drill' }));
+  });
+  it.each([ { ...plan, weeks: [null] }, { ...plan, weeks: [{ items: [null] }] }, { ...plan, courseSlug: 'english-to-italian' }, { ...plan, weeks: [{ ...plan.weeks[0], items: [{ mode: 'teach', conceptId: 'missing' }] }] } ])('ignores invalid nested or mismatched plan content', async (broken) => {
+    vi.mocked(prisma.studyPlan.findMany).mockResolvedValue([{ courseSlug: plan.courseSlug, planJson: broken }] as never);
+    const snapshot = await getProgressSnapshot('planner');
+    expect(snapshot.session.some(step => step.id.startsWith('plan-'))).toBe(false);
+  });
+});

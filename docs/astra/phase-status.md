@@ -1,6 +1,6 @@
 # Phased upgrade status
 
-Status after the account-sync and foundation-listening continuations. “Partial” means working functionality exists, with the named gaps still open; it is not a completion claim for the full phase.
+Status after the account-sync, foundation-listening, Italian placement and account study-plan continuations. “Partial” means working functionality exists, with the named gaps still open; it is not a completion claim for the full phase.
 
 | Phase | Status and remaining work |
 | --- | --- |
@@ -19,9 +19,9 @@ Status after the account-sync and foundation-listening continuations. “Partial
 | 13 Pronunciation | Existing optional local transcription retained; no invented pronunciation score. |
 | 14 Course packs | Validated downloadable packs, compatibility/content versions, media hashes and attribution implemented. |
 | 15 Offline | Static cold-start study, teaching, audio and durable practice verified in Chromium. Physical Safari/PWA QA remains open. |
-| 16 Sync | Account-scoped immutable foundation events, duplicate/conflict handling and reconnect synchronization implemented. Placement/study-plan sync remains open. |
-| 17 Placement | Existing travel-course placement retained; foundation-aware adaptive assessment remains open. |
-| 18 Study plans | Existing plan builder and daily time controls retained; goal-driven foundation scheduling and preference sync remain open. |
+| 16 Sync | Account-scoped immutable foundation events, duplicate/conflict handling and reconnect synchronization implemented. Travel study plans now save/load/reset across accounts and devices. Placement sync and foundation study preferences remain open. |
+| 17 Placement | Italian now has a fixed 15-item A1/A2/B1 travel assessment; French retains its adaptive checkpoint. These are rough starting-point suggestions, not CEFR certification. Foundation-aware assessment and placement sync remain open. |
+| 18 Study plans | Travel plans now drive account sessions with paired teaching/retrieval, due reviews and pace bounds; account plan storage and derived completion are connected to the builder/dashboard. Guest checklists remain browser-local. Goal-driven foundation scheduling and preference sync remain open. |
 | 19 Vocabulary | Search, meaning, examples and evidence labels implemented; richer metadata and dedicated per-word scheduling remain partial. |
 | 20 Grammar | Linked explanations, examples, errors and concept evidence implemented; paradigms and targeted drill selection remain partial. |
 | 21 Conjugation | Dedicated reference/search/drill system deferred. |
@@ -32,5 +32,7 @@ Status after the account-sync and foundation-listening continuations. “Partial
 | 26 Tests | Expanded unit, browser, account, offline and audio coverage. See implementation report for latest totals. |
 | 27 Performance | Per-language loading and asset-size reports implemented; load timing/database query benchmarks and incremental sync remain open. |
 | 28 Documentation | Architecture, behavior, testing, provenance and honest implementation reports maintained. |
+
+See `study-plan-continuation.md` for the September 5 review and continuation scope. No numbered slice-4 specification was present in the repository or the two latest commit messages.
 
 Next priorities: deepen Italian/French A1 domains and varied retrieval; improve foundation placement and operational study preferences; add curated conjugation references; then broader listening forms and interference content. Avoid expanding language count before the first two courses have adequate instructional depth.

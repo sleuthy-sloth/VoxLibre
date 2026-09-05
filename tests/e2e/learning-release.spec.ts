@@ -17,7 +17,7 @@ test('a beginner can skip placement and receives teaching before practice', asyn
 
 test('Italian assessment can be skipped question by question and opens its recommended lesson', async ({ page }) => {
   await page.goto('/learn/english-to-italian/placement');
-  for (let i = 0; i < 8; i++) await page.getByRole('button', { name: 'I don’t know yet' }).click();
+  for (let i = 0; i < 15; i++) await page.getByRole('button', { name: 'I don’t know yet' }).click();
   await expect(page.getByText('Starting at the beginning', { exact: false })).toBeVisible();
   await page.getByRole('link', { name: /start learning/i }).click();
   await expect(page).toHaveURL(/concept=it-greet-politely/);

@@ -111,3 +111,26 @@ export function planPosition(
     totalCount: flat.length,
   };
 }
+
+/** Pair each remaining teaching item with retrieval before spending the daily budget.
+ * Stored weekly checklists keep their original positions and keys.
+ */
+export function practicePlanItems(plan: StudyPlan, done: Record<string, boolean>, limit: number): readonly PlanItem[] {
+  const pending = flattenPlanItems(plan).filter(position => !isDone(done, position.key));
+  const groups = new Map<string, PlanItem[]>();
+  for (const { item } of pending) {
+    const group = groups.get(item.conceptId) ?? [];
+    if (!group.some(existing => existing.mode === item.mode && existing.drillId === item.drillId)) group.push(item);
+    groups.set(item.conceptId, group);
+  }
+  const selected: PlanItem[] = [];
+  for (const group of groups.values()) {
+    const teach = group.find(item => item.mode === 'teach');
+    const drills = group.filter(item => item.mode === 'drill');
+    const ordered = [...(teach ? [teach] : []), ...drills, ...group.filter(item => item.mode === 'review')];
+    if (teach && drills.length && limit - selected.length < 2) break;
+    selected.push(...ordered.slice(0, Math.max(0, limit - selected.length)));
+    if (selected.length >= limit) break;
+  }
+  return selected;
+}

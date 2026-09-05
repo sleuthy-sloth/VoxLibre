@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { initialCourses } from '@/features/curriculum/fixture';
 import type { DemoProgressSnapshot } from '@/features/progress/types';
 import { planPosition, todayPlanItems } from '@/features/study-plan/today';
+import { parseStoredPlan } from '@/features/study-plan/parse';
 import type { StudyPlan } from '@/features/study-plan/types';
 import { csrfHeaders } from '@/lib/auth/cookies';
 import { dashboardBadgeCopy, planStatusCopy, planTodayCopy } from '@/lib/progress/copy';
@@ -41,8 +42,8 @@ type GuestPlanStatus = Readonly<{ plan: StudyPlan; done: Record<string, boolean>
 // never a broken dashboard.
 function readGuestPlan(courseSlug: string): GuestPlanStatus | null {
   try {
-    const saved = JSON.parse(localStorage.getItem(`verbalibera_plan:${courseSlug}`) ?? 'null') as StudyPlan | null;
-    if (!saved || !Array.isArray(saved.weeks)) return null;
+    const saved = parseStoredPlan(JSON.parse(localStorage.getItem(`verbalibera_plan:${courseSlug}`) ?? 'null'), courseSlug);
+    if (!saved) return null;
     const flags = JSON.parse(
       localStorage.getItem(`verbalibera_plan_done:${courseSlug}`) ?? 'null',
     ) as Record<string, boolean> | null;
@@ -69,7 +70,7 @@ export function DailyPathDashboard({ progress, requestedCourseSlug }: DailyPathD
   const selectedCourse = progress.courses[selectedCourseIndex] ?? progress.courses[0];
   const [guestPlan, setGuestPlan] = useState<GuestPlanStatus | null>(null);
   useEffect(() => {
-    if (typeof window === 'undefined' || !selectedCourse) return;
+    if (!isPreview || typeof window === 'undefined' || !selectedCourse) return;
     // Deferred like the plan builder: read storage after paint so the effect
     // never sets state synchronously (cascading-render lint).
     const slug = selectedCourse.slug;
@@ -77,7 +78,7 @@ export function DailyPathDashboard({ progress, requestedCourseSlug }: DailyPathD
       setGuestPlan(readGuestPlan(slug));
     }, 0);
     return () => clearTimeout(timer);
-  }, [selectedCourse]);
+  }, [selectedCourse, isPreview]);
   const isBlank = progress.dueReviewCount === 0 && progress.dailyGoal.completed === 0;
 
   if (!selectedCourse) {
@@ -103,16 +104,17 @@ export function DailyPathDashboard({ progress, requestedCourseSlug }: DailyPathD
   const goalLabel = `${progress.dailyGoal.completed} of ${progress.dailyGoal.target} daily steps`;
   // The stored plan belongs to its own course — never show a previous
   // selection's status while the fresh read is still deferred.
+  const activePlan = isPreview ? guestPlan : progress.studyPlans?.[selectedCourse.slug];
   const planSummary =
-    guestPlan && guestPlan.plan.courseSlug === selectedCourse.slug
+    activePlan && activePlan.plan.courseSlug === selectedCourse.slug
       ? {
         status: planStatusCopy({
-          week: planPosition(guestPlan.plan, guestPlan.done).currentWeek,
-          weekCount: planPosition(guestPlan.plan, guestPlan.done).weekCount,
-          targetLevel: guestPlan.plan.targetLevel,
+          week: planPosition(activePlan.plan, activePlan.done).currentWeek,
+          weekCount: planPosition(activePlan.plan, activePlan.done).weekCount,
+          targetLevel: activePlan.plan.targetLevel,
         }),
-        today: planTodayCopy({ count: todayPlanItems(guestPlan.plan, guestPlan.done).length }),
-        frontierNote: guestPlan.plan.frontier?.note ?? null,
+        today: planTodayCopy({ count: isPreview ? todayPlanItems(activePlan.plan, activePlan.done).length : progress.session.filter(step => step.courseSlug === selectedCourse.slug && step.id.startsWith('plan-')).length }),
+        frontierNote: activePlan.plan.frontier?.note ?? null,
       }
     : null;
   const hasSelectedSession =

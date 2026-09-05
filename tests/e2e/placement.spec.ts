@@ -32,5 +32,5 @@ test('dashboard links to the placement quiz', async ({ page }) => {
 
 test('Italian placement checks available beginner patterns', async ({ page }) => {
   await page.goto('/learn/english-to-italian/placement');
-  await expect(page.getByText(/placement · question 1 of 8/i)).toBeVisible();
+  await expect(page.getByText(/placement · question 1 of 15/i)).toBeVisible();
 });

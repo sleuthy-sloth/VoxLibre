@@ -1,3 +1,4 @@
+import type { StudyPlan } from '@/features/study-plan/types';
 import type { SessionStep } from '@/features/session/compose-session';
 export type DemoProgressSnapshot = Readonly<{
   isPreview?: boolean;
@@ -14,6 +15,7 @@ export type DemoProgressSnapshot = Readonly<{
     completionPercent: number;
   }>[];
   session: readonly SessionStep[];
+  studyPlans?: Readonly<Record<string, { plan: StudyPlan; done: Record<string, boolean> }>>;
   contentVersion: string | null;
   /**
    * UTC ISO-8601 snapshot time (new Date().toISOString()) used for

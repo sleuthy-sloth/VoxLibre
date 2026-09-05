@@ -143,3 +143,21 @@ describe('planPosition', () => {
     expect(advanced.currentWeek).toBe(plan.weeks.length > 1 ? 2 : 1);
   });
 });
+
+import { practicePlanItems } from '@/features/study-plan/today';
+it.each([5, 8, 15] as const)('can finish every generated drill at a %i-minute pace without a teaching-only loop', minutesPerDay => {
+  for (const daysPerWeek of [1, 2, 5, 7]) {
+    const plan = generatePlan({ ...BASE, minutesPerDay, daysPerWeek }, FRENCH);
+    const completed = new Set<string>();
+    const required = new Set(plan.weeks.flatMap(week => week.items).flatMap(item => item.drillId ? [item.drillId] : []));
+    for (let session = 0; session <= required.size; session++) {
+      const items = practicePlanItems(plan, planDoneKeys(plan, completed), Math.min(14, minutesPerDay));
+      if (!items.length) break;
+      const drills = items.filter(item => item.mode === 'drill');
+      expect(drills.length).toBeGreaterThan(0);
+      expect(items.length).toBeLessThanOrEqual(Math.min(14, minutesPerDay));
+      for (const drill of drills) completed.add(drill.drillId!);
+    }
+    expect(completed).toEqual(required);
+  }
+});

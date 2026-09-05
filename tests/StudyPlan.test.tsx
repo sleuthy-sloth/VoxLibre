@@ -164,3 +164,37 @@ it('gives repeated scheduled reviews independent identities and readable labels'
   expect(new Set(inputs.map(input => input.id)).size).toBe(inputs.length);
   expect(screen.queryByText(/fr-greet-politely/)).not.toBeInTheDocument();
 });
+
+import { PlanSection } from '@/components/plan/PlanSection';
+import { waitFor } from '@testing-library/react';
+import { afterEach } from 'vitest';
+afterEach(() => vi.unstubAllGlobals());
+describe('account plan editor', () => {
+  it('loads the account plan without adopting a guest plan', async () => {
+    localStorage.setItem('verbalibera_plan:english-to-french', JSON.stringify(frenchPlan()));
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(Response.json({ userId: 'user-a', plan: null, done: {} })));
+    render(<PlanSection courseSlug="english-to-french" userId="user-a" />);
+    expect(await screen.findByRole('button', { name: /save my plan/i })).toBeInTheDocument();
+    expect(screen.queryByRole('checkbox')).not.toBeInTheDocument();
+  });
+  it('keeps the builder available when account saving fails', async () => {
+    const fetcher = vi.fn().mockResolvedValueOnce(Response.json({ userId: 'user-a', plan: null, done: {} })).mockResolvedValueOnce(Response.json({ error: 'Your plan was not saved. Please retry.' }, { status: 503 }));
+    vi.stubGlobal('fetch', fetcher);
+    render(<PlanSection courseSlug="english-to-french" userId="user-a" />);
+    await userEvent.click(await screen.findByRole('button', { name: /save my plan/i }));
+    expect(await screen.findByRole('alert')).toHaveTextContent(/not saved/i);
+    expect(screen.getByRole('button', { name: /save my plan/i })).toBeInTheDocument();
+    expect(localStorage.getItem('verbalibera_plan:english-to-french')).toBeNull();
+  });
+  it('loads saved account progress as automatic completion, and resets on the server', async () => {
+    const fetcher = vi.fn().mockResolvedValueOnce(Response.json({ userId: 'user-a', plan: frenchPlan(), done: { '0:0:teach:fr-greet-politely:': true } })).mockResolvedValueOnce(Response.json({ saved: true }));
+    vi.stubGlobal('fetch', fetcher);
+    render(<PlanSection courseSlug="english-to-french" userId="user-a" />);
+    const boxes = await screen.findAllByRole('checkbox');
+    expect(boxes[0]).toBeChecked();
+    expect(boxes[0]).toBeDisabled();
+    await userEvent.click(screen.getByRole('button', { name: /start over/i }));
+    await waitFor(() => expect(screen.getByRole('button', { name: /save my plan/i })).toBeInTheDocument());
+    expect(fetcher).toHaveBeenLastCalledWith(expect.stringContaining('userId=user-a'), expect.objectContaining({ method: 'DELETE' }));
+  });
+});

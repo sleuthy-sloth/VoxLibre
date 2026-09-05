@@ -1,3 +1,6 @@
+import { cookies } from 'next/headers';
+import { sessionTokenFromCookies } from '@/lib/auth/cookies';
+import { verifySessionToken } from '@/lib/auth/session';
 import Link from 'next/link';
 import { PlanSection } from '@/components/plan/PlanSection';
 import { initialCourses } from '@/features/curriculum/fixture';
@@ -20,5 +23,7 @@ export default async function StudyPlanPage({
     );
   }
 
-  return <PlanSection courseSlug={courseSlug} />;
+  const token = sessionTokenFromCookies((await cookies()).toString());
+  const session = token ? await verifySessionToken(token) : null;
+  return <PlanSection key={`${courseSlug}:${session?.userId ?? 'guest'}`} courseSlug={courseSlug} userId={session?.userId ?? null} />;
 }
