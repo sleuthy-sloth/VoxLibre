@@ -1,0 +1,116 @@
+{
+  "clips": [
+    {
+      "id": "it-identity-foundation-model",
+      "text": "Io sono Anna.",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-identity-foundation-model.wav"
+    },
+    {
+      "id": "it-people-foundation-model",
+      "text": "Tu sei Marco.",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-people-foundation-model.wav"
+    },
+    {
+      "id": "it-family-foundation-model",
+      "text": "Ho un fratello.",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-family-foundation-model.wav"
+    },
+    {
+      "id": "it-numbers-foundation-model",
+      "text": "Ho venti anni.",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-numbers-foundation-model.wav"
+    },
+    {
+      "id": "it-home-foundation-model",
+      "text": "Ho una casa.",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-home-foundation-model.wav"
+    },
+    {
+      "id": "it-descriptions-foundation-model",
+      "text": "La casa è bianca.",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-descriptions-foundation-model.wav"
+    },
+    {
+      "id": "it-plural-foundation-model",
+      "text": "I libri sono bianchi.",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-plural-foundation-model.wav"
+    },
+    {
+      "id": "it-routine-foundation-model",
+      "text": "Studio ogni giorno.",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-routine-foundation-model.wav"
+    },
+    {
+      "id": "it-negation-foundation-model",
+      "text": "Non lavoro in casa.",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-negation-foundation-model.wav"
+    },
+    {
+      "id": "it-food-foundation-model",
+      "text": "Prendo un caffè.",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-food-foundation-model.wav"
+    },
+    {
+      "id": "it-possession-foundation-model",
+      "text": "La mia casa è bianca.",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-possession-foundation-model.wav"
+    },
+    {
+      "id": "it-transport-foundation-model",
+      "text": "Vado alla stazione.",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-transport-foundation-model.wav"
+    },
+    {
+      "id": "it-requests-foundation-model",
+      "text": "Posso prendere un caffè?",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-requests-foundation-model.wav"
+    },
+    {
+      "id": "it-reflexive-foundation-model",
+      "text": "Mi alzo alle sette.",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-reflexive-foundation-model.wav"
+    },
+    {
+      "id": "it-past-foundation-model",
+      "text": "Ho studiato in casa.",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-past-foundation-model.wav"
+    },
+    {
+      "id": "it-plans-foundation-model",
+      "text": "Domani vado a Roma.",
+      "language": "it",
+      "voice": "if_sara",
+      "filename": "it-plans-foundation-model.wav"
+    }
+  ]
+}

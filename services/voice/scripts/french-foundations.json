@@ -1,0 +1,116 @@
+{
+  "clips": [
+    {
+      "id": "fr-identity-foundation-model",
+      "text": "Je suis Anna.",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-identity-foundation-model.wav"
+    },
+    {
+      "id": "fr-people-foundation-model",
+      "text": "Tu es Marc.",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-people-foundation-model.wav"
+    },
+    {
+      "id": "fr-family-foundation-model",
+      "text": "J’ai un frère.",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-family-foundation-model.wav"
+    },
+    {
+      "id": "fr-numbers-foundation-model",
+      "text": "J’ai trente ans.",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-numbers-foundation-model.wav"
+    },
+    {
+      "id": "fr-home-foundation-model",
+      "text": "J’ai une maison.",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-home-foundation-model.wav"
+    },
+    {
+      "id": "fr-descriptions-foundation-model",
+      "text": "La maison est blanche.",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-descriptions-foundation-model.wav"
+    },
+    {
+      "id": "fr-plural-foundation-model",
+      "text": "Les livres sont blancs.",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-plural-foundation-model.wav"
+    },
+    {
+      "id": "fr-routine-foundation-model",
+      "text": "J’étudie chaque jour.",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-routine-foundation-model.wav"
+    },
+    {
+      "id": "fr-negation-foundation-model",
+      "text": "Je ne travaille pas.",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-negation-foundation-model.wav"
+    },
+    {
+      "id": "fr-questions-foundation-model",
+      "text": "Est-ce que tu travailles ?",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-questions-foundation-model.wav"
+    },
+    {
+      "id": "fr-food-foundation-model",
+      "text": "Je prends un café.",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-food-foundation-model.wav"
+    },
+    {
+      "id": "fr-possession-foundation-model",
+      "text": "Ma maison est blanche.",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-possession-foundation-model.wav"
+    },
+    {
+      "id": "fr-transport-foundation-model",
+      "text": "Tu vas à Paris ?",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-transport-foundation-model.wav"
+    },
+    {
+      "id": "fr-requests-foundation-model",
+      "text": "Est-ce que je peux prendre un café ?",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-requests-foundation-model.wav"
+    },
+    {
+      "id": "fr-past-foundation-model",
+      "text": "Hier, j’ai étudié.",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-past-foundation-model.wav"
+    },
+    {
+      "id": "fr-plans-foundation-model",
+      "text": "Demain, je vais étudier.",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "filename": "fr-plans-foundation-model.wav"
+    }
+  ]
+}

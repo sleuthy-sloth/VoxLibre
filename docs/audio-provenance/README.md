@@ -7,6 +7,8 @@ and verified by `services/voice/scripts/reconcile_provenance.py`.
 
 | manifest | provenance | language | voice | clip count |
 | -------- | ---------- | -------- | ----- | ---------- |
+| `services/voice/scripts/italian-foundations.json` | `italian-foundations.json` | it | `if_sara` | 16 |
+| `services/voice/scripts/french-foundations.json` | `french-foundations.json` | fr | `ff_siwis` | 16 |
 | `services/voice/scripts/french-ordering-pilot.json` | `french-ordering-pilot.json` | fr | `ff_siwis` | 2 |
 | `services/voice/scripts/italian-patterns.json` | `italian-patterns.json` | it | `if_sara` | 10 |
 | `services/voice/scripts/french-polish.json` | `french-polish.json` | fr | `ff_siwis` | 8 |

@@ -1,21 +1,21 @@
 {
   "id": "it-foundations",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "level": "A1 foundations (partial syllabus)",
   "lessons": 16,
   "concepts": 16,
   "vocabulary": 64,
-  "exercises": 96,
+  "exercises": 112,
   "kinds": {
     "translate": 47,
     "order": 16,
     "cloze": 16,
     "reading": 16,
-    "dictation": 1
+    "dictation": 17
   },
-  "audioClips": 1,
-  "lessonsWithAudio": 1,
-  "packBytes": 88032,
+  "audioClips": 17,
+  "lessonsWithAudio": 16,
+  "packBytes": 102772,
   "answerCoverage": "100%",
   "note": "Graph and declared vocabulary references validated. Translation truth and undeclared words still require editorial review."
 }

@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "clips": [
+    {
+      "id": "fr-identity-foundation-model",
+      "filename": "fr-identity-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "180b7eaeffcdbdfe68353842044c2841e8fa4084edcf8344aa64264483e8ac85",
+      "audio_sha256": "01192a55a7f0e7ec5d13a0261249c298d22176f1b7f8b316db529e4dd8ee38d1",
+      "content_type": "audio/wav",
+      "bytes": 76844
+    },
+    {
+      "id": "fr-people-foundation-model",
+      "filename": "fr-people-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "5b5ea8a7cef90cd9ed1af79880474d01360774eb9f6a3cd9e708f42e90b7a534",
+      "audio_sha256": "142050a481ea2bd94348d37119892f9bc450d033f9bba1ed20d4c642cbd3d5a4",
+      "content_type": "audio/wav",
+      "bytes": 69644
+    },
+    {
+      "id": "fr-family-foundation-model",
+      "filename": "fr-family-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "8b0abc4dfa9cfeff6cb59c547915eccb498d0b15af1ee1568d9e32bf51934aca",
+      "audio_sha256": "d0aaa8709bd8dfabade6e9421770c2dec210f472c1917baa4954a9d2f644285b",
+      "content_type": "audio/wav",
+      "bytes": 78044
+    },
+    {
+      "id": "fr-numbers-foundation-model",
+      "filename": "fr-numbers-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "954998e94462f400f29c3524103336be5d62b5ac2b4b2b3ff8ffa0a9c692897f",
+      "audio_sha256": "8873c779878931a9f28425533e7ade6667f73c72c2db014cd9b1c498519a60ee",
+      "content_type": "audio/wav",
+      "bytes": 73244
+    },
+    {
+      "id": "fr-home-foundation-model",
+      "filename": "fr-home-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "4aa496cc639e2e252321792bcb1191c9dfd10c5fb18a1372b9d12796bb3f24cd",
+      "audio_sha256": "f28f0b6bec99f7c0d8e8e6fe1a75cae055cba75bd98234bfd919eef6757b59a8",
+      "content_type": "audio/wav",
+      "bytes": 75644
+    },
+    {
+      "id": "fr-descriptions-foundation-model",
+      "filename": "fr-descriptions-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "1f8c499f70b6a3f941f2d6479fc0caaeebd0474571345e294dee7fdd930c32a3",
+      "audio_sha256": "1899ecde8476dae477f3df84742a1d43408440691ec9f7b8fded7d48f74c6fa0",
+      "content_type": "audio/wav",
+      "bytes": 92444
+    },
+    {
+      "id": "fr-plural-foundation-model",
+      "filename": "fr-plural-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "a679a61f19560b89547b59d4c65b74523b046c7c141fe91405872f140d3274aa",
+      "audio_sha256": "78c8b23d2df2a30c5628533a92ceb2eac096d969af4cdf7fcea9f2c3bc79b550",
+      "content_type": "audio/wav",
+      "bytes": 86444
+    },
+    {
+      "id": "fr-routine-foundation-model",
+      "filename": "fr-routine-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "08f76c68000ad9208c564b1e855905ab20a351f3300341d0088d55933da12181",
+      "audio_sha256": "7f78b1dbacd7ac3ad8341bfc8f994b8d15dcd302eedf9007ece9c5d0f44b4cad",
+      "content_type": "audio/wav",
+      "bytes": 90044
+    },
+    {
+      "id": "fr-negation-foundation-model",
+      "filename": "fr-negation-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "0244cb25ffad27bb507d8d245711cec728948f4ad7041f99d3d6494d22cc736e",
+      "audio_sha256": "ac52e76536154ccd29e9c8dacf352bc486f7d30efa91fad2727b03886c5afb44",
+      "content_type": "audio/wav",
+      "bytes": 82844
+    },
+    {
+      "id": "fr-questions-foundation-model",
+      "filename": "fr-questions-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "265e070db72a337afdd2decb2a175cbb2f67c933997561b030ee97c8625f140c",
+      "audio_sha256": "cfec09d71c572866296fcb3b5c341e2f722f7a075f26b15cb1fd6fd575de1547",
+      "content_type": "audio/wav",
+      "bytes": 92444
+    },
+    {
+      "id": "fr-food-foundation-model",
+      "filename": "fr-food-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "11ead1ed6c27bb7feed53c95cff9a4914cd0f8fb994288afef1f771b47420ca7",
+      "audio_sha256": "3dc46685e86d6d092b7ad108451ba05409604b02ed171dbc45dd239d6ba65e40",
+      "content_type": "audio/wav",
+      "bytes": 84044
+    },
+    {
+      "id": "fr-possession-foundation-model",
+      "filename": "fr-possession-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "ba9da05a4c57f8e4793ac6abab79ee5e1e2b56e6115552c2c2089b6ebb8dd6d0",
+      "audio_sha256": "6086e724f50cae59030de066fc2440e6ae35311bda66bbb6af0b364546c64b06",
+      "content_type": "audio/wav",
+      "bytes": 90044
+    },
+    {
+      "id": "fr-transport-foundation-model",
+      "filename": "fr-transport-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "00d232186af7afa3aa00f9e64a569f3239b94aa6e57677a0db7de0cf222a8a0a",
+      "audio_sha256": "43f5120d469184a87b3324d1f29981a0cf98138c3779983bae121ce1eb79a0e3",
+      "content_type": "audio/wav",
+      "bytes": 79244
+    },
+    {
+      "id": "fr-requests-foundation-model",
+      "filename": "fr-requests-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "f346c305c83024e2b95b904aff60a25776aa74f0da4a92daa792cd318b91e814",
+      "audio_sha256": "fe791e0dbde7c1810489261ed9646a8dd291c3b430c30c7bc60d6c658b4281c0",
+      "content_type": "audio/wav",
+      "bytes": 112844
+    },
+    {
+      "id": "fr-past-foundation-model",
+      "filename": "fr-past-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "cf6e2921ab14a9d25ed34c78d1be987c93857615addd1cf723346f91af55dfd5",
+      "audio_sha256": "321b09a840f7b81cb9fd41607901057449fbf06e2798e793241492e46406cfdf",
+      "content_type": "audio/wav",
+      "bytes": 84044
+    },
+    {
+      "id": "fr-plans-foundation-model",
+      "filename": "fr-plans-foundation-model.wav",
+      "language": "fr",
+      "voice": "ff_siwis",
+      "text_sha256": "53d3c4f284e86612294f4f4df8d5105c245bb600dc1832ef7b2363bad6250c76",
+      "audio_sha256": "9162c7519074c0c4bddcecb9a6fbf7c2bc2077bf1682c4024a572b9ba7bf97da",
+      "content_type": "audio/wav",
+      "bytes": 96044
+    }
+  ],
+  "model": "kokoro@0.9.4",
+  "model_repository": "hexgrad/Kokoro-82M",
+  "exported_at": "2026-09-05",
+  "manifest": "services/voice/scripts/french-foundations.json",
+  "review": "Waveform and transcription pre-screen; native-speaker prosody review pending."
+}

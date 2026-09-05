@@ -1,8 +1,8 @@
 [
   {
     "path": "public/study.js",
-    "bytes": 658612,
-    "gzipBytes": 158370
+    "bytes": 664203,
+    "gzipBytes": 160035
   },
   {
     "path": "public/study.css",
@@ -11,12 +11,12 @@
   },
   {
     "path": "public/packs/italian.json",
-    "bytes": 88032,
-    "gzipBytes": 10806
+    "bytes": 102772,
+    "gzipBytes": 12964
   },
   {
     "path": "public/packs/french.json",
-    "bytes": 90196,
-    "gzipBytes": 10865
+    "bytes": 105103,
+    "gzipBytes": 13060
   }
 ]

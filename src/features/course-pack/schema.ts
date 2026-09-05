@@ -88,6 +88,7 @@ const lessonSchema = z.object({
     .max(6),
   culturalNote: text.optional(),
   exercises: z.array(exerciseSchema).min(4),
+  optionalExerciseIds: z.array(id).default([]),
 });
 export const packSchema = z.object({
   schemaVersion: z.literal(1),
@@ -208,6 +209,9 @@ export function validatePack(raw: unknown): CoursePack {
   for (const l of p.lessons) {
     if (!units.has(l.unitId)) fail(`unknown unit in ${l.id}`);
     usedUnits.add(l.unitId);
+    const optional = unique(l.optionalExerciseIds, "optional exercise");
+    if (l.optionalExerciseIds.some(id => !l.exercises.some(e => e.id === id))) fail(`unknown optional exercise in ${l.id}`);
+    if (l.exercises.filter(e => !optional.has(e.id)).length < 4) fail(`optional exercises leave too little required practice in ${l.id}`);
     for (const prerequisite of l.prerequisites)
       if (!lessons.has(prerequisite) || !visited.has(prerequisite))
         fail(`prerequisite is missing, circular or out of order in ${l.id}`);

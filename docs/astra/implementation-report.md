@@ -2,6 +2,16 @@
 
 The initial slice described below delivers an additive Italian/French foundation course system with genuine offline practice and deterministic grading. It is a substantial working foundation, not a complete A1–C2 curriculum or completion of every requested phase. Existing travel courses, accounts, database schema, placement, study plans, Anki and local voice remain available.
 
+## Latest continuation: listening and final verification
+
+Foundation packs are now version 1.1.0: 32 lessons, **224 exercises**, and **32 newly generated recordings** (16 per language, in addition to the two reused recordings). Every lesson offers model playback and optional dictation with slow replay. Optional exercise IDs preserve previous text completion and maintain separate listening evidence. Numeric notation is accepted where equivalent. See [listening authoring and QA](foundation-listening.md) and the [full phase-status tracker](phase-status.md).
+
+All 32 new waveforms passed rate/duration/silence/clipping checks. Local Whisper matched 26/32 transcripts after punctuation/case normalization; the remaining six were reviewed as homophones or numeric notation, as detailed in the raw report. Native-speaker listening/prosody review remains open. Runtime TTS is not required. New WAV storage is 1,489,904 bytes Italian and 1,363,904 bytes French. The shared offline bundle is 664,203 bytes raw / 160,035 gzip; see the current [asset report](reports/asset-sizes.json).
+
+Final verification after both continuations: **408 unit/component tests**, **26 Chromium production E2E tests**, **4 WebKit tests**, **37 Python tests**, production build and TypeScript passed. Lint has zero errors and the same 18 existing warnings. Browser tests verify actual audio playback, slow replay, listening evidence, and Chromium offline playback. WebKit retains one explicitly skipped offline-emulation scenario; physical Safari offline verification remains open. Italian/French layouts at 320/390/430/844/1280 pixels had no overflow, audited lesson views had zero axe violations, and the visual-QA traversal had no browser exceptions or console errors. [Listening mobile screenshot](screenshots/listening-french-390.png).
+
+Both continuations received independent code review with no important unresolved findings. No remote database writes, pushes or deployments occurred. The Docker disk-space limitation from the initial slice remains unresolved and no repeated image build was attempted.
+
 ## Continuation: account synchronization
 
 Added explicit account/guest selection, isolated local databases and authenticated two-way event synchronization. Reviews, derived completion and concept evidence now follow the account across browsers. Offline saves upload on reconnect. Conflicting mutation payloads fail atomically, concurrent identical uploads count once, and a changed session cannot receive another account’s pending work. Guest data is never uploaded automatically. Deployment requires the additive `20260905140000_foundation_practice` migration; it was applied only to the isolated local test database.

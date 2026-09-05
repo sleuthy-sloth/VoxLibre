@@ -76,7 +76,7 @@ export function completedLessons(
   const progress = projectProgress(pack, events);
   return new Set(
     pack.lessons
-      .filter((l) => l.exercises.every((e) => progress[e.id]?.successes > 0))
+      .filter((l) => l.exercises.every((e) => l.optionalExerciseIds.includes(e.id) || progress[e.id]?.successes > 0))
       .map((l) => l.id),
   );
 }

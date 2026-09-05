@@ -1,10 +1,10 @@
 # Curriculum system
 
-Original foundation packs live in `courses/italian/manifest.json` and `courses/french/manifest.json`. Each has 4 units, 16 lessons, 16 linked concepts, 64 vocabulary/expression records, 96 exercises, 16 short readings, two branching conversations, and one existing attributed recording. These supplement the existing four eight-pattern travel courses; they are not complete A1 syllabuses.
+Original foundation packs live in `courses/italian/manifest.json` and `courses/french/manifest.json`. Each has 4 units, 16 lessons, 16 linked concepts, 64 vocabulary/expression records, 112 exercises, 16 short readings, two branching conversations, and 17 attributed recordings (16 newly authored models and one reused café clip). These supplement the existing four eight-pattern travel courses; they are not complete A1 syllabuses.
 
 The sequence starts with identity, people, family and age; builds articles, descriptions, number and daily activity; then introduces requests, destinations, the past and plans. French explicitly teaches obligatory subjects, elision, written negation, est-ce que and aller + infinitive. Italian teaches omitted subjects, noun/adjective agreement, non, reflexive routines and present-tense future plans. Both only introduce the first-person past with avere/avoir; full auxiliary selection is future work.
 
-Every lesson has an objective, prerequisites, explanation, at least two worked examples, a bounded glossary and controlled/retrieval/reading practice. Later lessons retrieve a previous model. Listening exists only where a real media asset is declared; the learner sees a text-only notice elsewhere. Native-speaker editorial and listening review remain outstanding. Parenthetical gender guidance belongs in teaching, not required answer text.
+Every lesson has an objective, prerequisites, explanation, at least two worked examples, a bounded glossary and controlled/retrieval/reading practice. Later lessons retrieve a previous model. Every lesson has a real model recording and an optional listening exercise. Optional IDs are validated against the lesson and excluded from required completion so audio additions preserve previous text completion. Native-speaker editorial and listening review remain outstanding. Parenthetical gender guidance belongs in teaching, not required answer text.
 
 ## Contracts and authoring
 

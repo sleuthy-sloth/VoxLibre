@@ -6,6 +6,12 @@ Use `E2E_BASE_URL` for a production server. The real-account scenario additional
 
 This run migrated and seeded an isolated Postgres 16 container on loopback port 55439, and ran the production application on port 3210. No remote database was migrated, seeded or used for account-test writes.
 
+## Latest continuation results
+
+408 unit/component tests; 26 Chromium production E2E; 4 WebKit tests with one offline-emulation skip; 37 Python tests. Build/typecheck pass; lint remains at 0 errors and 18 pre-existing warnings. Foundation synchronization tests cover two isolated browser stores, guest isolation, offline save/reconnect, concurrent duplicate delivery, conflicting-batch rollback and expected-account checks. Listening tests exercise actual playback, rate changes, saved listening evidence and Chromium offline audio.
+
+`node scripts/qa-courses.mjs` records representative screenshots and axe/overflow checks against `QA_BASE_URL` (default localhost:3210). `scripts/qa-foundation-audio.py` is a separate authoring pre-screen requiring the existing voice environment and locally cached Whisper model; transcript differences need review, not blind acceptance.
+
 ## Automated coverage
 
 Pack compatibility/types, graph/reference errors, vocabulary limits, deterministic normalization and authored variants, accent/typo distinctions, missing/order errors, idempotent events, hint discounting, mode-separated concept summaries, recovered-mistake scheduling and lesson progression are unit-tested. Browser tests complete French teaching/practice and unlock the next lesson, exercise dialogue recovery, search references, switch languages, and save/reload practice offline. A reading regression checks that translation help prevents unaided-recall credit. Existing auth, PWA, review and voice tests remain.

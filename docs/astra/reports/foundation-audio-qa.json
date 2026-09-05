@@ -1,0 +1,226 @@
+[
+  {
+    "id": "it-identity-foundation-model",
+    "expected": "Io sono Anna.",
+    "heard": "Io sono Anna.",
+    "match": true,
+    "seconds": 1.8
+  },
+  {
+    "id": "it-people-foundation-model",
+    "expected": "Tu sei Marco.",
+    "heard": "tu sei Marco",
+    "match": true,
+    "seconds": 1.75
+  },
+  {
+    "id": "it-family-foundation-model",
+    "expected": "Ho un fratello.",
+    "heard": "o un fratello",
+    "match": false,
+    "seconds": 1.75
+  },
+  {
+    "id": "it-numbers-foundation-model",
+    "expected": "Ho venti anni.",
+    "heard": "o 20 anni",
+    "match": false,
+    "seconds": 1.75
+  },
+  {
+    "id": "it-home-foundation-model",
+    "expected": "Ho una casa.",
+    "heard": "o una casa",
+    "match": false,
+    "seconds": 1.65
+  },
+  {
+    "id": "it-descriptions-foundation-model",
+    "expected": "La casa è bianca.",
+    "heard": "La casa è bianca.",
+    "match": true,
+    "seconds": 2.025
+  },
+  {
+    "id": "it-plural-foundation-model",
+    "expected": "I libri sono bianchi.",
+    "heard": "I libri sono bianchi.",
+    "match": true,
+    "seconds": 2.175
+  },
+  {
+    "id": "it-routine-foundation-model",
+    "expected": "Studio ogni giorno.",
+    "heard": "Studio ogni giorno.",
+    "match": true,
+    "seconds": 1.95
+  },
+  {
+    "id": "it-negation-foundation-model",
+    "expected": "Non lavoro in casa.",
+    "heard": "Non lavoro in casa.",
+    "match": true,
+    "seconds": 1.95
+  },
+  {
+    "id": "it-food-foundation-model",
+    "expected": "Prendo un caffè.",
+    "heard": "prendo un caffè",
+    "match": true,
+    "seconds": 1.8
+  },
+  {
+    "id": "it-possession-foundation-model",
+    "expected": "La mia casa è bianca.",
+    "heard": "La mia casa è bianca.",
+    "match": true,
+    "seconds": 2.15
+  },
+  {
+    "id": "it-transport-foundation-model",
+    "expected": "Vado alla stazione.",
+    "heard": "Vado alla stazione.",
+    "match": true,
+    "seconds": 1.975
+  },
+  {
+    "id": "it-requests-foundation-model",
+    "expected": "Posso prendere un caffè?",
+    "heard": "Posso prendere un caffè?",
+    "match": true,
+    "seconds": 2.25
+  },
+  {
+    "id": "it-reflexive-foundation-model",
+    "expected": "Mi alzo alle sette.",
+    "heard": "Mi alzo alle 7.",
+    "match": false,
+    "seconds": 1.975
+  },
+  {
+    "id": "it-past-foundation-model",
+    "expected": "Ho studiato in casa.",
+    "heard": "ho studiato in casa",
+    "match": true,
+    "seconds": 2.05
+  },
+  {
+    "id": "it-plans-foundation-model",
+    "expected": "Domani vado a Roma.",
+    "heard": "Domani vado a Roma.",
+    "match": true,
+    "seconds": 2.025
+  },
+  {
+    "id": "fr-identity-foundation-model",
+    "expected": "Je suis Anna.",
+    "heard": "Je suis Anna.",
+    "match": true,
+    "seconds": 1.6
+  },
+  {
+    "id": "fr-people-foundation-model",
+    "expected": "Tu es Marc.",
+    "heard": "Tu es marque.",
+    "match": false,
+    "seconds": 1.45
+  },
+  {
+    "id": "fr-family-foundation-model",
+    "expected": "J’ai un frère.",
+    "heard": "J'ai un frère.",
+    "match": true,
+    "seconds": 1.625
+  },
+  {
+    "id": "fr-numbers-foundation-model",
+    "expected": "J’ai trente ans.",
+    "heard": "J'ai 30 ans.",
+    "match": false,
+    "seconds": 1.525
+  },
+  {
+    "id": "fr-home-foundation-model",
+    "expected": "J’ai une maison.",
+    "heard": "J'ai une maison.",
+    "match": true,
+    "seconds": 1.575
+  },
+  {
+    "id": "fr-descriptions-foundation-model",
+    "expected": "La maison est blanche.",
+    "heard": "La maison est blanche.",
+    "match": true,
+    "seconds": 1.925
+  },
+  {
+    "id": "fr-plural-foundation-model",
+    "expected": "Les livres sont blancs.",
+    "heard": "Les livres sont blancs.",
+    "match": true,
+    "seconds": 1.8
+  },
+  {
+    "id": "fr-routine-foundation-model",
+    "expected": "J’étudie chaque jour.",
+    "heard": "J'étudie chaque jour.",
+    "match": true,
+    "seconds": 1.875
+  },
+  {
+    "id": "fr-negation-foundation-model",
+    "expected": "Je ne travaille pas.",
+    "heard": "Je ne travaille pas.",
+    "match": true,
+    "seconds": 1.725
+  },
+  {
+    "id": "fr-questions-foundation-model",
+    "expected": "Est-ce que tu travailles ?",
+    "heard": "Est-ce que tu travailles ?",
+    "match": true,
+    "seconds": 1.925
+  },
+  {
+    "id": "fr-food-foundation-model",
+    "expected": "Je prends un café.",
+    "heard": "Je prends un café.",
+    "match": true,
+    "seconds": 1.75
+  },
+  {
+    "id": "fr-possession-foundation-model",
+    "expected": "Ma maison est blanche.",
+    "heard": "Ma maison est blanche.",
+    "match": true,
+    "seconds": 1.875
+  },
+  {
+    "id": "fr-transport-foundation-model",
+    "expected": "Tu vas à Paris ?",
+    "heard": "Tu vas à Paris.",
+    "match": true,
+    "seconds": 1.65
+  },
+  {
+    "id": "fr-requests-foundation-model",
+    "expected": "Est-ce que je peux prendre un café ?",
+    "heard": "Est-ce que je peux prendre un café ?",
+    "match": true,
+    "seconds": 2.35
+  },
+  {
+    "id": "fr-past-foundation-model",
+    "expected": "Hier, j’ai étudié.",
+    "heard": "Hier, j'ai étudié.",
+    "match": true,
+    "seconds": 1.75
+  },
+  {
+    "id": "fr-plans-foundation-model",
+    "expected": "Demain, je vais étudier.",
+    "heard": "Demain, je vais étudier.",
+    "match": true,
+    "seconds": 2.0
+  }
+]

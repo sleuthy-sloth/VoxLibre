@@ -16,7 +16,7 @@ test("Italian teaches, checks locally, saves practice and survives an offline co
   await page
     .getByRole("button", { name: "Names and introductions", exact: true })
     .click();
-  await expect(page.getByText("Io sono Anna.", { exact: true })).toBeVisible();
+  await expect(page.getByText("Io sono Anna.", { exact: true }).first()).toBeVisible();
   await page
     .getByRole("button", { name: "Begin practice", exact: true })
     .click();
@@ -158,3 +158,29 @@ test("a complete French lesson unlocks the next lesson and a dialogue can recove
     meeting.getByText("Conversation complete. You reached the goal."),
   ).toBeVisible();
 });
+
+for (const [language, answer] of [['italian', 'Io sono Anna.'], ['french', 'Je suis Anna.']]) {
+  test(`${language} model audio plays and optional listening saves a separate recall`, async ({ page, context, browserName }) => {
+    await page.goto(`/courses/${language}`);
+    if (browserName === 'chromium') {
+      await page.getByRole('button', { name: 'Download for offline study', exact: true }).click();
+      await expect(page.getByText('Downloaded. You can open offline study without a connection.', { exact: true })).toBeVisible();
+      await context.setOffline(true);
+      await page.goto(`/study.html?language=${language}`);
+    }
+    await page.getByRole('button', { name: 'Names and introductions', exact: true }).click();
+    await page.getByRole('button', { name: 'Practice listening', exact: true }).click();
+    const audio = page.getByLabel('Dictation audio', { exact: true });
+    await audio.evaluate(async (element: HTMLAudioElement) => { await element.play(); });
+    await expect.poll(() => audio.evaluate((element: HTMLAudioElement) => element.currentTime)).toBeGreaterThan(0);
+    await page.getByRole('button', { name: 'Use slow replay (0.75×)', exact: true }).click();
+    expect(await audio.evaluate((element: HTMLAudioElement) => element.playbackRate)).toBe(0.75);
+    await page.getByLabel('Your answer', { exact: true }).fill(answer);
+    await page.getByRole('button', { name: 'Check answer', exact: true }).click();
+    await page.getByRole('button', { name: 'Save and continue', exact: true }).click();
+    await expect(page.getByText(/1 practice result on this device/)).toBeVisible();
+    await page.getByRole('button', { name: 'Grammar', exact: true }).click();
+    await expect(page.getByText(/listening: 1 successful, 0 missed recalls/)).toBeVisible();
+    await context.setOffline(false);
+  });
+}

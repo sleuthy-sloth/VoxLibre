@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "fr-foundations",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "language": "fr",
   "sourceLanguage": "en",
   "title": "French foundations",
@@ -744,6 +744,118 @@
       "sha256": "cff617ab5f17d2523d5abf80bac9e4b045dd2dbbe3372c98829c99c2703e960c",
       "transcript": "Je voudrais un café, s’il vous plaît.",
       "attribution": "Original VerbaLibera Kokoro 0.9.4 audio; see docs/audio-provenance. Human listening review remains open."
+    },
+    {
+      "id": "fr-identity-foundation-model",
+      "url": "/audio/french-foundations/fr-identity-foundation-model.wav",
+      "sha256": "01192a55a7f0e7ec5d13a0261249c298d22176f1b7f8b316db529e4dd8ee38d1",
+      "transcript": "Je suis Anna.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-people-foundation-model",
+      "url": "/audio/french-foundations/fr-people-foundation-model.wav",
+      "sha256": "142050a481ea2bd94348d37119892f9bc450d033f9bba1ed20d4c642cbd3d5a4",
+      "transcript": "Tu es Marc.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-family-foundation-model",
+      "url": "/audio/french-foundations/fr-family-foundation-model.wav",
+      "sha256": "d0aaa8709bd8dfabade6e9421770c2dec210f472c1917baa4954a9d2f644285b",
+      "transcript": "J’ai un frère.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-numbers-foundation-model",
+      "url": "/audio/french-foundations/fr-numbers-foundation-model.wav",
+      "sha256": "8873c779878931a9f28425533e7ade6667f73c72c2db014cd9b1c498519a60ee",
+      "transcript": "J’ai trente ans.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-home-foundation-model",
+      "url": "/audio/french-foundations/fr-home-foundation-model.wav",
+      "sha256": "f28f0b6bec99f7c0d8e8e6fe1a75cae055cba75bd98234bfd919eef6757b59a8",
+      "transcript": "J’ai une maison.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-descriptions-foundation-model",
+      "url": "/audio/french-foundations/fr-descriptions-foundation-model.wav",
+      "sha256": "1899ecde8476dae477f3df84742a1d43408440691ec9f7b8fded7d48f74c6fa0",
+      "transcript": "La maison est blanche.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-plural-foundation-model",
+      "url": "/audio/french-foundations/fr-plural-foundation-model.wav",
+      "sha256": "78c8b23d2df2a30c5628533a92ceb2eac096d969af4cdf7fcea9f2c3bc79b550",
+      "transcript": "Les livres sont blancs.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-routine-foundation-model",
+      "url": "/audio/french-foundations/fr-routine-foundation-model.wav",
+      "sha256": "7f78b1dbacd7ac3ad8341bfc8f994b8d15dcd302eedf9007ece9c5d0f44b4cad",
+      "transcript": "J’étudie chaque jour.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-negation-foundation-model",
+      "url": "/audio/french-foundations/fr-negation-foundation-model.wav",
+      "sha256": "ac52e76536154ccd29e9c8dacf352bc486f7d30efa91fad2727b03886c5afb44",
+      "transcript": "Je ne travaille pas.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-questions-foundation-model",
+      "url": "/audio/french-foundations/fr-questions-foundation-model.wav",
+      "sha256": "cfec09d71c572866296fcb3b5c341e2f722f7a075f26b15cb1fd6fd575de1547",
+      "transcript": "Est-ce que tu travailles ?",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-food-foundation-model",
+      "url": "/audio/french-foundations/fr-food-foundation-model.wav",
+      "sha256": "3dc46685e86d6d092b7ad108451ba05409604b02ed171dbc45dd239d6ba65e40",
+      "transcript": "Je prends un café.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-possession-foundation-model",
+      "url": "/audio/french-foundations/fr-possession-foundation-model.wav",
+      "sha256": "6086e724f50cae59030de066fc2440e6ae35311bda66bbb6af0b364546c64b06",
+      "transcript": "Ma maison est blanche.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-transport-foundation-model",
+      "url": "/audio/french-foundations/fr-transport-foundation-model.wav",
+      "sha256": "43f5120d469184a87b3324d1f29981a0cf98138c3779983bae121ce1eb79a0e3",
+      "transcript": "Tu vas à Paris ?",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-requests-foundation-model",
+      "url": "/audio/french-foundations/fr-requests-foundation-model.wav",
+      "sha256": "fe791e0dbde7c1810489261ed9646a8dd291c3b430c30c7bc60d6c658b4281c0",
+      "transcript": "Est-ce que je peux prendre un café ?",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-past-foundation-model",
+      "url": "/audio/french-foundations/fr-past-foundation-model.wav",
+      "sha256": "321b09a840f7b81cb9fd41607901057449fbf06e2798e793241492e46406cfdf",
+      "transcript": "Hier, j’ai étudié.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "fr-plans-foundation-model",
+      "url": "/audio/french-foundations/fr-plans-foundation-model.wav",
+      "sha256": "9162c7519074c0c4bddcecb9a6fbf7c2bc2077bf1682c4024a572b9ba7bf97da",
+      "transcript": "Demain, je vais étudier.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, ff_siwis; generated locally 2026-09-05. Native-speaker prosody review pending."
     }
   ],
   "lessons": [
@@ -880,7 +992,29 @@
           "answers": [
             "Anna"
           ]
+        },
+        {
+          "id": "fr-identity-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-identity-concept",
+          "prompt": "Listen and write the model: names and introductions.",
+          "answers": [
+            "Je suis Anna."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-identity-word-1",
+            "fr-identity-word-2",
+            "fr-identity-word-3",
+            "fr-identity-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-identity-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-identity-foundation-listen-model"
       ]
     },
     {
@@ -1036,7 +1170,29 @@
           "reviewOf": [
             "fr-identity-foundation"
           ]
+        },
+        {
+          "id": "fr-people-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-people-concept",
+          "prompt": "Listen and write the model: people and être.",
+          "answers": [
+            "Tu es Marc."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-people-word-1",
+            "fr-people-word-2",
+            "fr-people-word-3",
+            "fr-people-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-people-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-people-foundation-listen-model"
       ]
     },
     {
@@ -1194,7 +1350,29 @@
           "reviewOf": [
             "fr-people-foundation"
           ]
+        },
+        {
+          "id": "fr-family-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-family-concept",
+          "prompt": "Listen and write the model: family and avoir.",
+          "answers": [
+            "J’ai un frère."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-family-word-1",
+            "fr-family-word-2",
+            "fr-family-word-3",
+            "fr-family-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-family-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-family-foundation-listen-model"
       ]
     },
     {
@@ -1224,6 +1402,10 @@
         {
           "target": "Tu as trente ans.",
           "meaning": "You are thirty years old."
+        },
+        {
+          "target": "J’ai trente ans.",
+          "meaning": "I am thirty years old."
         }
       ],
       "exercises": [
@@ -1352,7 +1534,30 @@
           "reviewOf": [
             "fr-family-foundation"
           ]
+        },
+        {
+          "id": "fr-numbers-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-numbers-concept",
+          "prompt": "Listen and write the model: numbers and age.",
+          "answers": [
+            "J’ai trente ans.",
+            "J’ai 30 ans."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-numbers-word-1",
+            "fr-numbers-word-2",
+            "fr-numbers-word-3",
+            "fr-numbers-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-numbers-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-numbers-foundation-listen-model"
       ]
     },
     {
@@ -1511,7 +1716,29 @@
           "reviewOf": [
             "fr-numbers-foundation"
           ]
+        },
+        {
+          "id": "fr-home-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-home-concept",
+          "prompt": "Listen and write the model: home and articles.",
+          "answers": [
+            "J’ai une maison."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-home-word-1",
+            "fr-home-word-2",
+            "fr-home-word-3",
+            "fr-home-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-home-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-home-foundation-listen-model"
       ]
     },
     {
@@ -1668,7 +1895,29 @@
           "reviewOf": [
             "fr-home-foundation"
           ]
+        },
+        {
+          "id": "fr-descriptions-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-descriptions-concept",
+          "prompt": "Listen and write the model: describing things.",
+          "answers": [
+            "La maison est blanche."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-descriptions-word-1",
+            "fr-descriptions-word-2",
+            "fr-descriptions-word-3",
+            "fr-descriptions-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-descriptions-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-descriptions-foundation-listen-model"
       ]
     },
     {
@@ -1825,7 +2074,29 @@
           "reviewOf": [
             "fr-descriptions-foundation"
           ]
+        },
+        {
+          "id": "fr-plural-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-plural-concept",
+          "prompt": "Listen and write the model: plural nouns and adjectives.",
+          "answers": [
+            "Les livres sont blancs."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-plural-word-1",
+            "fr-plural-word-2",
+            "fr-plural-word-3",
+            "fr-plural-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-plural-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-plural-foundation-listen-model"
       ]
     },
     {
@@ -1983,7 +2254,29 @@
           "reviewOf": [
             "fr-plural-foundation"
           ]
+        },
+        {
+          "id": "fr-routine-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-routine-concept",
+          "prompt": "Listen and write the model: study and work.",
+          "answers": [
+            "J’étudie chaque jour."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-routine-word-1",
+            "fr-routine-word-2",
+            "fr-routine-word-3",
+            "fr-routine-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-routine-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-routine-foundation-listen-model"
       ]
     },
     {
@@ -2143,7 +2436,29 @@
           "reviewOf": [
             "fr-routine-foundation"
           ]
+        },
+        {
+          "id": "fr-negation-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-negation-concept",
+          "prompt": "Listen and write the model: making a negative.",
+          "answers": [
+            "Je ne travaille pas."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-negation-word-1",
+            "fr-negation-word-2",
+            "fr-negation-word-3",
+            "fr-negation-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-negation-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-negation-foundation-listen-model"
       ]
     },
     {
@@ -2304,7 +2619,29 @@
           "reviewOf": [
             "fr-negation-foundation"
           ]
+        },
+        {
+          "id": "fr-questions-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-questions-concept",
+          "prompt": "Listen and write the model: asking simple questions.",
+          "answers": [
+            "Est-ce que tu travailles ?"
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-questions-word-1",
+            "fr-questions-word-2",
+            "fr-questions-word-3",
+            "fr-questions-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-questions-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-questions-foundation-listen-model"
       ]
     },
     {
@@ -2462,7 +2799,29 @@
           "reviewOf": [
             "fr-questions-foundation"
           ]
+        },
+        {
+          "id": "fr-food-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-food-concept",
+          "prompt": "Listen and write the model: ordering and prendre.",
+          "answers": [
+            "Je prends un café."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-food-word-1",
+            "fr-food-word-2",
+            "fr-food-word-3",
+            "fr-food-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-food-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-food-foundation-listen-model"
       ]
     },
     {
@@ -2619,7 +2978,29 @@
           "reviewOf": [
             "fr-food-foundation"
           ]
+        },
+        {
+          "id": "fr-possession-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-possession-concept",
+          "prompt": "Listen and write the model: possession and agreement.",
+          "answers": [
+            "Ma maison est blanche."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-possession-word-1",
+            "fr-possession-word-2",
+            "fr-possession-word-3",
+            "fr-possession-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-possession-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-possession-foundation-listen-model"
       ]
     },
     {
@@ -2777,7 +3158,29 @@
           "reviewOf": [
             "fr-possession-foundation"
           ]
+        },
+        {
+          "id": "fr-transport-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-transport-concept",
+          "prompt": "Listen and write the model: going places with aller.",
+          "answers": [
+            "Tu vas à Paris ?"
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-transport-word-1",
+            "fr-transport-word-2",
+            "fr-transport-word-3",
+            "fr-transport-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-transport-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-transport-foundation-listen-model"
       ]
     },
     {
@@ -2959,7 +3362,29 @@
             "fr-requests-word-4"
           ],
           "reviewOf": []
+        },
+        {
+          "id": "fr-requests-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-requests-concept",
+          "prompt": "Listen and write the model: can i? modal requests.",
+          "answers": [
+            "Est-ce que je peux prendre un café ?"
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-requests-word-1",
+            "fr-requests-word-2",
+            "fr-requests-word-3",
+            "fr-requests-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-requests-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-requests-foundation-listen-model"
       ]
     },
     {
@@ -3117,7 +3542,29 @@
           "reviewOf": [
             "fr-requests-foundation"
           ]
+        },
+        {
+          "id": "fr-past-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-past-concept",
+          "prompt": "Listen and write the model: a first look at passé composé.",
+          "answers": [
+            "Hier, j’ai étudié."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-past-word-1",
+            "fr-past-word-2",
+            "fr-past-word-3",
+            "fr-past-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-past-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-past-foundation-listen-model"
       ]
     },
     {
@@ -3277,7 +3724,29 @@
           "reviewOf": [
             "fr-past-foundation"
           ]
+        },
+        {
+          "id": "fr-plans-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "fr-plans-concept",
+          "prompt": "Listen and write the model: near-future plans.",
+          "answers": [
+            "Demain, je vais étudier."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "fr-plans-word-1",
+            "fr-plans-word-2",
+            "fr-plans-word-3",
+            "fr-plans-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "fr-plans-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "fr-plans-foundation-listen-model"
       ]
     }
   ],

@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { validatePack } from "@/features/course-pack/schema";
 import { evaluateAnswer } from "@/features/course-pack/answer";
 import {
+  completedLessons,
   conceptEvidence,
   projectProgress,
   selectDaily,
@@ -208,4 +209,36 @@ it("validates dialogue recovery branches and rejects dangling nodes", () => {
   expect(validatePack(raw).dialogues.length).toBeGreaterThan(0);
   raw.dialogues[0].nodes[0].choices[0].next = "missing-node";
   expect(() => validatePack(raw)).toThrow(/dialogue/i);
+});
+
+it('rejects optional exercise references outside their lesson', () => {
+  const raw = readPack();
+  Object.assign(raw.lessons[0], { optionalExerciseIds: ['nonexistent-listening'] });
+  expect(() => validatePack(raw)).toThrow(/optional/);
+});
+it('optional listening does not relock previously completed text lessons', () => {
+  const raw = readPack();
+  Object.assign(raw.lessons[0], { optionalExerciseIds: [raw.lessons[0].exercises.at(-1)!.id] });
+  const pack = validatePack(raw);
+  const events = pack.lessons[0].exercises.slice(0, -1).map((e, i) => ({
+    id: `completed-${i}`, packId: pack.id, version: '1.0.0', exerciseId: e.id,
+    at: '2026-09-05T12:00:00.000Z', correct: true, revealed: false,
+  }));
+  expect(completedLessons(pack, events).has(pack.lessons[0].id)).toBe(true);
+});
+it('every foundation lesson supplies a real model recording for listening', () => {
+  for (const raw of [readPack(), JSON.parse(readFileSync("courses/french/manifest.json", "utf8"))]) {
+    const pack = validatePack(raw);
+    expect(pack.lessons.every(l => l.exercises.some(e => e.kind === 'dictation' && pack.media.some(m => m.id === e.audioId)))).toBe(true);
+  }
+});
+it('accepts ordinary numeric notation in listening answers without changing meaning', () => {
+  for (const [language, id, answer] of [
+    ['italian', 'it-numbers-foundation-listen-model', 'Ho 20 anni.'],
+    ['italian', 'it-reflexive-foundation-listen-model', 'Mi alzo alle 7.'],
+    ['french', 'fr-numbers-foundation-listen-model', 'J’ai 30 ans.'],
+  ]) {
+    const pack = validatePack(JSON.parse(readFileSync(`courses/${language}/manifest.json`, 'utf8')));
+    expect(evaluateAnswer(answer, pack.lessons.flatMap(l => l.exercises).find(e => e.id === id)!).accepted).toBe(true);
+  }
 });

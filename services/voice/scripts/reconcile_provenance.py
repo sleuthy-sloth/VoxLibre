@@ -24,6 +24,8 @@ EXPORTED_AT = "2026-09-03"
 
 # Each provenance file is tied to a manifest and a destination language dir.
 PROVENANCE_SOURCES = [
+    {"path": PROV_DIR / "italian-foundations.json", "manifest": ROOT / "services/voice/scripts/italian-foundations.json", "audio_subdir": "italian-foundations", "exported_at": "2026-09-05"},
+    {"path": PROV_DIR / "french-foundations.json", "manifest": ROOT / "services/voice/scripts/french-foundations.json", "audio_subdir": "french-foundations", "exported_at": "2026-09-05"},
     {
         "path": PROV_DIR / "french-ordering-pilot.json",
         "manifest": ROOT / "services/voice/scripts/french-ordering-pilot.json",
@@ -114,7 +116,7 @@ def build_provenance(source: dict[str, object]) -> dict[str, object]:
 
     return {
         "schema_version": SCHEMA_VERSION,
-        "exported_at": EXPORTED_AT,
+        "exported_at": source.get("exported_at", EXPORTED_AT),
         "model": MODEL,
         "manifest": manifest_rel,
         "languages": sorted({e["language"] for e in entries}),

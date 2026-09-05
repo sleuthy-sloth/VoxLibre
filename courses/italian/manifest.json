@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "it-foundations",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "language": "it",
   "sourceLanguage": "en",
   "title": "Italian foundations",
@@ -744,6 +744,118 @@
       "sha256": "06515d78327ef2fd7e2b7af80285a393195d8f6d6a67eba31ff8ac24127fcfef",
       "transcript": "Vorrei un caffè, per favore.",
       "attribution": "Original VerbaLibera Kokoro 0.9.4 audio; see docs/audio-provenance. Human listening review remains open."
+    },
+    {
+      "id": "it-identity-foundation-model",
+      "url": "/audio/italian-foundations/it-identity-foundation-model.wav",
+      "sha256": "a1cc1a6a0450c5d8385b226bd2b9167888cde15807315ae599e3064d6a739d21",
+      "transcript": "Io sono Anna.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-people-foundation-model",
+      "url": "/audio/italian-foundations/it-people-foundation-model.wav",
+      "sha256": "6e86e6c6a6fd93d7439b00b30d49b50d3f7e422b1abbec9b29459bccb1a4ca66",
+      "transcript": "Tu sei Marco.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-family-foundation-model",
+      "url": "/audio/italian-foundations/it-family-foundation-model.wav",
+      "sha256": "06c4d1a4e6aaed600a74a048f9f76538aa69c2f3117df6dd5542ffef83085d2e",
+      "transcript": "Ho un fratello.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-numbers-foundation-model",
+      "url": "/audio/italian-foundations/it-numbers-foundation-model.wav",
+      "sha256": "c540dc38d114f731a74bfe3783842a9e0a0873b3b5d3d697fefb094db68890d0",
+      "transcript": "Ho venti anni.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-home-foundation-model",
+      "url": "/audio/italian-foundations/it-home-foundation-model.wav",
+      "sha256": "cdb490a44a6200319a95186e906f72de7668eb6964816e9fa3bec73452dcf797",
+      "transcript": "Ho una casa.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-descriptions-foundation-model",
+      "url": "/audio/italian-foundations/it-descriptions-foundation-model.wav",
+      "sha256": "62ac2c88b22b54ca01a93b624edd31606f104133387a38246657f8889d03198b",
+      "transcript": "La casa è bianca.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-plural-foundation-model",
+      "url": "/audio/italian-foundations/it-plural-foundation-model.wav",
+      "sha256": "67f5cee6b3fa77c6c3c8fe5fb73d42a366358387e4cfd7282abdbd7e02ea4da1",
+      "transcript": "I libri sono bianchi.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-routine-foundation-model",
+      "url": "/audio/italian-foundations/it-routine-foundation-model.wav",
+      "sha256": "90b54db6e86979f9a995458e5e2ca90b75b1f657c6c95d4a7d705430b1caa860",
+      "transcript": "Studio ogni giorno.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-negation-foundation-model",
+      "url": "/audio/italian-foundations/it-negation-foundation-model.wav",
+      "sha256": "66ca4c32173e35f855dc296ebab79acdae6cc2a6e01a23f3efe1c6250b47c0eb",
+      "transcript": "Non lavoro in casa.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-food-foundation-model",
+      "url": "/audio/italian-foundations/it-food-foundation-model.wav",
+      "sha256": "8bc7edecdd55dc423293b810e3e3aafb6e231cf5f0b0643e9235c92bee74a2d4",
+      "transcript": "Prendo un caffè.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-possession-foundation-model",
+      "url": "/audio/italian-foundations/it-possession-foundation-model.wav",
+      "sha256": "52d087aac14e9ffd5ce983c08476055f39736bf02541cf0a75837f8b1ea62887",
+      "transcript": "La mia casa è bianca.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-transport-foundation-model",
+      "url": "/audio/italian-foundations/it-transport-foundation-model.wav",
+      "sha256": "5721a6191b16c359446d4380fb6fc7c98621d15111b0913fa8d660b25d6364eb",
+      "transcript": "Vado alla stazione.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-requests-foundation-model",
+      "url": "/audio/italian-foundations/it-requests-foundation-model.wav",
+      "sha256": "e11315d7b784825f5456956aeddc825893ec055a587f5ec92f4d598704d737b1",
+      "transcript": "Posso prendere un caffè?",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-reflexive-foundation-model",
+      "url": "/audio/italian-foundations/it-reflexive-foundation-model.wav",
+      "sha256": "4e313651cabaa370426c652b2e8644e190628715ae437455dfa6d71b427bff0f",
+      "transcript": "Mi alzo alle sette.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-past-foundation-model",
+      "url": "/audio/italian-foundations/it-past-foundation-model.wav",
+      "sha256": "253a704091a4b278f0340c5be1c04e3b76c9f6b3d4433c0eea514023d6ca43ea",
+      "transcript": "Ho studiato in casa.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
+    },
+    {
+      "id": "it-plans-foundation-model",
+      "url": "/audio/italian-foundations/it-plans-foundation-model.wav",
+      "sha256": "50e94de649c05f6dba3566c08f0d07b32b66b818f6fedfbf80e242d0718f71f4",
+      "transcript": "Domani vado a Roma.",
+      "attribution": "Original lesson text; Kokoro 0.9.4 / hexgrad/Kokoro-82M, if_sara; generated locally 2026-09-05. Native-speaker prosody review pending."
     }
   ],
   "lessons": [
@@ -880,7 +992,29 @@
           "answers": [
             "Anna"
           ]
+        },
+        {
+          "id": "it-identity-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-identity-concept",
+          "prompt": "Listen and write the model: names and introductions.",
+          "answers": [
+            "Io sono Anna."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-identity-word-1",
+            "it-identity-word-2",
+            "it-identity-word-3",
+            "it-identity-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-identity-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-identity-foundation-listen-model"
       ]
     },
     {
@@ -1037,7 +1171,29 @@
           "reviewOf": [
             "it-identity-foundation"
           ]
+        },
+        {
+          "id": "it-people-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-people-concept",
+          "prompt": "Listen and write the model: people and essere.",
+          "answers": [
+            "Tu sei Marco."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-people-word-1",
+            "it-people-word-2",
+            "it-people-word-3",
+            "it-people-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-people-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-people-foundation-listen-model"
       ]
     },
     {
@@ -1195,7 +1351,29 @@
           "reviewOf": [
             "it-people-foundation"
           ]
+        },
+        {
+          "id": "it-family-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-family-concept",
+          "prompt": "Listen and write the model: family and avere.",
+          "answers": [
+            "Ho un fratello."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-family-word-1",
+            "it-family-word-2",
+            "it-family-word-3",
+            "it-family-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-family-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-family-foundation-listen-model"
       ]
     },
     {
@@ -1353,7 +1531,30 @@
           "reviewOf": [
             "it-family-foundation"
           ]
+        },
+        {
+          "id": "it-numbers-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-numbers-concept",
+          "prompt": "Listen and write the model: numbers and age.",
+          "answers": [
+            "Ho venti anni.",
+            "Ho 20 anni."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-numbers-word-1",
+            "it-numbers-word-2",
+            "it-numbers-word-3",
+            "it-numbers-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-numbers-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-numbers-foundation-listen-model"
       ]
     },
     {
@@ -1513,7 +1714,29 @@
           "reviewOf": [
             "it-numbers-foundation"
           ]
+        },
+        {
+          "id": "it-home-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-home-concept",
+          "prompt": "Listen and write the model: home and definite articles.",
+          "answers": [
+            "Ho una casa."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-home-word-1",
+            "it-home-word-2",
+            "it-home-word-3",
+            "it-home-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-home-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-home-foundation-listen-model"
       ]
     },
     {
@@ -1671,7 +1894,29 @@
           "reviewOf": [
             "it-home-foundation"
           ]
+        },
+        {
+          "id": "it-descriptions-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-descriptions-concept",
+          "prompt": "Listen and write the model: colors and agreement.",
+          "answers": [
+            "La casa è bianca."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-descriptions-word-1",
+            "it-descriptions-word-2",
+            "it-descriptions-word-3",
+            "it-descriptions-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-descriptions-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-descriptions-foundation-listen-model"
       ]
     },
     {
@@ -1828,7 +2073,29 @@
           "reviewOf": [
             "it-descriptions-foundation"
           ]
+        },
+        {
+          "id": "it-plural-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-plural-concept",
+          "prompt": "Listen and write the model: more than one.",
+          "answers": [
+            "I libri sono bianchi."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-plural-word-1",
+            "it-plural-word-2",
+            "it-plural-word-3",
+            "it-plural-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-plural-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-plural-foundation-listen-model"
       ]
     },
     {
@@ -1985,7 +2252,29 @@
           "reviewOf": [
             "it-plural-foundation"
           ]
+        },
+        {
+          "id": "it-routine-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-routine-concept",
+          "prompt": "Listen and write the model: study and work.",
+          "answers": [
+            "Studio ogni giorno."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-routine-word-1",
+            "it-routine-word-2",
+            "it-routine-word-3",
+            "it-routine-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-routine-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-routine-foundation-listen-model"
       ]
     },
     {
@@ -2142,7 +2431,29 @@
           "reviewOf": [
             "it-routine-foundation"
           ]
+        },
+        {
+          "id": "it-negation-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-negation-concept",
+          "prompt": "Listen and write the model: saying no and asking.",
+          "answers": [
+            "Non lavoro in casa."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-negation-word-1",
+            "it-negation-word-2",
+            "it-negation-word-3",
+            "it-negation-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-negation-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-negation-foundation-listen-model"
       ]
     },
     {
@@ -2299,7 +2610,29 @@
           "reviewOf": [
             "it-negation-foundation"
           ]
+        },
+        {
+          "id": "it-food-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-food-concept",
+          "prompt": "Listen and write the model: food and -ere verbs.",
+          "answers": [
+            "Prendo un caffè."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-food-word-1",
+            "it-food-word-2",
+            "it-food-word-3",
+            "it-food-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-food-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-food-foundation-listen-model"
       ]
     },
     {
@@ -2458,7 +2791,29 @@
           "reviewOf": [
             "it-food-foundation"
           ]
+        },
+        {
+          "id": "it-possession-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-possession-concept",
+          "prompt": "Listen and write the model: what belongs to whom.",
+          "answers": [
+            "La mia casa è bianca."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-possession-word-1",
+            "it-possession-word-2",
+            "it-possession-word-3",
+            "it-possession-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-possession-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-possession-foundation-listen-model"
       ]
     },
     {
@@ -2615,7 +2970,29 @@
           "reviewOf": [
             "it-possession-foundation"
           ]
+        },
+        {
+          "id": "it-transport-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-transport-concept",
+          "prompt": "Listen and write the model: going places.",
+          "answers": [
+            "Vado alla stazione."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-transport-word-1",
+            "it-transport-word-2",
+            "it-transport-word-3",
+            "it-transport-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-transport-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-transport-foundation-listen-model"
       ]
     },
     {
@@ -2797,7 +3174,29 @@
             "it-requests-word-4"
           ],
           "reviewOf": []
+        },
+        {
+          "id": "it-requests-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-requests-concept",
+          "prompt": "Listen and write the model: modal verbs and requests.",
+          "answers": [
+            "Posso prendere un caffè?"
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-requests-word-1",
+            "it-requests-word-2",
+            "it-requests-word-3",
+            "it-requests-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-requests-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-requests-foundation-listen-model"
       ]
     },
     {
@@ -2955,7 +3354,30 @@
           "reviewOf": [
             "it-requests-foundation"
           ]
+        },
+        {
+          "id": "it-reflexive-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-reflexive-concept",
+          "prompt": "Listen and write the model: morning routines.",
+          "answers": [
+            "Mi alzo alle sette.",
+            "Mi alzo alle 7."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-reflexive-word-1",
+            "it-reflexive-word-2",
+            "it-reflexive-word-3",
+            "it-reflexive-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-reflexive-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-reflexive-foundation-listen-model"
       ]
     },
     {
@@ -3112,7 +3534,29 @@
           "reviewOf": [
             "it-reflexive-foundation"
           ]
+        },
+        {
+          "id": "it-past-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-past-concept",
+          "prompt": "Listen and write the model: a first look at the past.",
+          "answers": [
+            "Ho studiato in casa."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-past-word-1",
+            "it-past-word-2",
+            "it-past-word-3",
+            "it-past-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-past-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-past-foundation-listen-model"
       ]
     },
     {
@@ -3269,7 +3713,29 @@
           "reviewOf": [
             "it-past-foundation"
           ]
+        },
+        {
+          "id": "it-plans-foundation-listen-model",
+          "kind": "dictation",
+          "mode": "listening",
+          "conceptId": "it-plans-concept",
+          "prompt": "Listen and write the model: tomorrow and future plans.",
+          "answers": [
+            "Domani vado a Roma."
+          ],
+          "explanation": "Compare the words you heard with the model sentence. Replay slowly, then at normal speed.",
+          "vocabulary": [
+            "it-plans-word-1",
+            "it-plans-word-2",
+            "it-plans-word-3",
+            "it-plans-word-4"
+          ],
+          "reviewOf": [],
+          "audioId": "it-plans-foundation-model"
         }
+      ],
+      "optionalExerciseIds": [
+        "it-plans-foundation-listen-model"
       ]
     }
   ],

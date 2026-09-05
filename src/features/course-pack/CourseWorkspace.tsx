@@ -155,7 +155,7 @@ function ScopedWorkspace({ initialLanguage, scope, selectScope }: {
     setMessage("");
   };
   const begin = (l: Lesson) => {
-    setSession(l.exercises.map((e) => e.id));
+    setSession(l.exercises.filter(e => !l.optionalExerciseIds.includes(e.id)).map((e) => e.id));
     setStep(0);
     setMessage("");
   };
@@ -293,6 +293,7 @@ function ScopedWorkspace({ initialLanguage, scope, selectScope }: {
                 .map((m) => (
                   <div key={m.id}>
                     <p>Model audio · normal speed</p>
+                    <p lang={pack.language}>{m.transcript}</p>
                     <audio
                       controls
                       preload="none"
@@ -317,6 +318,10 @@ function ScopedWorkspace({ initialLanguage, scope, selectScope }: {
             >
               Begin practice
             </button>
+            {lesson.optionalExerciseIds.length ? <>
+              <button disabled={!storageReady || !lesson.prerequisites.every(id => completed.has(id))} onClick={() => { setSession(lesson.optionalExerciseIds); setStep(0); setMessage(""); }}>Practice listening</button>
+              <p className="study-scope">Listening is optional and has its own review history. New recordings do not reset completed text lessons.</p>
+            </> : null}
             {!lesson.prerequisites.every((id) => completed.has(id)) ? (
               <p>
                 Read freely. Complete the preceding lesson’s practice

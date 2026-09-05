@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "clips": [
+    {
+      "id": "it-identity-foundation-model",
+      "filename": "it-identity-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "1c29dd078b413be9a5277b2f7b39cea7e0f8a3b4834f818a0ddecacb9fd621a5",
+      "audio_sha256": "a1cc1a6a0450c5d8385b226bd2b9167888cde15807315ae599e3064d6a739d21",
+      "content_type": "audio/wav",
+      "bytes": 86444
+    },
+    {
+      "id": "it-people-foundation-model",
+      "filename": "it-people-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "989871554c932ebe248131007312230d62d691b1f614bcdfd12c84de5f8f2f80",
+      "audio_sha256": "6e86e6c6a6fd93d7439b00b30d49b50d3f7e422b1abbec9b29459bccb1a4ca66",
+      "content_type": "audio/wav",
+      "bytes": 84044
+    },
+    {
+      "id": "it-family-foundation-model",
+      "filename": "it-family-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "0418c0b4adc119b6453518b1b6eb62fb207b186ad233f1c181f8fc9a68545b7a",
+      "audio_sha256": "06c4d1a4e6aaed600a74a048f9f76538aa69c2f3117df6dd5542ffef83085d2e",
+      "content_type": "audio/wav",
+      "bytes": 84044
+    },
+    {
+      "id": "it-numbers-foundation-model",
+      "filename": "it-numbers-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "2f28d0d67813b524ce210daa91b63954ee1edd46942e37ef972d3199b91e6244",
+      "audio_sha256": "c540dc38d114f731a74bfe3783842a9e0a0873b3b5d3d697fefb094db68890d0",
+      "content_type": "audio/wav",
+      "bytes": 84044
+    },
+    {
+      "id": "it-home-foundation-model",
+      "filename": "it-home-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "bd8823376db8776d19f25f0001762fe1a0417027c8b55aa12599c4d712b3b6fb",
+      "audio_sha256": "cdb490a44a6200319a95186e906f72de7668eb6964816e9fa3bec73452dcf797",
+      "content_type": "audio/wav",
+      "bytes": 79244
+    },
+    {
+      "id": "it-descriptions-foundation-model",
+      "filename": "it-descriptions-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "fb165f24d83f4c10a06ab23de89cceb73106925cf76c79464020dc11d15c57b3",
+      "audio_sha256": "62ac2c88b22b54ca01a93b624edd31606f104133387a38246657f8889d03198b",
+      "content_type": "audio/wav",
+      "bytes": 97244
+    },
+    {
+      "id": "it-plural-foundation-model",
+      "filename": "it-plural-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "b03328110cdc41bcfa004292f9d5e941866e7c8064c7f47b6683b71e46f8292c",
+      "audio_sha256": "67f5cee6b3fa77c6c3c8fe5fb73d42a366358387e4cfd7282abdbd7e02ea4da1",
+      "content_type": "audio/wav",
+      "bytes": 104444
+    },
+    {
+      "id": "it-routine-foundation-model",
+      "filename": "it-routine-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "13829552903ddc23e94898ce21b58ebe648f2c590bd3b23d76c514c95f67bb24",
+      "audio_sha256": "90b54db6e86979f9a995458e5e2ca90b75b1f657c6c95d4a7d705430b1caa860",
+      "content_type": "audio/wav",
+      "bytes": 93644
+    },
+    {
+      "id": "it-negation-foundation-model",
+      "filename": "it-negation-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "563c4ffe645bd0627ebcde61d1f88d26cbaba67e553c77c5b9569cd3e26f0bd4",
+      "audio_sha256": "66ca4c32173e35f855dc296ebab79acdae6cc2a6e01a23f3efe1c6250b47c0eb",
+      "content_type": "audio/wav",
+      "bytes": 93644
+    },
+    {
+      "id": "it-food-foundation-model",
+      "filename": "it-food-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "2fceddb38ad6ed5969030da5d76dd81f15e3b89286ecb131b22fc0108e4a8eb1",
+      "audio_sha256": "8bc7edecdd55dc423293b810e3e3aafb6e231cf5f0b0643e9235c92bee74a2d4",
+      "content_type": "audio/wav",
+      "bytes": 86444
+    },
+    {
+      "id": "it-possession-foundation-model",
+      "filename": "it-possession-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "58befc612745d64c5c967435e548ff376e114b1f44d1ec221011bcb997a0f91f",
+      "audio_sha256": "52d087aac14e9ffd5ce983c08476055f39736bf02541cf0a75837f8b1ea62887",
+      "content_type": "audio/wav",
+      "bytes": 103244
+    },
+    {
+      "id": "it-transport-foundation-model",
+      "filename": "it-transport-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "5348ca0ced7a3b8129e0dd04cb96f68c6ce6b3189a4edea033eb09745ed1818a",
+      "audio_sha256": "5721a6191b16c359446d4380fb6fc7c98621d15111b0913fa8d660b25d6364eb",
+      "content_type": "audio/wav",
+      "bytes": 94844
+    },
+    {
+      "id": "it-requests-foundation-model",
+      "filename": "it-requests-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "e64eccd559ff3613269a60195309165267fc6a2c8bdc74669e0b45ae5825ce17",
+      "audio_sha256": "e11315d7b784825f5456956aeddc825893ec055a587f5ec92f4d598704d737b1",
+      "content_type": "audio/wav",
+      "bytes": 108044
+    },
+    {
+      "id": "it-reflexive-foundation-model",
+      "filename": "it-reflexive-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "be378bc533b3b254dce4c093fddb5ddcef66b5acce9ce104c41c14fe67b2464a",
+      "audio_sha256": "4e313651cabaa370426c652b2e8644e190628715ae437455dfa6d71b427bff0f",
+      "content_type": "audio/wav",
+      "bytes": 94844
+    },
+    {
+      "id": "it-past-foundation-model",
+      "filename": "it-past-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "6a2cd0f03367068d82d84814e15283b981355c8d7cbb623a134af2a5516b7e92",
+      "audio_sha256": "253a704091a4b278f0340c5be1c04e3b76c9f6b3d4433c0eea514023d6ca43ea",
+      "content_type": "audio/wav",
+      "bytes": 98444
+    },
+    {
+      "id": "it-plans-foundation-model",
+      "filename": "it-plans-foundation-model.wav",
+      "language": "it",
+      "voice": "if_sara",
+      "text_sha256": "9cc0282af40932c2bf83c43c7a57d29aa6df34e453e5757037801f81533ddfc8",
+      "audio_sha256": "50e94de649c05f6dba3566c08f0d07b32b66b818f6fedfbf80e242d0718f71f4",
+      "content_type": "audio/wav",
+      "bytes": 97244
+    }
+  ],
+  "model": "kokoro@0.9.4",
+  "model_repository": "hexgrad/Kokoro-82M",
+  "exported_at": "2026-09-05",
+  "manifest": "services/voice/scripts/italian-foundations.json",
+  "review": "Waveform and transcription pre-screen; native-speaker prosody review pending."
+}
