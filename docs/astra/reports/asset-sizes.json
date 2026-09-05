@@ -1,0 +1,22 @@
+[
+  {
+    "path": "public/study.js",
+    "bytes": 658612,
+    "gzipBytes": 158370
+  },
+  {
+    "path": "public/study.css",
+    "bytes": 5514,
+    "gzipBytes": 1655
+  },
+  {
+    "path": "public/packs/italian.json",
+    "bytes": 88032,
+    "gzipBytes": 10806
+  },
+  {
+    "path": "public/packs/french.json",
+    "bytes": 90196,
+    "gzipBytes": 10865
+  }
+]

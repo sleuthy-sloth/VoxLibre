@@ -1,0 +1,16 @@
+.git
+.next
+node_modules
+.env*
+!.env.example
+.worktrees
+.superpowers
+.swarm
+services/voice/.venv
+services/voice/.pilot-venv
+**/__pycache__
+test-results
+playwright-report
+*.tsbuildinfo
+*.log
+.DS_Store

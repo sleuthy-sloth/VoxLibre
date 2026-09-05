@@ -1,0 +1,50 @@
+[
+  {
+    "engine": "chromium",
+    "language": "italian",
+    "widths": [
+      320,
+      390,
+      430,
+      844,
+      1280
+    ],
+    "violations": []
+  },
+  {
+    "engine": "chromium",
+    "language": "french",
+    "widths": [
+      320,
+      390,
+      430,
+      844,
+      1280
+    ],
+    "violations": []
+  },
+  {
+    "engine": "webkit",
+    "language": "italian",
+    "widths": [
+      320,
+      390,
+      430,
+      844,
+      1280
+    ],
+    "violations": []
+  },
+  {
+    "engine": "webkit",
+    "language": "french",
+    "widths": [
+      320,
+      390,
+      430,
+      844,
+      1280
+    ],
+    "violations": []
+  }
+]

@@ -17,7 +17,16 @@
     "prisma:validate": "prisma validate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:seed": "prisma db seed",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "content:validate": "tsx scripts/content.ts validate",
+    "content:stats": "tsx scripts/content.ts stats",
+    "content:coverage": "tsx scripts/content.ts coverage",
+    "content:audio-check": "tsx scripts/content.ts audio-check",
+    "content:duplicates": "tsx scripts/content.ts duplicates",
+    "content:build": "tsx scripts/content.ts build",
+    "prebuild": "npm run content:build",
+    "predev": "npm run content:build",
+    "test:e2e:webkit": "playwright test --config playwright.mobile.config.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.10.0",
@@ -30,7 +39,8 @@
     "pg": "^8.23.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "tsx": "^4.23.13"
+    "tsx": "^4.23.13",
+    "zod": "^4.5.4"
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
@@ -44,6 +54,7 @@
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.1.1",
     "axe-core": "^4.13.0",
+    "esbuild": "^0.28.2",
     "eslint": "^9",
     "eslint-config-next": "16.3.3",
     "jest-axe": "^9.0.0",
@@ -52,5 +63,8 @@
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.11"
+  },
+  "engines": {
+    "node": ">=22.13.0"
   }
 }

@@ -1,4 +1,4 @@
-const STATIC_CACHE = 'verbalibera-static-v3';
+const STATIC_CACHE = 'verbalibera-static-v4';
 const STATIC_ASSETS = [
   '/offline.html',
   '/icons/verbalibera-192.png',
@@ -20,11 +20,26 @@ self.addEventListener('activate', event => {
     .then(() => self.clients.claim()));
 });
 
+async function installedAsset(path) {
+  for (const key of (await caches.keys()).reverse()) {
+    if (!key.startsWith('verbalibera-pack-')) continue;
+    const cache = await caches.open(key);
+    if (!await cache.match('/__course_pack_ready__')) continue;
+    const response = await cache.match(path);
+    if (response) return response;
+  }
+}
+
 self.addEventListener('fetch', event => {
   const request = event.request;
   const url = new URL(request.url);
   // Account data and authentication are always network-only (Cache-Control: no-store).
   if (request.method !== 'GET' || url.pathname.startsWith('/api/')) return;
+  // Explicit public offline entry only; no personalized Next navigation is cached.
+  if (['/study.html', '/study.js', '/study.css'].includes(url.pathname) || url.pathname.startsWith('/packs/')) {
+    event.respondWith(fetch(request).catch(async () => (await installedAsset(url.pathname)) ?? Response.error()));
+    return;
+  }
   // Lesson HTML and RSC payloads can contain personal progress. Never cache them.
   if (request.mode === 'navigate') {
     event.respondWith(fetch(request).catch(() => caches.match('/offline.html').then(response => response ?? Response.error())));
@@ -37,6 +52,6 @@ self.addEventListener('fetch', event => {
         event.waitUntil(caches.open(STATIC_CACHE).then(cache => cache.put(request, clone)));
       }
       return response;
-    }).catch(() => caches.match(request).then(response => response ?? Response.error())));
+    }).catch(async () => (await installedAsset(url.pathname)) ?? (await caches.match(request)) ?? Response.error()));
   }
 });

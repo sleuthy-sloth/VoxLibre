@@ -1,6 +1,6 @@
 # VerbaLibera
 
-Live platform: [verbalibera.vercel.app](https://verbalibera.vercel.app).
+Hosted release (may differ from this checkout): [verbalibera.vercel.app](https://verbalibera.vercel.app).
 
 Language learning through practical sentence construction. VerbaLibera introduces a useful pattern, asks you to produce it, then lets you reveal and compare a model answer—without timers or punitive progress mechanics.
 
@@ -14,16 +14,26 @@ The screenshots show the live app running locally with the Quiet Ink interface �
 
 ![Session on mobile](docs/screenshots/release/lesson-390.png)
 
-## What this is
+## Structured foundation courses
 
-VerbaLibera is a preview implementation of a practical, teaching-first language-learning tool. The current release has four original A1 travel units:
+This checkout adds `/courses/italian` and `/courses/french`: 32 original A1 foundation lessons, 192 exercises, 128 vocabulary/expression records, 32 short readings and four scripted conversations. Each lesson teaches a pattern before asking you to use it. Grammar references and vocabulary views are linked to practice evidence. These are partial A1 courses, not full CEFR programs or certifications; native-speaker editorial review remains open.
+
+Open **New: structured A1 foundations with offline study** from the Italian/French lesson index. Use **Download for offline study**, then open/bookmark the provided offline-study link. The shared offline workspace supports teaching, local grading, downloaded audio and durable device practice without a connection. One reused recording per pack supports dictation; other new lessons honestly remain text-only.
+
+Foundation progress is **device-local**, even when signed in, and separate from existing account-backed travel progress. Export/import provides recovery and manual transfer. Automatic account synchronization for foundation practice is not implemented. The old travel courses, passkeys, Anki export, prerecorded audio and optional voice tools remain available.
+
+The new answer evaluator uses authored variants and deterministic rules entirely in the browser. No LLM account, API key or generative runtime is required. Course JSON is separated from application code, validated during build, and fetched one language at a time. See [architecture](docs/astra/architecture.md), [curriculum](docs/astra/curriculum-system.md), [offline design](docs/astra/offline-design.md), [content tooling](docs/astra/content-pipeline.md) and [implementation report](docs/astra/implementation-report.md).
+
+## Existing travel courses
+
+The original preview path retains four A1 travel units:
 
 - English → French
 - English → Italian
 - English → Spanish
 - English → Portuguese
 
-Each course currently contains eight original travel patterns: greeting politely, ordering, finding a place, asking for help, paying, asking directions, hotel check-in, and emergency help. Every pattern follows a short `notice → build → vary → use` sequence, with sentence-construction review and controlled drills. Sessions are deliberately bounded to about eight minutes.
+Each legacy travel course contains eight original patterns: greeting politely, ordering, finding a place, asking for help, paying, asking directions, hotel check-in, and emergency help. Every pattern follows a short `notice → build → vary → use` sequence, with sentence-construction review and controlled drills. Sessions are deliberately bounded to about eight minutes.
 
 Every lesson now includes an authored explanation, translated sentence parts, and a worked variation before practice. Its exercises stay on the pattern just taught. All eight lessons in each language are accessible from the course index.
 
@@ -33,7 +43,7 @@ Optional placement recommends a specific available starting lesson. French has 1
 
 The guided session is built around deliberate retrieval. A learner can reveal the model answer, self-check, and continue with keyboard- and touch-friendly controls. Nothing saved in preview mode represents mastery or proficiency.
 
-## What works and what doesn't
+## Travel-course capabilities and limits
 
 This repo is a working preview, not a finished product.
 
@@ -76,11 +86,11 @@ Passkeys require the secure `https://verbalibera.vercel.app` address and a curre
 
 ## Quick start
 
-You need Node.js 20 or newer, npm, and optionally PostgreSQL 14 or newer if you want to apply migrations and run seeds.
+You need Node.js 22.13 or newer, npm, and optionally PostgreSQL 14 or newer if you want to apply migrations and run seeds.
 
 ### One-command deploy with Docker Compose (app + Postgres 16)
 
-This is the production-like path — no manual Postgres install needed. The app image is multi-stage `node:20-alpine` and runs `prisma migrate deploy` on start.
+This is the production-like path — no manual Postgres install needed. The app image is multi-stage `node:22-alpine` and runs `prisma migrate deploy` on start.
 
 ```bash
 cp .env.example .env
@@ -129,7 +139,9 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
 npm run test          # Vitest unit and component tests
-npm run test:e2e      # Playwright browser tests
+npm run test:e2e      # Chromium browser tests
+npm run test:e2e:webkit # WebKit foundation UI checks (offline automation excluded)
+npm run content:validate # Course contracts, graph and media hashes
 npm run lint          # ESLint
 npm run typecheck     # TypeScript, no emit
 npm run build         # Next production build
@@ -150,7 +162,7 @@ The optional voice companion runs locally and is called only through server-only
 
 ## Status and roadmap
 
-VerbaLibera is in active development. Next priorities are native-speaker review of teaching notes and audio, deeper A1/A2 curricula, and connecting study-plan checklists to lesson completion. The design and implementation plan lives in [docs/superpowers/](docs/superpowers/).
+VerbaLibera is in active development. Next priorities are native-speaker editorial/audio review, complete A1 coverage, foundation progress synchronization, and broader listening coverage. The design and implementation plan lives in [docs/superpowers/](docs/superpowers/).
 
 A survey of public APIs worth trialing — dictionaries, translation, graded reading — is in [docs/public-api-options.md](docs/public-api-options.md). Nothing from that survey is integrated yet.
 
@@ -164,7 +176,7 @@ A survey of public APIs worth trialing — dictionaries, translation, graded rea
    - `WEBAUTHN_RP_ID` — your domain without scheme (e.g. `verbalibera.vercel.app`)
    - `WEBAUTHN_ORIGIN` — full origin (e.g. `https://verbalibera.vercel.app`)
    - Leave `VERBALIBERA_VOICE_SERVICE_URL` unset — the app degrades honestly to the non-voice lesson path.
-4. Deploy. `vercel.json` already runs `prisma migrate deploy && next build`; `postinstall` runs `prisma generate`.
+4. Deploy. `vercel.json` already runs `prisma migrate deploy && npm run build`; `postinstall` runs `prisma generate`.
 5. Seed from your machine against prod (writes only fixture `ContentVersion`, idempotent):
    `DATABASE_URL="<prod-url>" npm run prisma:seed`
 

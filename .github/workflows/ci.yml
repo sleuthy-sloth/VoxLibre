@@ -14,10 +14,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node 20
+      - name: Setup Node 22
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
           cache-dependency-path: package-lock.json
 
@@ -52,6 +52,12 @@ jobs:
       - name: Prisma generate
         run: npx prisma generate
 
+      - name: Validate and build course packs
+        run: npm run content:build
+
+      - name: Lint
+        run: npm run lint
+
       - name: Vitest run
         run: npx vitest run
 
@@ -61,6 +67,9 @@ jobs:
         env:
           # Use dummy DATABASE_URL for build; prisma generate already validated schema
           DATABASE_URL: postgresql://user:pass@localhost:5432/verbalibera_ci
+
+      - name: Type check
+        run: npm run typecheck
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps

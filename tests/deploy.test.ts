@@ -11,7 +11,7 @@ function readIfExists(p: string): string | null {
 }
 
 describe("deploy + migrations (Task 17)", () => {
-  it("Dockerfile exists with multi-stage node:20-alpine, npm ci, build, and prisma migrate deploy", () => {
+  it("Dockerfile exists with multi-stage node:22-alpine, npm ci, build, and prisma migrate deploy", () => {
     const dockerfile = readIfExists("Dockerfile");
     expect(dockerfile, "expected Dockerfile at repo root").not.toBeNull();
     const c = dockerfile!;
@@ -21,11 +21,11 @@ describe("deploy + migrations (Task 17)", () => {
     expect(fromLines.length, "Dockerfile must be multi-stage (at least 2 FROM)").toBeGreaterThanOrEqual(2);
 
     // stages named builder / runner or at least two stages
-    expect(c).toMatch(/FROM\s+node:20-alpine/i);
+    expect(c).toMatch(/FROM\s+node:22-alpine/i);
     expect(c).toMatch(/AS\s+builder/i);
-    // runner stage also node:20-alpine (second FROM)
-    const nodeAlpineMatches = c.match(/node:20-alpine/g) ?? [];
-    expect(nodeAlpineMatches.length, "expected at least 2 node:20-alpine references (builder + runner)").toBeGreaterThanOrEqual(2);
+    // runner stage also node:22-alpine (second FROM)
+    const nodeAlpineMatches = c.match(/node:22-alpine/g) ?? [];
+    expect(nodeAlpineMatches.length, "expected at least 2 node:22-alpine references (builder + runner)").toBeGreaterThanOrEqual(2);
 
     // builder does npm ci and build
     expect(c).toMatch(/npm ci/);

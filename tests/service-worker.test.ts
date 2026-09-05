@@ -138,8 +138,8 @@ describe('static PWA service worker contract', () => {
     // Break caught: service worker regresses to v1, misses lesson/audio, or caches private API responses.
     const source = await readWorkerSource();
 
-    // version must be v2
-    expect(source).toMatch(/verbalibera-static-v3/);
+    // Cache changes must invalidate the previous shell.
+    expect(source).toMatch(/verbalibera-static-v4/);
     expect(source).not.toMatch(/verbalibera-static-v1/);
 
     // Cache-Control no-store must still be documented for /api/* (privacy boundary)

@@ -50,9 +50,9 @@ describe("CI workflow", () => {
     }
   });
 
-  it("uses Node 20", () => {
+  it("uses Node 22", () => {
     const c = readWorkflow();
-    expect(c).toMatch(/node-version\s*:\s*['"]?20['"]?/);
+    expect(c).toMatch(/node-version\s*:\s*['"]?22['"]?/);
   });
 
   it("sets up Python 3.11 without downloading models", () => {
