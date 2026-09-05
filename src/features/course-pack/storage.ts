@@ -9,9 +9,9 @@ export function decodeBackup(raw: string): PracticeEvent[] {
     .parse(JSON.parse(raw));
   return mergeEvents(parsed.events);
 }
-async function database(): Promise<IDBDatabase> {
+async function database(userId?: string | null): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open(DB, 1);
+    const request = indexedDB.open(userId ? `${DB}-account-${encodeURIComponent(userId)}` : DB, 1);
     request.onupgradeneeded = () =>
       request.result.createObjectStore("events", { keyPath: "id" });
     request.onsuccess = () => resolve(request.result);
@@ -23,8 +23,8 @@ async function database(): Promise<IDBDatabase> {
       );
   });
 }
-export async function readEvents(): Promise<PracticeEvent[]> {
-  const db = await database();
+export async function readEvents(userId?: string | null): Promise<PracticeEvent[]> {
+  const db = await database(userId);
   return new Promise((resolve, reject) => {
     const tx = db.transaction("events", "readonly");
     const request = tx.objectStore("events").getAll();
@@ -42,9 +42,9 @@ export async function readEvents(): Promise<PracticeEvent[]> {
     };
   });
 }
-export async function storeEvents(incoming: PracticeEvent[]): Promise<void> {
+export async function storeEvents(incoming: PracticeEvent[], userId?: string | null): Promise<void> {
   const validated = mergeEvents(incoming),
-    db = await database();
+    db = await database(userId);
   return new Promise((resolve, reject) => {
     // Read and write in one serialized transaction; concurrent tabs cannot lose practice.
     const tx = db.transaction("events", "readwrite"),

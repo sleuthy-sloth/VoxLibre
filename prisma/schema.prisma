@@ -52,6 +52,7 @@ model User {
   reviewLogs        ReviewLog[]
   placements        PlacementResult[]
   studyPlans        StudyPlan[]
+  foundationEvents  FoundationPracticeEvent[]
 }
 
 model Credential {
@@ -263,4 +264,17 @@ model AuthChallenge {
   expiresAt         DateTime
 
   @@index([expiresAt])
+}
+
+// Immutable events; projections remain deterministic in the shared course engine.
+model FoundationPracticeEvent {
+  sequence   BigInt   @id @default(autoincrement())
+  userId     String
+  eventId    String
+  payload    Json
+  receivedAt DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, eventId])
+  @@index([userId, sequence])
 }

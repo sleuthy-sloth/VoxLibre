@@ -1,6 +1,8 @@
 "use client";
 /* eslint-disable @next/next/no-html-link-for-pages -- Also bundled outside Next for offline cold starts. */
 /* Public offline entry shares this component. Keep Next/account imports out. */
+import { AccountPractice, usePracticeAccount } from "./AccountPractice";
+import { synchronizePractice } from "./sync";
 import catalog from "./catalog.json";
 import { useEffect, useState } from "react";
 import { validatePack, type CoursePack, type Lesson } from "./schema";
@@ -24,11 +26,16 @@ import { ExerciseView } from "./ExerciseView";
 import type { Evaluation } from "./answer";
 
 type View = "Course" | "Vocabulary" | "Grammar" | "Review" | "Dialogues";
-export function CourseWorkspace({
-  initialLanguage = "italian",
-}: {
-  initialLanguage?: string;
+export function CourseWorkspace({ initialLanguage = "italian" }: { initialLanguage?: string }) {
+  const { scope, ready, select } = usePracticeAccount();
+  if (!ready) return <main id="main-content" className="study"><p>Opening device practice…</p></main>;
+  return <ScopedWorkspace key={scope ?? "guest"} initialLanguage={initialLanguage} scope={scope} selectScope={select} />;
+}
+function ScopedWorkspace({ initialLanguage, scope, selectScope }: {
+  initialLanguage: string; scope: string | null; selectScope: (scope: string | null) => void;
 }) {
+  const [syncRevision, setSyncRevision] = useState(0);
+  const [syncStatus, setSyncStatus] = useState("");
   const [language, setLanguage] = useState(initialLanguage),
     [pack, setPack] = useState<CoursePack | null>(null),
     [events, setEvents] = useState<PracticeEvent[]>([]),
@@ -56,7 +63,7 @@ export function CourseWorkspace({
           return r.json();
         })
         .then(validatePack),
-      readEvents()
+      readEvents(scope)
         .then((events) => ({ events, error: null as string | null }))
         .catch((error) => ({
           events: [] as PracticeEvent[],
@@ -79,7 +86,25 @@ export function CourseWorkspace({
     return () => {
       active = false;
     };
-  }, [language]);
+  }, [language, scope]);
+  useEffect(() => {
+    if (!scope || !storageReady) return;
+    const controller = new AbortController();
+    const run = async () => {
+      if (!navigator.onLine) { setSyncStatus("Saved locally. Waiting for a connection to sync."); return; }
+      setSyncStatus("Synchronizing account practice…");
+      try {
+        const synced = await synchronizePractice(scope, controller.signal);
+        if (!controller.signal.aborted) { setEvents(old => mergeEvents(old, synced)); setSyncStatus("Account practice synchronized."); }
+      } catch (e) {
+        if (!controller.signal.aborted) setSyncStatus(e instanceof Error ? e.message : "Sync failed. Local practice is safe.");
+      }
+    };
+    const timer = setTimeout(run, 500);
+    const reconnect = () => setSyncRevision(n => n + 1);
+    window.addEventListener("online", reconnect);
+    return () => { clearTimeout(timer); controller.abort(); window.removeEventListener("online", reconnect); };
+  }, [scope, storageReady, syncRevision]);
   useEffect(() => {
     if (lessonId && !session.length)
       document.querySelector<HTMLElement>(".study-lesson h2")?.focus();
@@ -145,9 +170,10 @@ export function CourseWorkspace({
       correct: result.accepted,
       revealed,
     };
-    await storeEvents([event]);
+    await storeEvents([event], scope);
     setEvents((old) => mergeEvents(old, [event]));
     setStep((old) => old + 1);
+    if (scope) { setSyncStatus("Saved locally. Waiting to sync."); setSyncRevision(n => n + 1); }
   };
   const daily = selectDaily(pack, events, minutes);
   const reviewIds = daily.exerciseIds.filter((id) => !!progress[id]);
@@ -189,8 +215,9 @@ export function CourseWorkspace({
       <p className="study-scope">
         {count} practice {count === 1 ? "result" : "results"} on this device ·{" "}
         {completed.size}/{pack.lessons.length} lessons practised successfully.
-        Device practice is separate from account progress.
+        {scope ? " Account practice is synchronized when connected." : " Device practice is separate from account progress."}
       </p>
+      <AccountPractice scope={scope} select={selectScope} status={syncStatus} retry={() => setSyncRevision(n => n + 1)} />
       <nav className="study-tabs" aria-label="Course workspace">
         {(
           ["Course", "Review", "Vocabulary", "Grammar", "Dialogues"] as const
@@ -477,8 +504,8 @@ export function CourseWorkspace({
         <h2>Keep learning offline</h2>
         <p>
           Download this course’s text, practice tools and available audio.
-          Practice stays in this browser, including when you are signed in.
-          Clearing browser data removes it; keep a backup.
+          Guest practice stays in this browser. Selected account practice syncs
+          when connected. Clearing browser data removes unsynchronized practice; keep a backup.
         </p>
         <div className="study-actions">
           <button
@@ -507,7 +534,7 @@ export function CourseWorkspace({
           <button
             onClick={async () => {
               try {
-                const all = await readEvents(),
+                const all = await readEvents(scope),
                   url = URL.createObjectURL(
                     new Blob(
                       [JSON.stringify({ format: 1, events: all }, null, 2)],
@@ -536,8 +563,9 @@ export function CourseWorkspace({
                 if (!file) return;
                 try {
                   const incoming = decodeBackup(await file.text());
-                  await storeEvents(incoming);
-                  setEvents(await readEvents());
+                  await storeEvents(incoming, scope);
+                  setEvents(await readEvents(scope));
+                  setSyncRevision(n => n + 1);
                   setMessage(
                     "Backup merged. Duplicate practice was counted once.",
                   );

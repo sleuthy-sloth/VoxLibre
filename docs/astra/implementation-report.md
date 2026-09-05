@@ -1,6 +1,12 @@
 # Implementation report — 2026-09-05
 
-This run delivers an additive Italian/French foundation course system with genuine offline practice and deterministic grading. It is a substantial working foundation, not a complete A1–C2 curriculum or completion of every requested phase. Existing travel courses, accounts, database schema, placement, study plans, Anki and local voice remain available.
+The initial slice described below delivers an additive Italian/French foundation course system with genuine offline practice and deterministic grading. It is a substantial working foundation, not a complete A1–C2 curriculum or completion of every requested phase. Existing travel courses, accounts, database schema, placement, study plans, Anki and local voice remain available.
+
+## Continuation: account synchronization
+
+Added explicit account/guest selection, isolated local databases and authenticated two-way event synchronization. Reviews, derived completion and concept evidence now follow the account across browsers. Offline saves upload on reconnect. Conflicting mutation payloads fail atomically, concurrent identical uploads count once, and a changed session cannot receive another account’s pending work. Guest data is never uploaded automatically. Deployment requires the additive `20260905140000_foundation_practice` migration; it was applied only to the isolated local test database.
+
+Verified: 404 unit tests, lint (0 errors / 18 existing warnings), production build and typecheck. A real passkey/Postgres browser flow verified two independent browser stores, offline save/reload/reconnect, guest isolation, eight concurrent replay requests, conflict rollback and account mismatch rejection. An independent code review found no important defects. Placement and study-plan sync remain deferred; full-log reconciliation is intentionally simple and should become incremental for very large histories. The sections below retain the initial slice’s scope and results as historical context; their device-only limitation is superseded by this continuation.
 
 ## Completed
 
